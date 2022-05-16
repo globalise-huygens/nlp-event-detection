@@ -79,7 +79,7 @@ path_to_xml = 'data/nl-luIndex.xml'
 path_to_events_pos = 'data/events_pos_development_set1.ods'
 
 dictionary_nlIndex = xml_to_dict(path_to_xml)
-df_with_frames = match_verbs_find_frames('data/events_pos_development_set1.ods', dictionary_nlIndex)
+df_with_frames = match_verbs_find_frames('data/events_pos_devset.ods', dictionary_nlIndex)
 
 df_with_frames.to_excel('data/test_nllu.xlsx', index=False)
 
