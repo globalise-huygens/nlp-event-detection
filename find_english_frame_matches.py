@@ -21,7 +21,7 @@ def xml_to_dict(path_to_xml):
     tree = ET.parse(xmlfile)
     root = tree.getroot()
     
-    #create a list with frame names and dutch lexical units, retaining indexing. 
+    #create a list with frame names and dutch lexical units, retaining indexing 
     list_frames = []
     list_dutch = []
     for entry in root.findall('{http://framenet.icsi.berkeley.edu}lu'):
