@@ -16,4 +16,10 @@ An xml file containing Dutch predicates (lexical units) and their corresponding 
 A .txt file containing Dutch predicates (synsets) and their corresponding English frames.
 
 ## find_english_frame_matches.py
-....
+This code matches modern Dutch translations of verbs in the events_pos_devset file to frames in the nl-luIndex and the predicate matrix
+It first matches with the nl-luIndex and then with the predicate matrix. 
+This version of the code takes a subset of the events_pos file (events_pos_devset)
+Returns events_pos_devset as an excel file with three new columns
+- English frames from the nl-luIndex that match the modern Dutch translation
+- Enlgish frames from the predicate matrix that match the modern Dutch translation
+- frames that were a match with the modern Dutch translation both in the nl-luIndex and the predicate matrix
