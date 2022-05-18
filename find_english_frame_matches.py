@@ -148,9 +148,9 @@ def match_to_predicate_matrix(extracted_info, df_with_nllu):
     
 
 # match with nl-luIndex       
-path_to_xml = '../data/nl-luIndex.xml'
-path_to_events_pos = '../data/events_pos_devset.ods'
-path_to_predicate_matrix = '../data/PredicateMatrix.v1.3.txt.role.odwn'
+path_to_xml = 'data/nl-luIndex.xml'
+path_to_events_pos = 'data/events_pos_devset.ods'
+path_to_predicate_matrix = 'data/PredicateMatrix.v1.3.txt.role.odwn'
 
 dictionary_nlIndex = xml_to_dict(path_to_xml)
 df_with_nllu = match_verbs_find_frames(path_to_events_pos, dictionary_nlIndex)
@@ -163,7 +163,7 @@ df_with_frames = match_to_predicate_matrix(extracted_synsets_and_frames, df_with
 # make a column that shows which frames were matched with the modern Dutch translations both in the nllu index and the predicate matrix
 df_with_frames['frames_that_appear_in_both'] = [(set(a).intersection(b)) for a, b in zip(df_with_frames['nl-luIndex_frame'], df_with_frames['predicate_matrix_frame'])]
 
-df_with_frames.to_excel('../data/test_frames.xlsx', index=False)
+df_with_frames.to_excel('data/devset_with_frames.xlsx', index=False)
 
 
 
