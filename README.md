@@ -12,8 +12,11 @@ This is a subset of a filtered version of the events_pos file. It contains only 
 ### nl-luIndex
 An xml file containing Dutch predicates (lexical units) and their corresponding English frames.
 
-### PredicateMatrix.v1.3.txt.role.odwn
-A .txt file containing Dutch predicates (synsets) and their corresponding English frames.
+### PredicateMatrix.v1.3.txt.role.odwn.gz
+A .txt file containing Dutch predicates (synsets) and their corresponding English frames. In order to run the code, you need to unzip this file to a .txt.role.odwn file.
+
+### devset_with_frames
+The outfile of find_english_frame_matches.py
 
 ## find_english_frame_matches.py
 This code matches modern Dutch translations of verbs in the events_pos_devset file to frames in the nl-luIndex and the predicate matrix
@@ -23,3 +26,4 @@ Returns events_pos_devset as an excel file with three new columns
 - English frames from the nl-luIndex that match the modern Dutch translation
 - Enlgish frames from the predicate matrix that match the modern Dutch translation
 - frames that were a match with the modern Dutch translation both in the nl-luIndex and the predicate matrix
+
