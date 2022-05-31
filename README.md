@@ -22,8 +22,14 @@ A .txt file containing Dutch predicates (synsets) and their corresponding Englis
 The outfile of find_english_frame_matches.py
 
 ### relevant frame selection
-This folder contains one input file: relevant_predicates_pilot_df.ods, which is a subset of events_pos_filter_VRB_ordered_frequency_over_1.ods, where only those predicates that occurred between 5 and 15 times were selected, and the predicates that seemed relevant for either ship movement or authority were provided with a modern Dutch translation (one column for ship movement translations an another column for authority translations). 
-The rest of the files in this folder are output files: ship_movement_frames.xlsx and authority_frames.xlsx contain those predicates that were selected as relevant with the matching frames from the nl_luIndex and the predicate matrix. unique_frames_ships.txt and unique_frames_authority.txt are lists of the frames that were matched with the relevant predicates. 
+This folder contains one input file:
+- relevant_predicates_pilot_df.ods
+This is a subset of events_pos_filter_VRB_ordered_frequency_over_1.ods, where only those predicates that occurred between 5 and 15 times were selected, and the predicates that seemed relevant for either ship movement or authority were provided with a modern Dutch translation (one column for ship movement translations an another column for authority translations). 
+The rest of the files in this folder are output files: 
+- ship_movement_frames.xlsx and authority_frames.xlsx 
+contain those predicates that were selected as relevant with the matching frames from the nl_luIndex and the predicate matrix. 
+- unique_frames_ships.txt and unique_frames_authority.txt 
+are lists of the frames that were matched with the relevant predicates. 
 
 ## find_english_frame_matches.py
 This code matches modern Dutch translations of verbs in the events_pos_devset file to frames in the nl-luIndex and the predicate matrix
