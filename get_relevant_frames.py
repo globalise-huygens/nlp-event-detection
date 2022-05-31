@@ -7,9 +7,12 @@ import xml.etree.ElementTree as ET
 
 from find_english_frame_matches2 import xml_to_dict, match_verbs_find_frames, read_pm, extract_predicates_and_frames, match_to_predicate_matrix
 
-def filter_on_frequency_range():
+def filter_on_frequency_range(filepath):
 
-    df = pd.read_excel('../data/events_pos_filter_VRB_ordered_frequency_over_1.ods', engine = 'odf')
+    if filepath.endswith('.ods'):
+        df = pd.read_excel(filepath, engine = 'odf')
+    else:
+        df = pd.read_excel(filepath)
 
     pilot_df_0 = df[df[' nr. mentions'] >= 5]
     pilot_df = pilot_df_0[pilot_df_0[' nr. mentions'] <=15]
@@ -47,25 +50,25 @@ def get_unique_frames(df):
     unique_frames = set(frames)
     return(unique_frames)
 
-    
-df = filter_on_frequency_range() #this results in the Excel that is manually searched through and wehere relevant predicates are provided with a modern Dutch translation
-#df.to_excel('../data/test_pilot_df.xlsx')
+path_to_ordered_events_pos = 'data/events_pos_filter_VRB_ordered_frequency_over_1.ods'  
+df = filter_on_frequency_range(path_to_ordered_events_pos) #this results in the Excel that is manually searched through and wehere relevant predicates are provided with a modern Dutch translation
+#df.to_excel('../data/relevant frame selection/relevant_predicates_pilot_df.xlsx')
 
 rowname_ships = 'Modern Dutch translation (Schepen)'
 rowname_authority = 'Modern Dutch translation (Polities)'
 
-df_with_translations = pd.read_excel('../data/test_pilot_df.xlsx') #the Excel file with selected relevant predicates and their translations
+df_with_translations = pd.read_excel('data/relevant frame selection/relevant_predicates_pilot_df.xlsx') #the Excel file with selected relevant predicates and their translations
 
 df_ships = filter_on_translation(df_with_translations, rowname_ships)
 df_polities = filter_on_translation(df_with_translations, rowname_authority)
     
 # match with nl-luIndex       
-path_to_xml = '../data/nl-luIndex.xml'
+path_to_xml = 'data/nl-luIndex.xml'
 df_with_nllu_ships = match_luindex(path_to_xml, df_ships, rowname_ships)
 df_with_nllu_authority = match_luindex(path_to_xml, df_polities, rowname_authority)
 
 # match with predicate matrix 
-path_to_predicate_matrix = '../data/PredicateMatrix.v1.3.txt.role.odwn'
+path_to_predicate_matrix = 'data/PredicateMatrix.v1.3.txt.role.odwn'
 df_with_frames_ships = match_predicate_matrix(path_to_predicate_matrix, df_with_nllu_ships, rowname_ships)
 df_with_frames_authority = match_predicate_matrix(path_to_predicate_matrix, df_with_nllu_authority, rowname_authority)
 
@@ -80,19 +83,19 @@ df_with_frames_ships['all_matched_frames'] = [(set(a).union(b)) for a, b in zip(
 df_with_frames_authority['all_matched_frames'] = [(set(a).union(b)) for a, b in zip(df_with_frames_authority['nl-luIndex_frame'], df_with_frames_authority['predicate_matrix_frame'])]
 
 df_with_frames_ships.drop(labels=['supersynset', 'eso', 'synsets'], axis=1, inplace=True)
-#df_with_frames_ships.to_excel('../data/ship_movement_frames.xlsx', index=False)
+df_with_frames_ships.to_excel('data/relevant frame selection/ship_movement_frames.xlsx', index=False)
 
 df_with_frames_authority.drop(labels=['supersynset', 'eso', 'synsets'], axis=1, inplace=True)
-#df_with_frames_authority.to_excel('../data/authority_frames.xlsx', index=False)
+df_with_frames_authority.to_excel('data/relevant frame selection/authority_frames.xlsx', index=False)
 
 unique_frames_ships = get_unique_frames(df_with_frames_ships)
 unique_frames_authority = get_unique_frames(df_with_frames_authority)
 
-#with open ('../data/unique_frames_ships.txt', 'w') as outfile:
-#    outfile.write(str(unique_frames_ships))
+with open ('data/relevant frame selection/unique_frames_ships.txt', 'w') as outfile:
+    outfile.write(str(unique_frames_ships))
     
-#with open ('../data/unique_frames_authority.txt', 'w') as outfile:
-#    outfile.write(str(unique_frames_authority))
+with open ('data/relevant frame selection/unique_frames_authority.txt', 'w') as outfile:
+    outfile.write(str(unique_frames_authority))
     
 print('Amount of unique frames associated with ship movement: ', len(unique_frames_ships))
 print('Amount of unique frames associated with authority: ', len(unique_frames_authority))
