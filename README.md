@@ -1,5 +1,5 @@
-# nlp-event-extraction
-This repository contains the pilot code for automatic event extraction. It is a work in progress.
+# nlp-event-detection
+This repository contains the pilot code for automatic event detection. It is a work in progress.
 Currently, there is code that extracts English frames that correspond to modern Dutch translations of predicates taken from the General Letters from two datasets: the nl-luIndex and the predicate matrix. 
 
 ## data
