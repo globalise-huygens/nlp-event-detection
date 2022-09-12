@@ -31,8 +31,9 @@ SKOS stands for Simple Knowledge Organization System. It is a common data model 
 
 Table 2: SKOS relations used:
 
-![alt text](https://github.com/[globalise-huygens]/[nlp-event-detection]/blob/[master]/skos_table.jpg?raw=true) 
+![alt text](https://github.com/globalise-huygens/nlp-event-detection/main/FrameNet event annotation pilot/skos_table.jpg?raw=true) 
 
+![alt text](http://github.com/globalise-huygens/nlp-event-detection/main/FrameNet event annotation pilot/skos_table.jpg?raw=true)
 
 Website: https://www.w3.org/TR/skos-reference/#mapping
 
