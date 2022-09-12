@@ -27,10 +27,7 @@ The cells that are coloured red represent decisions I made that I am not yet sur
 
 ### SKOS relations
 
-SKOS stands for Simple Knowledge Organization System. It is a common data model for sharing and linking knowledge organization systems via the Semantic Web. We use their mapping framework to match frames in the Globalise ontology to frames from FrameNet. In Table 2, the relationships used in Table 1 are explained.
-
-![Table 2: SKOS relations used:](skos_table.png)
-
+SKOS stands for Simple Knowledge Organization System. It is a common data model for sharing and linking knowledge organization systems via the Semantic Web. We use their mapping framework to match frames in the Globalise ontology to frames from FrameNet.
 Website: https://www.w3.org/TR/skos-reference/#mapping
 
 
