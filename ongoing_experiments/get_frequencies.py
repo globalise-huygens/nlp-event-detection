@@ -2,7 +2,7 @@ from pathlib import Path
 from collections import Counter
 import spacy
 
-pathlist = Path("data/text_annotationpilot_july22").glob('**/*.txt')
+pathlist = Path("../data/text_annotationpilot_july22").glob('**/*.txt')
 collected_texts = []
 for path in pathlist:
     path_in_str = str(path)
