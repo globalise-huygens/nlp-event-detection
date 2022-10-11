@@ -5,7 +5,7 @@ tokenizer = AutoTokenizer.from_pretrained("CLTL/gm-ner-xlmrbase")
 model = AutoModelForTokenClassification.from_pretrained("CLTL/gm-ner-xlmrbase")
 
 nlp = pipeline("ner", model=model, tokenizer=tokenizer)
-example = "Batavia vraagt Pattam om versterking."
+example = "Pattam is in de problemen"
 
 ner_results = nlp(example)
 print(ner_results)

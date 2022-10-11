@@ -1,6 +1,7 @@
 from pathlib import Path
 from collections import Counter
 import spacy
+import matplotlib.pyplot as plt
 
 pathlist = Path("../data/text_annotationpilot_july22").glob('**/*.txt')
 collected_texts = []
@@ -75,7 +76,43 @@ for entry in tuples_pos:
 verbfreqs = Counter(verbs)
 nounfreqs = Counter(nouns)
 
-print(nounfreqs)
+values = []
+for key, value in nounfreqs.items():
+    values.append(value)
+
+unique_values = list(set(values))
+highest_value = unique_values[-1]
+print(highest_value)
+
+list_of_values = []
+for unique_value in unique_values:
+    list_per_value = []
+    for value in values:
+        if value == unique_value:
+            list_per_value.append(value)
+
+    list_of_values.append(list_per_value)
+
+print(list_of_values)
+list_of_lens = []
+for l in list_of_values:
+    list_of_lens.append(len(l))
+
+print(list_of_lens)
+print(len(list_of_lens))
+print(len(list_of_values))
+
+plt.plot(list_of_lens, unique_values)
+plt.show()
+
+#extract highest value
+#for i in range 0 to highest value: if value = i, append to seperate list NO THIS doesnt work because maybe one value does not appear
+#make a set of values as a copy, then use that to loop through? Good solution for now but when there's more data it is not doable
+#use len list to see how often a certain value appears
+# make set of original value list to
+
+#print(nounfreqs)
+#print(verbfreqs)
 
 
 
@@ -92,4 +129,6 @@ print(nounfreqs)
        #print(doc[0].text, doc[0].tag_)
 
 
+
+################ stanza
 
