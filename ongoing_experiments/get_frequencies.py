@@ -77,7 +77,7 @@ verbfreqs = Counter(verbs)
 nounfreqs = Counter(nouns)
 
 values = []
-for key, value in nounfreqs.items():
+for key, value in verbfreqs.items():
     values.append(value)
 
 unique_values = list(set(values))
@@ -102,7 +102,10 @@ print(list_of_lens)
 print(len(list_of_lens))
 print(len(list_of_values))
 
-plt.plot(list_of_lens, unique_values)
+plt.plot(unique_values, list_of_lens)
+#(plt(x, y))
+plt.xlabel('frequency')
+plt.ylabel('how often a certain frequency occurs')
 plt.show()
 
 #extract highest value
