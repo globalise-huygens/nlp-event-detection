@@ -1307,6 +1307,201 @@
         "frame_label": "Decreasing",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Decreasing"
     },
+        "stellaframes-BeginningContractualAgreement": {
+        "definition": "The subclass of IntentionalEvent where two parties enter in an agreement described in a contract.",
+        "frame_elements": [
+            {
+                "definition": "Agent.",
+                "fe_label": "A0",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@A0"
+            },
+            {
+                "definition": "Patient.",
+                "fe_label": "A1",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@A1"
+            },
+            {
+                "definition": "Partners as agent.",
+                "fe_label": "A0-PARTN",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@A0-PARTN"
+            },
+            {
+                "definition": "Time.",
+                "fe_label": "ARGM-TMP",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-TMP"
+            },
+            {
+                "definition": "Place.",
+                "fe_label": "ARGM-LOC",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-LOC"
+            },
+            {
+                "definition": "With whom?",
+                "fe_label": "ARGM-COM",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-COM"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Cargo/instrument/benefactive",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-CIB"
+            }
+        ],
+        "frame_label": "BeginningContractualAgreement",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#BeginningContractualAgreement"
+    },
+    "stellaframes-BreakingContract": {
+        "definition": "Definition: The subclass of IntentionalEvent where a contract between two parties is broken by one or both of the parties involved.",
+        "frame_elements": [
+            {
+                "definition": "Agent.",
+                "fe_label": "A0",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BreakingContract@A0"
+            },
+            {
+                "definition": "Patient.",
+                "fe_label": "A1",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BreakingContract@A1"
+            },
+            {
+                "definition": "Partners as agent.",
+                "fe_label": "A0-PARTN",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BreakingContract@A0-PARTN"
+            },
+            {
+                "definition": "Time.",
+                "fe_label": "ARGM-TMP",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BreakingContract@ARGM-TMP"
+            },
+            {
+                "definition": "Place.",
+                "fe_label": "ARGM-LOC",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BreakingContract@ARGM-LOC"
+            },
+            {
+                "definition": "With whom?",
+                "fe_label": "ARGM-COM",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BreakingContract@ARGM-COM"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Cargo/instrument/benefactive",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BreakingContract@ARGM-CIB"
+            }
+        ],
+        "frame_label": "BreakingContract",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#BreakingContract"
+    },
+    "stellaframes-Transportation": {
+        "definition": "The subclass of Translocation where physical objects and animate beings together change from location and the physical object is not the means of translocation.",
+        "frame_elements": [
+            {
+                "definition": "Agent.",
+                "fe_label": "A0",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Transportation@A0"
+            },
+            {
+                "definition": "Patient.",
+                "fe_label": "A1",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Transportation@A1"
+            },
+            {
+                "definition": "Time.",
+                "fe_label": "ARGM-TMP",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Transportation@ARGM-TMP"
+            },
+            {
+                "definition": "Place.",
+                "fe_label": "ARGM-LOC",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Transportation@ARGM-LOC"
+            },
+            {
+                "definition": "With whom?",
+                "fe_label": "ARGM-COM",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Transportation@ARGM-COM"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Cargo/instrument/benefactive",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Transportation@ARGM-CIB"
+            }
+        ],
+        "frame_label": "Transportation",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Transportation"
+    },
+    "stellaframes-Voyage": {
+        "definition": "The subclass of Translocation where a ship travels for a longer period of time.",
+        "frame_elements": [
+            {
+                "definition": "Agent.",
+                "fe_label": "A0",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@A0"
+            },
+            {
+                "definition": "Patient.",
+                "fe_label": "A1",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@A1"
+            },
+            {
+                "definition": "Time.",
+                "fe_label": "ARGM-TMP",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@ARGM-TMP"
+            },
+            {
+                "definition": "Place.",
+                "fe_label": "ARGM-LOC",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@ARGM-LOC"
+            },
+            {
+                "definition": "With whom?",
+                "fe_label": "ARGM-COM",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@ARGM-COM"
+            },
+            {
+                "definition": "Source where the voyage starts",
+                "fe_label": "Source",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Source"
+            },
+            {
+                "definition": "Path of the voyage",
+                "fe_label": "Path",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Path"
+            },
+            {
+                "definition": "Desired endpoint of the voyage",
+                "fe_label": "Target",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Target"
+            }
+        ],
+        "frame_label": "Voyage",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Voyage",
     "stellaframes-BeingLeader": {
         "definition": "StaticEvent where someone is leader of some group of persons or organization.",
         "frame_elements": [
@@ -1896,6 +2091,48 @@
         ],
         "frame_label": "HavingInternalState-",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#HavingInternalState-"
+    },
+    "stellaframes-ChangeOfPossession": {
+        "definition": "The subclass of IntentionalEvent where some entity changes possession. Note that this often but not necessarily implies a change of location of the entity.",
+        "frame_elements": [
+        ],
+        "frame_label": "ChangeOfPossession",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#ChangeOfPossession"
+    },
+    "stellaframes-FinancialTransaction": {
+        "definition": "The subclass ofChangeOfPossession where some item changes of ownership in exchange for money.",
+        "frame_elements": [
+        ],
+        "frame_label": "FinancialTransaction-",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#FinancialTransaction"
+    },
+    "stellaframes-SocialInteraction": {
+        "definition": "The subclass of IntentionalEvent where people interact.",
+        "frame_elements": [
+        ],
+        "frame_label": "SocialInteraction",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#SocialInteraction"
+    },
+    "stellaframes-TransLocation": {
+        "definition": "The subclass of Intentional where physical objects or animate beings change from location.",
+        "frame_elements": [
+        ],
+        "frame_label": "TransLocation",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#TransLocation"
+    },
+    "stellaframes-ScalarChange": {
+        "definition": "The subclass of InternalChange where something changes position on a scale.",
+        "frame_elements": [
+        ],
+        "frame_label": "ScalarChange",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#ScalarChange"
+    },
+    "stellaframes-QuantityChange": {
+        "definition": "The subclass of InternalChange where some quantity is altered.",
+        "frame_elements": [
+        ],
+        "frame_label": "QuantityChange",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#QuantityChange"
     }
 }
 
