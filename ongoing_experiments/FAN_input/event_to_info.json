@@ -754,6 +754,49 @@
         "frame_label": "Mutiny",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Mutiny"
     },
+    "stellaframes-PoliticalRevolution": {
+        "definition": "The subclass of Uprising where some government is violently overthrown and replaced by another government.",
+        "frame_elements": [
+            {
+                "definition": "Agent.",
+                "fe_label": "A0",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-PoliticalRevolution@A0"
+            },
+            {
+                "definition": "Patient.",
+                "fe_label": "A1",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-PoliticalRevolution@A1"
+            },
+            {
+                "definition": "Time.",
+                "fe_label": "ARGM-TMP",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-TMP"
+            },
+            {
+                "definition": "Place.",
+                "fe_label": "ARGM-LOC",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-LOC"
+            },
+            {
+                "definition": "With whom?",
+                "fe_label": "ARGM-COM",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-COM"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Cargo/instrument/benefactive",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-CIB"
+            }
+        ],
+        "frame_label": "PoliticalRevolution",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#PoliticalRevolution"
+    },
     "stellaframes-Shooting": {
         "definition": "The subclass of Translocation where some object is released from some weapon and is is fired through air with the intention to cause harm or damage.",
         "frame_elements": [
