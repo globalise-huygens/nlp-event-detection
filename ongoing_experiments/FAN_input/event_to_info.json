@@ -613,12 +613,6 @@
                 "fe_label": "Location",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Shooting@Location"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Instrument",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Shooting@Instrument"
             }
         ],
         "frame_label": "Shooting",
@@ -1096,12 +1090,6 @@
                 "fe_label": "Target",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Transportation@Target"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Instrument",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Transportation@Instrument"
             }
         ],
         "frame_label": "Transportation",
@@ -1188,12 +1176,6 @@
                 "fe_label": "Target",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Target"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Voyage@Cargo"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
@@ -1607,6 +1589,20 @@
         ],
         "frame_label": "QuantityChange",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#QuantityChange"
+    },
+    "stellaframes-ViolentTranslocation": {
+        "definition": "A subclass of Translocation.",
+        "frame_elements": [
+        ],
+        "frame_label": "ViolentTranslocation",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#ViolentTranslocation"
+    },
+    "stellaframes-StartOrEndJourney": {
+        "definition": "A subclass of Translocation.",
+        "frame_elements": [
+        ],
+        "frame_label": "StartOrEndJourney",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#StartOrEndJourney"
     }
 }
 
