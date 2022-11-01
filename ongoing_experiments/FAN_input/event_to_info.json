@@ -1027,36 +1027,30 @@
         "frame_label": "BeginningContractualAgreement",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#BeginningContractualAgreement"
     },
-    "stellaframes-BreakingContract": {
+    "stellaframes-EndingContractualAgreement": {
         "definition": "Definition: The subclass of IntentionalEvent where a contract between two parties is broken by one or both of the parties involved.",
         "frame_elements": [
             {
-                "definition": "Agent",
-                "fe_label": "Agent",
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@Agent"
-            },
-            {
-                "definition": "Patient",
-                "fe_label": "Patient",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@Patient"
+                "rdf_uri": "stellaframes-EndingContractualAgreement@AgentPatient"
             },
             {
                 "definition": "Time",
                 "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@Time"
+                "rdf_uri": "stellaframes-EndingContractualAgreement@Time"
             },
             {
                 "definition": "Location",
                 "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@Location"
+                "rdf_uri": "stellaframes-EndingContractualAgreement@Location"
             }
         ],
-        "frame_label": "BreakingContract",
-        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#BreakingContract"
+        "frame_label": "EndingContractualAgreement",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#EndingContractualAgreement"
     },
     "stellaframes-Transportation": {
         "definition": "The subclass of Translocation where physical objects and animate beings together change from location and the physical object is not the means of translocation.",
