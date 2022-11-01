@@ -1603,6 +1603,20 @@
         ],
         "frame_label": "StartOrEndJourney",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#StartOrEndJourney"
+    },
+    "stellaframes-SocialStatusChange": {
+        "definition": "A subclass of IntentionalEvent.",
+        "frame_elements": [
+        ],
+        "frame_label": "SocialStatusChange",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#SocialStatusChange"
+    },
+    "stellaframes-RelationshipChange": {
+        "definition": "A subclass of SocialStatusChange.",
+        "frame_elements": [
+        ],
+        "frame_label": "SocialStatusChange",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#RelationshipChange"
     }
 }
 
