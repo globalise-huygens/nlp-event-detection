@@ -3,40 +3,34 @@
         "definition": "The subclass of IntentionalEvent where someone or something is replaced with someone or something else in a specific role or function",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@A0"
+                "rdf_uri": "stellaframes-Replacing@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@A1"
+                "rdf_uri": "stellaframes-Replacing@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@ARGM-TMP"
+                "rdf_uri": "stellaframes-Replacing@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@ARGM-COM"
+                "rdf_uri": "stellaframes-Replacing@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@ARGM-CIB"
+                "rdf_uri": "stellaframes-Replacing@Benefactive"
             }
         ],
         "frame_label": "Replacing",
@@ -46,46 +40,22 @@
         "definition": "The subclass of IntentionalEvent where people start or form a personal relationship with each other",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningARelationship@A0"
+                "rdf_uri": "stellaframes-BeginningARelationship@Agentpatient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningARelationship@A1"
+                "rdf_uri": "stellaframes-BeginningARelationship@Time"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@A0-PARTN"
-            },
-            {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningARelationship@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningARelationship@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningARelationship@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningARelationship@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeginningARelationship@Location"
             }
         ],
         "frame_label": "BeginningARelationship",
@@ -95,46 +65,22 @@
         "definition": "The subclass of IntentionalEvent where people end a relationship with each other",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-EndingARelationship@A0"
+                "rdf_uri": "stellaframes-EndingARelationship@AgentPatient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-EndingARelationship@A1"
+                "rdf_uri": "stellaframes-EndingARelationship@Time"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@A0-PARTN"
-            },
-            {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-EndingARelationship@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-EndingARelationship@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-EndingARelationship@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-EndingARelationship@ARGM-CIB"
+                "rdf_uri": "stellaframes-EndingARelationship@Location"
             }
         ],
         "frame_label": "EndingARelationship",
@@ -144,28 +90,28 @@
         "definition": "The subclass of IntentionalEvent where someone starts working as an employee for some organization.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-JoiningAnOrganization@A0"
+                "rdf_uri": "stellaframes-JoiningAnOrganization@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-JoiningAnOrganization@A1"
+                "rdf_uri": "stellaframes-JoiningAnOrganization@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-JoiningAnOrganization@ARGM-TMP"
+                "rdf_uri": "stellaframes-JoiningAnOrganization@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-JoiningAnOrganization@ARGM-LOC"
+                "rdf_uri": "stellaframes-JoiningAnOrganization@Location"
             },
             {
                 "definition": "With whom?",
@@ -187,40 +133,28 @@
         "definition": "The subclass of IntentionalEvent where a person stops working as an employee for an organization.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-LeavingAnOrganization@A0"
+                "rdf_uri": "stellaframes-LeavingAnOrganization@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-LeavingAnOrganization@A1"
+                "rdf_uri": "stellaframes-LeavingAnOrganization@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-LeavingAnOrganization@ARGM-TMP"
+                "rdf_uri": "stellaframes-LeavingAnOrganization@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-LeavingAnOrganization@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-LeavingAnOrganization@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-LeavingAnOrganization@ARGM-CIB"
+                "rdf_uri": "stellaframes-LeavingAnOrganization@Location"
             }
         ],
         "frame_label": "LeavingAnOrganization",
@@ -230,40 +164,28 @@
         "definition": "The subclass of ChangeOfPossession where a person gets or receives some item.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Getting@A0"
+                "rdf_uri": "stellaframes-Getting@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Getting@A1"
+                "rdf_uri": "stellaframes-Getting@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Getting@ARGM-TMP"
+                "rdf_uri": "stellaframes-Getting@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Getting@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Getting@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Getting@ARGM-CIB"
+                "rdf_uri": "stellaframes-Getting@Location"
             }
         ],
         "frame_label": "Getting",
@@ -273,40 +195,34 @@
         "definition": "The subclass of ChangeOfPossession where a person gives something to someone else.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Giving@A0"
+                "rdf_uri": "stellaframes-Giving@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Giving@A1"
+                "rdf_uri": "stellaframes-Giving@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Giving@ARGM-TMP"
+                "rdf_uri": "stellaframes-Giving@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Giving@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Giving@ARGM-COM"
+                "rdf_uri": "stellaframes-Giving@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Giving@ARGM-CIB"
+                "rdf_uri": "stellaframes-Giving@Benefactive"
             }
         ],
         "frame_label": "Giving",
@@ -316,40 +232,34 @@
         "definition": "The subclass of FinancialTransaction where some entity changes of ownership in exchange for money. Note that the buyer is not necessarily the new owner of the entity.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Buying@A0"
+                "rdf_uri": "stellaframes-Buying@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Buying@A1"
+                "rdf_uri": "stellaframes-Buying@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Buying@ARGM-TMP"
+                "rdf_uri": "stellaframes-Buying@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Buying@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Buying@ARGM-COM"
+                "rdf_uri": "stellaframes-Buying@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Buying@ARGM-CIB"
+                "rdf_uri": "stellaframes-Buying@Benefactive"
             }
         ],
         "frame_label": "Buying",
@@ -359,28 +269,28 @@
         "definition": "The subclass of FinancialTransaction where some entity changes of ownership in exchange for money.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Selling@A0"
+                "rdf_uri": "stellaframes-Selling@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Selling@A1"
+                "rdf_uri": "stellaframes-Selling@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Selling@ARGM-TMP"
+                "rdf_uri": "stellaframes-Selling@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Selling@ARGM-LOC"
+                "rdf_uri": "stellaframes-Selling@Location"
             },
             {
                 "definition": "With whom?",
@@ -390,9 +300,9 @@
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Selling@ARGM-CIB"
+                "rdf_uri": "stellaframes-Selling@Benefactive"
             }
         ],
         "frame_label": "Selling",
@@ -402,40 +312,28 @@
         "definition": "The subclass of ViolentContest where some group of people engage in a violent disturbance of the public order.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Riot@A0"
+                "rdf_uri": "stellaframes-Riot@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Riot@A1"
+                "rdf_uri": "stellaframes-Riot@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Riot@ARGM-TMP"
+                "rdf_uri": "stellaframes-Riot@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Riot@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Riot@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Riot@ARGM-CIB"
+                "rdf_uri": "stellaframes-Riot@Location"
             }
         ],
         "frame_label": "Riot",
@@ -445,46 +343,22 @@
         "definition": "The subclass of Contest where two parties interact in a hostile manner.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-ViolentContest@A0"
+                "rdf_uri": "stellaframes-ViolentContest@AgentPatient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-ViolentContest@A1"
+                "rdf_uri": "stellaframes-ViolentContest@Time"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Replacing@A0-PARTN"
-            },
-            {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-ViolentContest@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-ViolentContest@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-ViolentContest@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-ViolentContest@ARGM-CIB"
+                "rdf_uri": "stellaframes-ViolentContest@Location"
             }
         ],
         "frame_label": "ViolentContest",
@@ -494,46 +368,22 @@
         "definition": "The subclass of ViolentContest where there is an armed conflict between different groups of people, two or more countries, etc.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-War@A0"
+                "rdf_uri": "stellaframes-War@AgentPatient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-War@A1"
+                "rdf_uri": "stellaframes-War@Time"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-War@A0-PARTN"
-            },
-            {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-War@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-War@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-War@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-War@ARGM-CIB"
+                "rdf_uri": "stellaframes-War@Location"
             }
         ],
         "frame_label": "War",
@@ -543,40 +393,34 @@
         "definition": "The subclass of SocialInteraction where someone or something is assaulted with the intention to cause some harm.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Attacking@A0"
+                "rdf_uri": "stellaframes-Attacking@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Attacking@A1"
+                "rdf_uri": "stellaframes-Attacking@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Attacking@ARGM-TMP"
+                "rdf_uri": "stellaframes-Attacking@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Attacking@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Attacking@ARGM-COM"
+                "rdf_uri": "stellaframes-Attacking@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Instrument",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Attacking@ARGM-CIB"
+                "rdf_uri": "stellaframes-Attacking@Instrument"
             }
         ],
         "frame_label": "Attacking",
@@ -586,40 +430,34 @@
         "definition": "The subclass of Attacking where some location is being surrounded and blocked by enemy troops with the aim to cause the surrender of the besieged.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Besieging@A0"
+                "rdf_uri": "stellaframes-Besieging@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Besieging@A1"
+                "rdf_uri": "stellaframes-Besieging@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Besieging@ARGM-TMP"
+                "rdf_uri": "stellaframes-Besieging@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Besieging@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Besieging@ARGM-COM"
+                "rdf_uri": "stellaframes-Besieging@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Instrument",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Besieging@ARGM-CIB"
+                "rdf_uri": "stellaframes-Besieging@Instrument"
             }
         ],
         "frame_label": "Besieging",
@@ -629,40 +467,28 @@
         "definition": "The subclass of SocialInteraction where someone illegally takes control over some person or group of persons.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@A0"
+                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@A1"
+                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@ARGM-TMP"
+                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@ARGM-CIB"
+                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Location"
             }
         ],
         "frame_label": "IllegallyTakingSomeoneUnderControl",
@@ -672,40 +498,28 @@
         "definition": "The subclass of ViolentContest where humans rise against some authority.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Uprising@A0"
+                "rdf_uri": "stellaframes-Uprising@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Uprising@A1"
+                "rdf_uri": "stellaframes-Uprising@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Uprising@ARGM-TMP"
+                "rdf_uri": "stellaframes-Uprising@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Uprising@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Uprising@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Uprising@ARGM-CIB"
+                "rdf_uri": "stellaframes-Uprising@Location"
             }
         ],
         "frame_label": "Uprising",
@@ -715,40 +529,28 @@
         "definition": "The subclass of Uprising where a group of people rise against some authority, especially used for rebellion at ships or in armies.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Mutiny@A0"
+                "rdf_uri": "stellaframes-Mutiny@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Mutiny@A1"
+                "rdf_uri": "stellaframes-Mutiny@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Mutiny@ARGM-TMP"
+                "rdf_uri": "stellaframes-Mutiny@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Mutiny@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Mutiny@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Mutiny@ARGM-CIB"
+                "rdf_uri": "stellaframes-Mutiny@Location"
             }
         ],
         "frame_label": "Mutiny",
@@ -758,40 +560,28 @@
         "definition": "The subclass of Uprising where some government is violently overthrown and replaced by another government.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-PoliticalRevolution@A0"
+                "rdf_uri": "stellaframes-PoliticalRevolution@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-PoliticalRevolution@A1"
+                "rdf_uri": "stellaframes-PoliticalRevolution@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-TMP"
+                "rdf_uri": "stellaframes-PoliticalRevolution@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-PoliticalRevolution@ARGM-CIB"
+                "rdf_uri": "stellaframes-PoliticalRevolution@Location"
             }
         ],
         "frame_label": "PoliticalRevolution",
@@ -801,40 +591,34 @@
         "definition": "The subclass of Translocation where some object is released from some weapon and is is fired through air with the intention to cause harm or damage.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Shooting@A0"
+                "rdf_uri": "stellaframes-Shooting@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Shooting@A1"
+                "rdf_uri": "stellaframes-Shooting@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Shooting@ARGM-TMP"
+                "rdf_uri": "stellaframes-Shooting@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Shooting@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Shooting@ARGM-COM"
+                "rdf_uri": "stellaframes-Shooting@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Instrument",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Shooting@ARGM-CIB"
+                "rdf_uri": "stellaframes-Shooting@Instrument"
             }
         ],
         "frame_label": "Shooting",
@@ -844,40 +628,28 @@
         "definition": "The subclass of Translocation where some country or location is unwelcomely intruded by some armed forces.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Invasion@A0"
+                "rdf_uri": "stellaframes-Invasion@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Invasion@A1"
+                "rdf_uri": "stellaframes-Invasion@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Invasion@ARGM-TMP"
+                "rdf_uri": "stellaframes-Invasion@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Invasion@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Invasion@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Invasion@ARGM-CIB"
+                "rdf_uri": "stellaframes-Invasion@Location"
             }
         ],
         "frame_label": "Invasion",
@@ -887,40 +659,34 @@
         "definition": "The subclass of Translocation where someone or something leaves a location.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Leaving@A0"
+                "rdf_uri": "stellaframes-Leaving@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Leaving@A1"
+                "rdf_uri": "stellaframes-Leaving@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Leaving@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Leaving@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Leaving@ARGM-COM"
+                "rdf_uri": "stellaframes-Leaving@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Cargo",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Leaving@ARGM-CIB"
+                "rdf_uri": "stellaframes-Leaving@Cargo"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Instrument",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Leaving@Instrument"
             }
         ],
         "frame_label": "Leaving",
@@ -930,40 +696,40 @@
         "definition": "The subclass of Translocation where someone or something arrives at a location.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Arriving@A0"
+                "rdf_uri": "stellaframes-Arriving@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Arriving@A1"
+                "rdf_uri": "stellaframes-Arriving@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Arriving@ARGM-TMP"
+                "rdf_uri": "stellaframes-Arriving@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Arriving@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Arriving@ARGM-COM"
+                "rdf_uri": "stellaframes-Arriving@Location"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
                 "fe_label": "Cargo/instrument/benefactive",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Arriving@ARGM-CIB"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Instrument",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Arriving@Instrument"
             }
         ],
         "frame_label": "Arriving",
@@ -973,34 +739,22 @@
         "definition": "The subclass of BiologicalEvent where someone is dying, ultimately resulting in death.",
         "frame_elements": [
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Dying@A1"
+                "rdf_uri": "stellaframes-Dying@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Dying@ARGM-TMP"
+                "rdf_uri": "stellaframes-Dying@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Dying@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Dying@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Dying@ARGM-CIB"
+                "rdf_uri": "stellaframes-Dying@Location"
             }
         ],
         "frame_label": "Dying",
@@ -1010,40 +764,28 @@
         "definition": "The subclass of InternalChange where something gets destroyed.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Destroying@A0"
+                "rdf_uri": "stellaframes-Destroying@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Destroying@A1"
+                "rdf_uri": "stellaframes-Destroying@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Destroying@ARGM-TMP"
+                "rdf_uri": "stellaframes-Destroying@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Destroying@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Destroying@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Destroying@ARGM-CIB"
+                "rdf_uri": "stellaframes-Destroying@Location"
             }
         ],
         "frame_label": "Destroying",
@@ -1053,40 +795,28 @@
         "definition": "The subclass of IntentionalEvent where some object is modified in such way that it works properly again or can be taken back into it’s intended function.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Repairing@A0"
+                "rdf_uri": "stellaframes-Repairing@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Repairing@A1"
+                "rdf_uri": "stellaframes-Repairing@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Repairing@ARGM-TMP"
+                "rdf_uri": "stellaframes-Repairing@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Repairing@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Repairing@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Repairing@ARGM-CIB"
+                "rdf_uri": "stellaframes-Repairing@Location"
             }
         ],
         "frame_label": "Repairing",
@@ -1096,40 +826,28 @@
         "definition": "The subclass of InternalChange where something gets damaged.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Damaging@A0"
+                "rdf_uri": "stellaframes-Damaging@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Damaging@A1"
+                "rdf_uri": "stellaframes-Damaging@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Damaging@ARGM-TMP"
+                "rdf_uri": "stellaframes-Damaging@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Damaging@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Damaging@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Damaging@ARGM-CIB"
+                "rdf_uri": "stellaframes-Damaging@Location"
             }
         ],
         "frame_label": "Damaging",
@@ -1139,40 +857,28 @@
         "definition": "The subclass of IntentionalEvent where someone damages something.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IntentionalDamaging@A0"
+                "rdf_uri": "stellaframes-IntentionalDamaging@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IntentionalDamaging@A1"
+                "rdf_uri": "stellaframes-IntentionalDamaging@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IntentionalDamaging@ARGM-TMP"
+                "rdf_uri": "stellaframes-IntentionalDamaging@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IntentionalDamaging@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IntentionalDamaging@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IntentionalDamaging@ARGM-CIB"
+                "rdf_uri": "stellaframes-IntentionalDamaging@Location"
             }
         ],
         "frame_label": "IntentionalDamaging",
@@ -1182,40 +888,28 @@
         "definition": "The subclass of BiologicalEvent where a human or animal heals after some injury or illness.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Healing@A0"
+                "rdf_uri": "stellaframes-Healing@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Healing@A1"
+                "rdf_uri": "stellaframes-Healing@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Healing@ARGM-TMP"
+                "rdf_uri": "stellaframes-Healing@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Healing@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Healing@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Healing@ARGM-CIB"
+                "rdf_uri": "stellaframes-Healing@Location"
             }
         ],
         "frame_label": "Healing",
@@ -1225,40 +919,28 @@
         "definition": "The subclass of BiologicalEvent where a human or animal falls ill or suffers an injury.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-FallingIll@A0"
+                "rdf_uri": "stellaframes-FallingIll@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-FallingIll@A1"
+                "rdf_uri": "stellaframes-FallingIll@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-FallingIll@ARGM-TMP"
+                "rdf_uri": "stellaframes-FallingIll@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-FallingIll@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-FallingIll@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-FallingIll@ARGM-CIB"
+                "rdf_uri": "stellaframes-FallingIll@Location"
             }
         ],
         "frame_label": "FallingIll",
@@ -1268,40 +950,28 @@
         "definition": "The subclass of QuantityChange where some physical quantity or value is increased.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Increasing@A0"
+                "rdf_uri": "stellaframes-Increasing@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Increasing@A1"
+                "rdf_uri": "stellaframes-Increasing@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Increasing@ARGM-TMP"
+                "rdf_uri": "stellaframes-Increasing@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Increasing@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Increasing@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Increasing@ARGM-CIB"
+                "rdf_uri": "stellaframes-Increasing@Location"
             }
         ],
         "frame_label": "Increasing",
@@ -1311,40 +981,28 @@
         "definition": "The subclass of QuantityChange where some physical quantity or value is decreased.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Decreasing@A0"
+                "rdf_uri": "stellaframes-Decreasing@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Decreasing@A1"
+                "rdf_uri": "stellaframes-Decreasing@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Decreasing@ARGM-TMP"
+                "rdf_uri": "stellaframes-Decreasing@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Decreasing@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Decreasing@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Decreasing@ARGM-CIB"
+                "rdf_uri": "stellaframes-Decreasing@Location"
             }
         ],
         "frame_label": "Decreasing",
@@ -1354,46 +1012,22 @@
         "definition": "The subclass of IntentionalEvent where two parties enter in an agreement described in a contract.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "AgentPatient",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningContractualAgreement@A0"
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningContractualAgreement@A1"
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@Time"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningContractualAgreement@A0-PARTN"
-            },
-            {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeginningContractualAgreement@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeginningContractualAgreement@Location"
             }
         ],
         "frame_label": "BeginningContractualAgreement",
@@ -1403,46 +1037,28 @@
         "definition": "Definition: The subclass of IntentionalEvent where a contract between two parties is broken by one or both of the parties involved.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@A0"
+                "rdf_uri": "stellaframes-BreakingContract@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@A1"
+                "rdf_uri": "stellaframes-BreakingContract@Patient"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@A0-PARTN"
+                "rdf_uri": "stellaframes-BreakingContract@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BreakingContract@ARGM-CIB"
+                "rdf_uri": "stellaframes-BreakingContract@Location"
             }
         ],
         "frame_label": "BreakingContract",
@@ -1452,131 +1068,163 @@
         "definition": "The subclass of Translocation where physical objects and animate beings together change from location and the physical object is not the means of translocation.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Transportation@A0"
+                "rdf_uri": "stellaframes-Transportation@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Transportation@A1"
+                "rdf_uri": "stellaframes-Transportation@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Transportation@ARGM-TMP"
+                "rdf_uri": "stellaframes-Transportation@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Source where travel starts",
+                "fe_label": "Source",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Transportation@ARGM-LOC"
+                "rdf_uri": "stellaframes-Transportation@Source"
             },
             {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
+                "definition": "Desired endpoint of travel",
+                "fe_label": "Target",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Transportation@ARGM-COM"
+                "rdf_uri": "stellaframes-Transportation@Target"
             },
             {
                 "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "fe_label": "Instrument",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Transportation@ARGM-CIB"
+                "rdf_uri": "stellaframes-Transportation@Instrument"
             }
         ],
         "frame_label": "Transportation",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Transportation"
     },
     "stellaframes-Voyage": {
-        "definition": "The subclass of Translocation where a ship travels for a longer period of time.",
+        "definition": "The subclass of Translocation where a ship travels for a longer period of Time",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Voyage@A0"
+                "rdf_uri": "stellaframes-Voyage@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Voyage@A1"
+                "rdf_uri": "stellaframes-Voyage@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Voyage@ARGM-TMP"
+                "rdf_uri": "stellaframes-Voyage@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Voyage@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Voyage@ARGM-COM"
-            },
-            {
-                "definition": "Source where the voyage starts",
+                "definition": "Source where travel starts",
                 "fe_label": "Source",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Source"
             },
             {
-                "definition": "Path of the voyage",
-                "fe_label": "Path",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Voyage@Path"
-            },
-            {
-                "definition": "Desired endpoint of the voyage",
+                "definition": "Desired endpoint of travel",
                 "fe_label": "Target",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Target"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Cargo",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Cargo"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Instrument",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Instrument"
             }
         ],
         "frame_label": "Voyage",
-        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Voyage",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Voyage"
+    },
+        "stellaframes-TransLocation": {
+        "definition": "The subclass of IntentionalEvent where physical objects or animate beings change from location.",
+        "frame_elements": [
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Agent"
+            },
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Patient"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Time"
+            },
+            {
+                "definition": "Source where travel starts",
+                "fe_label": "Source",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Source"
+            },
+            {
+                "definition": "Desired endpoint of travel",
+                "fe_label": "Target",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Target"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Cargo",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Cargo"
+            },
+            {
+                "definition": "Cargo, instrument, benefactive",
+                "fe_label": "Instrument",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Voyage@Instrument"
+            }
+        ],
+        "frame_label": "TransLocation",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#TransLocation"
+    },
     "stellaframes-BeingLeader": {
         "definition": "StaticEvent where someone is leader of some group of persons or organization.",
         "frame_elements": [
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingLeader@A1"
+                "rdf_uri": "stellaframes-BeingLeader@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingLeader@ARGM-TMP"
+                "rdf_uri": "stellaframes-BeingLeader@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingLeader@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingLeader@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingLeader@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingLeader@Location"
             }
         ],
         "frame_label": "BeingLeader",
@@ -1586,40 +1234,22 @@
         "definition": "The subclass of IntentionalEvent were people end a relationship with each other.",
         "frame_elements": [
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInARelationship@A1"
+                "rdf_uri": "stellaframes-BeingInARelationship@Patient"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInConflict@A0-PARTN"
+                "rdf_uri": "stellaframes-BeingInARelationship@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInARelationship@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInARelationship@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInARelationship@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInARelationship@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingInARelationship@Location"
             }
         ],
         "frame_label": "BeingInARelationship",
@@ -1629,83 +1259,59 @@
         "definition": "Static event where someone is working in a position and is compensated for her work by some form of payment.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingEmployed@A0"
+                "rdf_uri": "stellaframes-BeingEmployed@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingEmployed@A1"
+                "rdf_uri": "stellaframes-BeingEmployed@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingEmployed@ARGM-TMP"
+                "rdf_uri": "stellaframes-BeingEmployed@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingEmployed@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingEmployed@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingEmployed@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingEmployed@Location"
             }
         ],
         "frame_label": "BeingEmployed",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingEmployed"
     },
     "stellaframes-HavingInPossession": {
-        "definition": "Static event where someone holds on to someone or something for a period of time.",
+        "definition": "Static event where someone holds on to someone or something for a period of Time",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInPossession@A0"
+                "rdf_uri": "stellaframes-HavingInPossession@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInPossession@A1"
+                "rdf_uri": "stellaframes-HavingInPossession@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInPossession@ARGM-TMP"
+                "rdf_uri": "stellaframes-HavingInPossession@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInPossession@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInPossession@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInPossession@ARGM-CIB"
+                "rdf_uri": "stellaframes-HavingInPossession@Location"
             }
         ],
         "frame_label": "HavingInPossession",
@@ -1715,40 +1321,28 @@
         "definition": "The subclass of StaticEvent where some group of people, e.g. military have control over some region, e.g. a country or a building.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Agent",
+                "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Occupation@A0"
+                "rdf_uri": "stellaframes-Occupation@Agent"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Occupation@A1"
+                "rdf_uri": "stellaframes-Occupation@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Occupation@ARGM-TMP"
+                "rdf_uri": "stellaframes-Occupation@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Occupation@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Occupation@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Occupation@ARGM-CIB"
+                "rdf_uri": "stellaframes-Occupation@Location"
             }
         ],
         "frame_label": "Occupation",
@@ -1758,40 +1352,22 @@
         "definition": "Static event where two people or groups of people are in conflict with each other.",
         "frame_elements": [
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInConflict@A1"
+                "rdf_uri": "stellaframes-BeingInConflict@Patient"
             },
             {
-                "definition": "Partners as agent.",
-                "fe_label": "A0-PARTN",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInConflict@A0-PARTN"
+                "rdf_uri": "stellaframes-BeingInConflict@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInConflict@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInConflict@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInConflict@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInConflict@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingInConflict@Location"
             }
         ],
         "frame_label": "BeingInConflict",
@@ -1801,34 +1377,22 @@
         "definition": "Static event where some entity is at a location.",
         "frame_elements": [
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingAtAPlace@A1"
+                "rdf_uri": "stellaframes-BeingAtAPlace@Patient"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingAtAPlace@ARGM-TMP"
+                "rdf_uri": "stellaframes-BeingAtAPlace@Time"
             },
             {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingAtAPlace@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingAtAPlace@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingAtAPlace@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingAtAPlace@Location"
             }
         ],
         "frame_label": "BeingAtAPlace",
@@ -1838,40 +1402,22 @@
         "definition": "The subclass of StaticEvent where some organism is dead.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDead@A0"
+                "rdf_uri": "stellaframes-BeingDead@Patient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDead@A1"
+                "rdf_uri": "stellaframes-BeingDead@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDead@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDead@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDead@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDead@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingDead@Location"
             }
         ],
         "frame_label": "BeingDead",
@@ -1881,83 +1427,47 @@
         "definition": "The subclass of StaticEvent where something is in a destroyed state.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDestroyed@A0"
+                "rdf_uri": "stellaframes-BeingDestroyed@Patient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDestroyed@A1"
+                "rdf_uri": "stellaframes-BeingDestroyed@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDestroyed@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDestroyed@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDestroyed@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDestroyed@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingDestroyed@Location"
             }
         ],
         "frame_label": "BeingDestroyed",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingDestroyed"
     },
     "stellaframes-Collaboration": {
-        "definition": "Static event where people work together for some period of time.",
+        "definition": "Static event where people work together for some period of Time",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Collaboration@A0"
+                "rdf_uri": "stellaframes-Collaboration@Patient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Collaboration@A1"
+                "rdf_uri": "stellaframes-Collaboration@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Collaboration@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Collaboration@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Collaboration@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Collaboration@ARGM-CIB"
+                "rdf_uri": "stellaframes-Collaboration@Location"
             }
         ],
         "frame_label": "Collaboration",
@@ -1967,40 +1477,22 @@
         "definition": "The subclass of StaticEvent where some human or animal suffers from a medical condition such as diseases, chronic diseases and disabilities.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingAMedicalCondition@A0"
+                "rdf_uri": "stellaframes-HavingAMedicalCondition@Patient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingAMedicalCondition@A1"
+                "rdf_uri": "stellaframes-HavingAMedicalCondition@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingAMedicalCondition@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingAMedicalCondition@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingAMedicalCondition@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingAMedicalCondition@ARGM-CIB"
+                "rdf_uri": "stellaframes-HavingAMedicalCondition@Location"
             }
         ],
         "frame_label": "HavingAMedicalCondition",
@@ -2010,40 +1502,22 @@
         "definition": "Static event where some entity is in a damaged state.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDamaged@A0"
+                "rdf_uri": "stellaframes-BeingDamaged@Patient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDamaged@A1"
+                "rdf_uri": "stellaframes-BeingDamaged@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDamaged@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDamaged@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDamaged@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingDamaged@ARGM-CIB"
+                "rdf_uri": "stellaframes-BeingDamaged@Location"
             }
         ],
         "frame_label": "BeingDamaged",
@@ -2053,40 +1527,22 @@
         "definition": "Static event where someone or something (which can also be something intangible) is in a better state relatively to an earlier moment.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState+@A0"
+                "rdf_uri": "stellaframes-HavingInternalState+@Patient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState+@A1"
+                "rdf_uri": "stellaframes-HavingInternalState+@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState+@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState+@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState+@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState+@ARGM-CIB"
+                "rdf_uri": "stellaframes-HavingInternalState+@Location"
             }
         ],
         "frame_label": "HavingInternalState+",
@@ -2096,40 +1552,22 @@
         "definition": "Static event where someone or something (which can also be something intangible) is in a worse state relatively to an earlier moment.",
         "frame_elements": [
             {
-                "definition": "Agent.",
-                "fe_label": "A0",
+                "definition": "Patient",
+                "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState-@A0"
+                "rdf_uri": "stellaframes-HavingInternalState-@Patient"
             },
             {
-                "definition": "Patient.",
-                "fe_label": "A1",
+                "definition": "Time",
+                "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState-@A1"
+                "rdf_uri": "stellaframes-HavingInternalState-@Time"
             },
             {
-                "definition": "Time.",
-                "fe_label": "ARGM-TMP",
+                "definition": "Location",
+                "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState-@ARGM-TMP"
-            },
-            {
-                "definition": "Place.",
-                "fe_label": "ARGM-LOC",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState-@ARGM-LOC"
-            },
-            {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState-@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-HavingInternalState-@ARGM-CIB"
+                "rdf_uri": "stellaframes-HavingInternalState-@Location"
             }
         ],
         "frame_label": "HavingInternalState-",
@@ -2155,13 +1593,6 @@
         ],
         "frame_label": "SocialInteraction",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#SocialInteraction"
-    },
-    "stellaframes-TransLocation": {
-        "definition": "The subclass of Intentional where physical objects or animate beings change from location.",
-        "frame_elements": [
-        ],
-        "frame_label": "TransLocation",
-        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#TransLocation"
     },
     "stellaframes-ScalarChange": {
         "definition": "The subclass of InternalChange where something changes position on a scale.",
