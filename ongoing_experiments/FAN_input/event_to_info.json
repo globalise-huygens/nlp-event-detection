@@ -1611,6 +1611,13 @@
         ],
         "frame_label": "SocialStatusChange",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#RelationshipChange"
+    },
+    "stellaframes-Miscellaneous": {
+        "definition": "Any event that should be annotated but is not represented in the current event list",
+        "frame_elements": [
+        ],
+        "frame_label": "Miscellaneous",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Miscellaneous"
     }
 }
 
