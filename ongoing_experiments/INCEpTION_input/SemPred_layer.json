@@ -1,0 +1,286 @@
+[ {
+  "name" : "de.tudarmstadt.ukp.dkpro.core.api.semantics.type.SemPred",
+  "features" : [ {
+    "name" : "arguments",
+    "tag_set" : {
+      "name" : "GLOBALISE Annotation Pilot 2022 - Events (arguments)",
+      "description" : null,
+      "language" : null,
+      "tags" : [ {
+        "tag_name" : "Agent",
+        "tag_description" : null
+      }, {
+        "tag_name" : "AgentPatient",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Miscellaneous",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Benefactive",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Cargo",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Instrument",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Location",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Patient",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Source",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Target",
+        "tag_description" : null
+      }, {
+        "tag_name" : "Time",
+        "tag_description" : null
+      } ],
+      "create_tag" : false
+    },
+    "uiName" : "arguments",
+    "type" : "de.tudarmstadt.ukp.dkpro.core.api.semantics.type.SemArg",
+    "enabled" : true,
+    "visible" : true,
+    "include_in_hover" : false,
+    "required" : false,
+    "remember" : false,
+    "hideUnconstraintFeature" : false,
+    "description" : "Arguments of the semantic predicate",
+    "project_name" : "GLOBALISE Annotation Pilot 2022",
+    "multi_value_mode" : "ARRAY",
+    "link_mode" : "WITH_ROLE",
+    "link_type_name" : "de.tudarmstadt.ukp.dkpro.core.api.semantics.type.SemArgLink",
+    "link_type_role_feature_name" : "role",
+    "link_type_target_feature_name" : "target",
+    "traits" : "{\"defaultSlots\":[],\"enableRoleLabels\":true}",
+    "curatable" : true
+  }, {
+    "name" : "category",
+    "tag_set" : {
+      "name" : "GLOBALISE Annotation Pilot 2022 - Events",
+      "description" : null,
+      "language" : null,
+      "tags" : [ {
+        "tag_name" : "Replacing",
+        "tag_description" : "The subclass of IntentionalEvent where someone or something is replaced with someone or something else in a specific role or function"
+      }, {
+        "tag_name" : "BeginningARelationship",
+        "tag_description" : "The subclass of IntentionalEvent where people start or form a personal relationship with each other"
+      }, {
+        "tag_name" : "EndingARelationship",
+        "tag_description" : "The subclass of IntentionalEvent where people end a relationship with each other"
+      }, {
+        "tag_name" : "JoiningAnOrganization",
+        "tag_description" : "The subclass of IntentionalEvent where someone starts working as an employee for some organization."
+      }, {
+        "tag_name" : "LeavingAnOrganization",
+        "tag_description" : "The subclass of IntentionalEvent where a person stops working as an employee for an organization."
+      }, {
+        "tag_name" : "Getting",
+        "tag_description" : "The subclass of ChangeOfPossession where a person gets or receives some item."
+      }, {
+        "tag_name" : "Giving",
+        "tag_description" : "The subclass of ChangeOfPossession where a person gives something to someone else."
+      }, {
+        "tag_name" : "Buying",
+        "tag_description" : "The subclass of FinancialTransaction where some entity changes of ownership in exchange for money. Note that the buyer is not necessarily the new owner of the entity."
+      }, {
+        "tag_name" : "Selling",
+        "tag_description" : "The subclass of FinancialTransaction where some entity changes of ownership in exchange for money."
+      }, {
+        "tag_name" : "Riot",
+        "tag_description" : "The subclass of ViolentContest where some group of people engage in a violent disturbance of the public order."
+      }, {
+        "tag_name" : "ViolentContest",
+        "tag_description" : "The subclass of Contest where two parties interact in a hostile manner."
+      }, {
+        "tag_name" : "War",
+        "tag_description" : "The subclass of ViolentContest where there is an armed conflict between different groups of people, two or more countries, etc."
+      }, {
+        "tag_name" : "Attacking",
+        "tag_description" : "The subclass of SocialInteraction where someone or something is assaulted with the intention to cause some harm."
+      }, {
+        "tag_name" : "Besieging",
+        "tag_description" : "The subclass of Attacking where some location is being surrounded and blocked by enemy troops with the aim to cause the surrender of the besieged."
+      }, {
+        "tag_name" : "IllegallyTakingSomeoneUnderControl",
+        "tag_description" : "The subclass of SocialInteraction where someone illegally takes control over some person or group of persons."
+      }, {
+        "tag_name" : "Uprising",
+        "tag_description" : "The subclass of ViolentContest where humans rise against some authority."
+      }, {
+        "tag_name" : "Mutiny",
+        "tag_description" : "The subclass of Uprising where a group of people rise against some authority, especially used for rebellion at ships or in armies."
+      }, {
+        "tag_name" : "PoliticalRevolution",
+        "tag_description" : "The subclass of Uprising where some government is violently overthrown and replaced by another government."
+      }, {
+        "tag_name" : "Shooting",
+        "tag_description" : "The subclass of Translocation where some object is released from some weapon and is is fired through air with the intention to cause harm or damage."
+      }, {
+        "tag_name" : "Invasion",
+        "tag_description" : "The subclass of Translocation where some country or location is unwelcomely intruded by some armed forces."
+      }, {
+        "tag_name" : "Leaving",
+        "tag_description" : "The subclass of Translocation where someone or something leaves a location."
+      }, {
+        "tag_name" : "Arriving",
+        "tag_description" : "The subclass of Translocation where someone or something arrives at a location."
+      }, {
+        "tag_name" : "Dying",
+        "tag_description" : "The subclass of BiologicalEvent where someone is dying, ultimately resulting in death."
+      }, {
+        "tag_name" : "Destroying",
+        "tag_description" : "The subclass of InternalChange where something gets destroyed."
+      }, {
+        "tag_name" : "Repairing",
+        "tag_description" : "The subclass of IntentionalEvent where some object is modified in such way that it works properly again or can be taken back into it’s intended function."
+      }, {
+        "tag_name" : "Damaging",
+        "tag_description" : "The subclass of InternalChange where something gets damaged."
+      }, {
+        "tag_name" : "IntentionalDamaging",
+        "tag_description" : "The subclass of IntentionalEvent where someone damages something."
+      }, {
+        "tag_name" : "Healing",
+        "tag_description" : "The subclass of BiologicalEvent where a human or animal heals after some injury or illness."
+      }, {
+        "tag_name" : "FallingIll",
+        "tag_description" : "The subclass of BiologicalEvent where a human or animal falls ill or suffers an injury."
+      }, {
+        "tag_name" : "Increasing",
+        "tag_description" : "The subclass of QuantityChange where some physical quantity or value is increased."
+      }, {
+        "tag_name" : "Decreasing",
+        "tag_description" : "The subclass of QuantityChange where some physical quantity or value is decreased."
+      }, {
+        "tag_name" : "BeginningContractualAgreement",
+        "tag_description" : "The subclass of IntentionalEvent where two parties enter in an agreement described in a contract."
+      }, {
+        "tag_name" : "EndingContractualAgreement",
+        "tag_description" : "Definition: The subclass of IntentionalEvent where a contract between two parties is broken by one or both of the parties involved."
+      }, {
+        "tag_name" : "Transportation",
+        "tag_description" : "The subclass of Translocation where physical objects and animate beings together change from location and the physical object is not the means of translocation."
+      }, {
+        "tag_name" : "Voyage",
+        "tag_description" : "The subclass of Translocation where a ship travels for a longer period of Time"
+      }, {
+        "tag_name" : "TransLocation",
+        "tag_description" : "The subclass of IntentionalEvent where physical objects or animate beings change from location."
+      }, {
+        "tag_name" : "BeingLeader",
+        "tag_description" : "StaticEvent where someone is leader of some group of persons or organization."
+      }, {
+        "tag_name" : "BeingInARelationship",
+        "tag_description" : "The subclass of IntentionalEvent were people end a relationship with each other."
+      }, {
+        "tag_name" : "BeingEmployed",
+        "tag_description" : "Static event where someone is working in a position and is compensated for her work by some form of payment."
+      }, {
+        "tag_name" : "HavingInPossession",
+        "tag_description" : "Static event where someone holds on to someone or something for a period of Time"
+      }, {
+        "tag_name" : "Occupation",
+        "tag_description" : "The subclass of StaticEvent where some group of people, e.g. military have control over some region, e.g. a country or a building."
+      }, {
+        "tag_name" : "BeingInConflict",
+        "tag_description" : "Static event where two people or groups of people are in conflict with each other."
+      }, {
+        "tag_name" : "BeingAtAPlace",
+        "tag_description" : "Static event where some entity is at a location."
+      }, {
+        "tag_name" : "BeingDead",
+        "tag_description" : "The subclass of StaticEvent where some organism is dead."
+      }, {
+        "tag_name" : "BeingDestroyed",
+        "tag_description" : "The subclass of StaticEvent where something is in a destroyed state."
+      }, {
+        "tag_name" : "Collaboration",
+        "tag_description" : "Static event where people work together for some period of Time"
+      }, {
+        "tag_name" : "HavingAMedicalCondition",
+        "tag_description" : "The subclass of StaticEvent where some human or animal suffers from a medical condition such as diseases, chronic diseases and disabilities."
+      }, {
+        "tag_name" : "BeingDamaged",
+        "tag_description" : "Static event where some entity is in a damaged state."
+      }, {
+        "tag_name" : "HavingInternalState+",
+        "tag_description" : "Static event where someone or something (which can also be something intangible) is in a better state relatively to an earlier moment."
+      }, {
+        "tag_name" : "HavingInternalState",
+        "tag_description" : "Static event where someone or something (which can also be something intangible) is in a worse state relatively to an earlier moment."
+      }, {
+        "tag_name" : "ChangeOfPossession",
+        "tag_description" : "The subclass of IntentionalEvent where some entity changes possession. Note that this often but not necessarily implies a change of location of the entity."
+      }, {
+        "tag_name" : "FinancialTransaction",
+        "tag_description" : "The subclass ofChangeOfPossession where some item changes of ownership in exchange for money."
+      }, {
+        "tag_name" : "SocialInteraction",
+        "tag_description" : "The subclass of IntentionalEvent where people interact."
+      }, {
+        "tag_name" : "ScalarChange",
+        "tag_description" : "The subclass of InternalChange where something changes position on a scale."
+      }, {
+        "tag_name" : "QuantityChange",
+        "tag_description" : "The subclass of InternalChange where some quantity is altered."
+      }, {
+        "tag_name" : "ViolentTranslocation",
+        "tag_description" : "A subclass of Translocation."
+      }, {
+        "tag_name" : "StartOrEndJourney",
+        "tag_description" : "A subclass of Translocation."
+      }, {
+        "tag_name" : "SocialStatusChange",
+        "tag_description" : "A subclass of IntentionalEvent."
+      }, {
+        "tag_name" : "RelationshipChange",
+        "tag_description" : "A subclass of SocialStatusChange."
+      } ],
+      "create_tag" : false
+    },
+    "uiName" : "category",
+    "type" : "uima.cas.String",
+    "enabled" : true,
+    "visible" : true,
+    "include_in_hover" : false,
+    "required" : false,
+    "remember" : false,
+    "hideUnconstraintFeature" : false,
+    "description" : "Category of the semantic predicate, e.g. the frame identifier.",
+    "project_name" : "GLOBALISE Annotation Pilot 2022",
+    "multi_value_mode" : "NONE",
+    "link_mode" : "NONE",
+    "link_type_name" : null,
+    "link_type_role_feature_name" : null,
+    "link_type_target_feature_name" : null,
+    "traits" : "{\"multipleRows\":false,\"dynamicSize\":false,\"collapsedRows\":1,\"expandedRows\":1,\"editorType\":\"AUTO\",\"keyBindings\":[]}",
+    "curatable" : true
+  } ],
+  "uiName" : "SemPred",
+  "type" : "span",
+  "description" : null,
+  "enabled" : true,
+  "built_in" : true,
+  "readonly" : false,
+  "attach_type" : null,
+  "attach_feature" : null,
+  "allow_stacking" : true,
+  "cross_sentence" : false,
+  "show_hover" : true,
+  "anchoring_mode" : "TOKENS",
+  "overlap_mode" : "ANY_OVERLAP",
+  "validation_mode" : "ALWAYS",
+  "lock_to_token_offset" : false,
+  "multiple_tokens" : true,
+  "project_name" : "GLOBALISE Annotation Pilot 2022",
+  "linked_list_behavior" : false,
+  "on_click_javascript_action" : null,
+  "traits" : null
+} ]
