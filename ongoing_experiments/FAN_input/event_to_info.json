@@ -27,7 +27,7 @@
                 "rdf_uri": "stellaframes-Replacing@Location"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Benefactive",
                 "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Replacing@Benefactive"
@@ -114,16 +114,10 @@
                 "rdf_uri": "stellaframes-JoiningAnOrganization@Location"
             },
             {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
+                "definition": "Benefactive",
+                "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-JoiningAnOrganization@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-JoiningAnOrganization@ARGM-CIB"
+                "rdf_uri": "stellaframes-JoiningAnOrganization@Benefactive"
             }
         ],
         "frame_label": "JoiningAnOrganization",
@@ -219,7 +213,7 @@
                 "rdf_uri": "stellaframes-Giving@Location"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Benefactive",
                 "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Giving@Benefactive"
@@ -256,7 +250,7 @@
                 "rdf_uri": "stellaframes-Buying@Location"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Benefactive",
                 "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Buying@Benefactive"
@@ -293,13 +287,7 @@
                 "rdf_uri": "stellaframes-Selling@Location"
             },
             {
-                "definition": "With whom?",
-                "fe_label": "ARGM-COM",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Selling@ARGM-COM"
-            },
-            {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Benefactive",
                 "fe_label": "Benefactive",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Selling@Benefactive"
@@ -417,7 +405,7 @@
                 "rdf_uri": "stellaframes-Attacking@Location"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Instrument",
                 "fe_label": "Instrument",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Attacking@Instrument"
@@ -454,7 +442,7 @@
                 "rdf_uri": "stellaframes-Besieging@Location"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Instrument",
                 "fe_label": "Instrument",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Besieging@Instrument"
@@ -671,16 +659,22 @@
                 "rdf_uri": "stellaframes-Leaving@Location"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Cargo",
                 "fe_label": "Cargo",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Leaving@Cargo"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Instrument",
                 "fe_label": "Instrument",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Leaving@Instrument"
+            },
+            {
+                "definition": "Target",
+                "fe_label": "Target",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Leaving@Target"
             }
         ],
         "frame_label": "Leaving",
@@ -696,12 +690,6 @@
                 "rdf_uri": "stellaframes-Arriving@Agent"
             },
             {
-                "definition": "Patient",
-                "fe_label": "Patient",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Arriving@Patient"
-            },
-            {
                 "definition": "Time",
                 "fe_label": "Time",
                 "fe_type": "Peripheral",
@@ -714,16 +702,22 @@
                 "rdf_uri": "stellaframes-Arriving@Location"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
-                "fe_label": "Cargo/instrument/benefactive",
+                "definition": "Cargo",
+                "fe_label": "Cargo",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-Arriving@ARGM-CIB"
+                "rdf_uri": "stellaframes-Arriving@Cargo"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Instrument",
                 "fe_label": "Instrument",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Arriving@Instrument"
+            },
+            {
+                "definition": "Source",
+                "fe_label": "Source",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Arriving@Source"
             }
         ],
         "frame_label": "Arriving",
@@ -1074,16 +1068,22 @@
                 "rdf_uri": "stellaframes-Transportation@Time"
             },
             {
-                "definition": "Source where travel starts",
+                "definition": "Source",
                 "fe_label": "Source",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Transportation@Source"
             },
             {
-                "definition": "Desired endpoint of travel",
+                "definition": "Target",
                 "fe_label": "Target",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Transportation@Target"
+            },
+            {
+                "definition": "Instrument",
+                "fe_label": "Instrument",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Transportation@Instrument"
             }
         ],
         "frame_label": "Transportation",
@@ -1111,25 +1111,25 @@
                 "rdf_uri": "stellaframes-Voyage@Time"
             },
             {
-                "definition": "Source where travel starts",
+                "definition": "Source",
                 "fe_label": "Source",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Source"
             },
             {
-                "definition": "Desired endpoint of travel",
+                "definition": "Target",
                 "fe_label": "Target",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Target"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Cargo",
                 "fe_label": "Cargo",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Cargo"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Instrument",
                 "fe_label": "Instrument",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Instrument"
@@ -1160,19 +1160,19 @@
                 "rdf_uri": "stellaframes-Voyage@Time"
             },
             {
-                "definition": "Source where travel starts",
+                "definition": "Source",
                 "fe_label": "Source",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Source"
             },
             {
-                "definition": "Desired endpoint of travel",
+                "definition": "Target",
                 "fe_label": "Target",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Target"
             },
             {
-                "definition": "Cargo, instrument, benefactive",
+                "definition": "Instrument",
                 "fe_label": "Instrument",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Voyage@Instrument"
@@ -1549,16 +1549,59 @@
         "frame_label": "HavingInternalState-",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#HavingInternalState-"
     },
+    "stellaframes-IntentionalEvent": {
+        "definition": "DynamicEvent where some event is carried out by some cognitive agent.",
+        "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-IntentionalEvent@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-IntentionalEvent@Agent"
+            }
+        ],
+        "frame_label": "IntentionalEvent",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#IntentionalEvent"
+    },
     "stellaframes-ChangeOfPossession": {
         "definition": "The subclass of IntentionalEvent where some entity changes possession. Note that this often but not necessarily implies a change of location of the entity.",
         "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ChangeOfPossession@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ChangeOfPossession@Agent"
+            }
         ],
         "frame_label": "ChangeOfPossession",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#ChangeOfPossession"
     },
     "stellaframes-FinancialTransaction": {
-        "definition": "The subclass ofChangeOfPossession where some item changes of ownership in exchange for money.",
+        "definition": "The subclass of ChangeOfPossession where some item changes of ownership in exchange for money.",
         "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-FinancialTransaction@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-FinancialTransaction@Agent"
+            }
         ],
         "frame_label": "FinancialTransaction-",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#FinancialTransaction"
@@ -1566,6 +1609,12 @@
     "stellaframes-SocialInteraction": {
         "definition": "The subclass of IntentionalEvent where people interact.",
         "frame_elements": [
+            {
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-SocialInteraction@AgentPatient"
+            }
         ],
         "frame_label": "SocialInteraction",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#SocialInteraction"
@@ -1573,6 +1622,18 @@
     "stellaframes-ScalarChange": {
         "definition": "The subclass of InternalChange where something changes position on a scale.",
         "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ScalarChange@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ScalarChange@Agent"
+            }
         ],
         "frame_label": "ScalarChange",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#ScalarChange"
@@ -1580,6 +1641,18 @@
     "stellaframes-QuantityChange": {
         "definition": "The subclass of InternalChange where some quantity is altered.",
         "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-QuantityChange@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-QuantityChange@Agent"
+            }
         ],
         "frame_label": "QuantityChange",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#QuantityChange"
@@ -1587,20 +1660,37 @@
     "stellaframes-ViolentTranslocation": {
         "definition": "A subclass of Translocation.",
         "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ViolentTranslocation@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ViolentTranslocation@Agent"
+            }
         ],
         "frame_label": "ViolentTranslocation",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#ViolentTranslocation"
     },
-    "stellaframes-StartOrEndJourney": {
-        "definition": "A subclass of Translocation.",
-        "frame_elements": [
-        ],
-        "frame_label": "StartOrEndJourney",
-        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#StartOrEndJourney"
-    },
     "stellaframes-SocialStatusChange": {
         "definition": "A subclass of IntentionalEvent.",
         "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-SocialStatusChange@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-SocialStatusChange@Agent"
+            }
         ],
         "frame_label": "SocialStatusChange",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#SocialStatusChange"
@@ -1608,9 +1698,53 @@
     "stellaframes-RelationshipChange": {
         "definition": "A subclass of SocialStatusChange.",
         "frame_elements": [
+            {
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-RelationshipChange@AgentPatient"
+            }
         ],
-        "frame_label": "SocialStatusChange",
+        "frame_label": "RelationshipChange",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#RelationshipChange"
+    },
+    "stellaframes-InternalChange": {
+        "definition": "DynamicEvent where some internal quality of a person or entity changes.",
+        "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-InternalChange@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-InternalChange@Agent"
+            }
+        ],
+        "frame_label": "InternalChange",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#InternalChange"
+    },
+    "stellaframes-BiologicalEvent": {
+        "definition": "The subclass of InternalChange where some event happens within an organism.",
+        "frame_elements": [
+            {
+                "definition": "Patient",
+                "fe_label": "Patient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BiologicalEvent@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BiologicalEvent@Agent"
+            }
+        ],
+        "frame_label": "BiologicalEvent",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#BiologicalEvent"
     },
     "stellaframes-Miscellaneous": {
         "definition": "Any event that should be annotated but is not represented in the current event list",
