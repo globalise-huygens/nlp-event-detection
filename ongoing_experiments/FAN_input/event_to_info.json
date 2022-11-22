@@ -86,6 +86,31 @@
         "frame_label": "EndingARelationship",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#EndingARelationship"
     },
+    "stellaframes-AlteringARelationship": {
+        "definition": "The subclass of SocialStatusChange where the status or nature of a relationship is altered.",
+        "frame_elements": [
+            {
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-AlteringARelationship@AgentPatient"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-AlteringARelationship@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-AlteringARelationship@Location"
+            }
+        ],
+        "frame_label": "EndingARelationship",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#EndingARelationship"
+    },
   	"stellaframes-JoiningAnOrganization": {
         "definition": "The subclass of IntentionalEvent where someone starts working as an employee for some organization.",
         "frame_elements": [
@@ -113,12 +138,6 @@
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-JoiningAnOrganization@Location"
             },
-            {
-                "definition": "Benefactive",
-                "fe_label": "Benefactive",
-                "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-JoiningAnOrganization@Benefactive"
-            }
         ],
         "frame_label": "JoiningAnOrganization",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#JoiningAnOrganization"
@@ -451,36 +470,36 @@
         "frame_label": "Besieging",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Besieging"
     },
-    "stellaframes-IllegallyTakingSomeoneUnderControl": {
+    "stellaframes-TakingSomeoneUnderControl": {
         "definition": "The subclass of SocialInteraction where someone illegally takes control over some person or group of persons.",
         "frame_elements": [
             {
                 "definition": "Agent",
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Agent"
+                "rdf_uri": "stellaframes-TakingSomeoneUnderControl@Agent"
             },
             {
                 "definition": "Patient",
                 "fe_label": "Patient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Patient"
+                "rdf_uri": "stellaframes-TakingSomeoneUnderControl@Patient"
             },
             {
                 "definition": "Time",
                 "fe_label": "Time",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Time"
+                "rdf_uri": "stellaframes-TakingSomeoneUnderControl@Time"
             },
             {
                 "definition": "Location",
                 "fe_label": "Location",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-IllegallyTakingSomeoneUnderControl@Location"
+                "rdf_uri": "stellaframes-TakingSomeoneUnderControl@Location"
             }
         ],
-        "frame_label": "IllegallyTakingSomeoneUnderControl",
-        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#IllegallyTakingSomeoneUnderControl"
+        "frame_label": "TakingSomeoneUnderControl",
+        "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#TakingSomeoneUnderControl"
     },
     "stellaframes-Uprising": {
         "definition": "The subclass of ViolentContest where humans rise against some authority.",
@@ -601,6 +620,12 @@
                 "fe_label": "Location",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Shooting@Location"
+            },
+            {
+                "definition": "Instrument",
+                "fe_label": "Instrument",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Shooting@Instrument"
             }
         ],
         "frame_label": "Shooting",
@@ -731,6 +756,12 @@
                 "fe_label": "Patient",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-Dying@Patient"
+            },
+            {
+                "definition": "Agent",
+                "fe_label": "Agent",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-Dying@Agent"
             },
             {
                 "definition": "Time",
@@ -1210,10 +1241,10 @@
         "definition": "The subclass of IntentionalEvent were people end a relationship with each other.",
         "frame_elements": [
             {
-                "definition": "Patient",
-                "fe_label": "Patient",
+                "definition": "AgentPatient",
+                "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
-                "rdf_uri": "stellaframes-BeingInARelationship@Patient"
+                "rdf_uri": "stellaframes-BeingInARelationship@AgentPatient"
             },
             {
                 "definition": "Time",
@@ -1563,6 +1594,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-IntentionalEvent@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-IntentionalEvent@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-IntentionalEvent@Location"
             }
         ],
         "frame_label": "IntentionalEvent",
@@ -1582,6 +1625,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-ChangeOfPossession@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ChangeOfPossession@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ChangeOfPossession@Location"
             }
         ],
         "frame_label": "ChangeOfPossession",
@@ -1601,7 +1656,20 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-FinancialTransaction@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-FinancialTransaction@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-FinancialTransaction@Location"
             }
+
         ],
         "frame_label": "FinancialTransaction-",
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#FinancialTransaction"
@@ -1614,6 +1682,18 @@
                 "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-SocialInteraction@AgentPatient"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-SocialInteraction@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-SocialInteraction@Location"
             }
         ],
         "frame_label": "SocialInteraction",
@@ -1633,6 +1713,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-ScalarChange@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ScalarChange@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ScalarChange@Location"
             }
         ],
         "frame_label": "ScalarChange",
@@ -1652,6 +1744,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-QuantityChange@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-QuantityChange@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-QuantityChange@Location"
             }
         ],
         "frame_label": "QuantityChange",
@@ -1671,6 +1775,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-ViolentTranslocation@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ViolentTranslocation@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-ViolentTranslocation@Location"
             }
         ],
         "frame_label": "ViolentTranslocation",
@@ -1690,6 +1806,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-SocialStatusChange@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-SocialStatusChange@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-SocialStatusChange@Location"
             }
         ],
         "frame_label": "SocialStatusChange",
@@ -1703,6 +1831,18 @@
                 "fe_label": "AgentPatient",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-RelationshipChange@AgentPatient"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-RelationshipChange@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-RelationshipChange@Location"
             }
         ],
         "frame_label": "RelationshipChange",
@@ -1722,6 +1862,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-InternalChange@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-InternalChange@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-InternalChange@Location"
             }
         ],
         "frame_label": "InternalChange",
@@ -1741,6 +1893,18 @@
                 "fe_label": "Agent",
                 "fe_type": "Peripheral",
                 "rdf_uri": "stellaframes-BiologicalEvent@Agent"
+            },
+            {
+                "definition": "Time",
+                "fe_label": "Time",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BiologicalEvent@Time"
+            },
+            {
+                "definition": "Location",
+                "fe_label": "Location",
+                "fe_type": "Peripheral",
+                "rdf_uri": "stellaframes-BiologicalEvent@Location"
             }
         ],
         "frame_label": "BiologicalEvent",
