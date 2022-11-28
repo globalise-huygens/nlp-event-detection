@@ -471,7 +471,7 @@
         "framenet_url": "https://github.com/globalise-huygens/nlp-event-detection/wiki#Besieging"
     },
     "stellaframes-TakingSomeoneUnderControl": {
-        "definition": "The subclass of SocialInteraction where someone illegally takes control over some person or group of persons.",
+        "definition": "The subclass of SocialInteraction where someone takes control over some person or group of persons.",
         "frame_elements": [
             {
                 "definition": "Agent",
