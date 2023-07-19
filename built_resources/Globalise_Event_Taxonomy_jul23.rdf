@@ -1,0 +1,876 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/"
+     xml:base="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:glob="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/glob:"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23">
+        <owl:imports rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Agent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Agent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:AgentPatient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:AgentPatient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:AlteringARelationship -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:AlteringARelationship">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:RelationshipChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Arriving -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Arriving">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Translocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Attacking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Attacking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ViolentContest"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Uprising"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeginningARelationship -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeginningARelationship">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:RelationshipChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingAtAPlace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingAtAPlace">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingAtPeace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingAtPeace">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDamaged -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDamaged">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDead -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDead">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDestroyed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDestroyed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingEmployed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingEmployed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInARelationship -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInARelationship">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInConflict -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInConflict">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInDebt -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInDebt">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingLeader -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingLeader">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Benefactive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Benefactive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Besieging -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Besieging">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Attacking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Buying -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Buying">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Trade"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Selling"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Cargo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Cargo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Collaboration -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Collaboration">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Damaging -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Damaging">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Decreasing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Decreasing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:QuantityChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Destroying -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Destroying">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:InternalChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Dying -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Dying">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:InternalChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Election -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Election">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Encounter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Encounter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingAConflict -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingAConflict">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingARelationship -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingARelationship">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:RelationshipChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingAWar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingAWar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingAConflict"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Enslaving -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Enslaving">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:TakingUnderControl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:FallingIll -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:FallingIll">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:FinancialTransaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:FinancialTransaction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ForceToAct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ForceToAct">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Getting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Getting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Giving -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Giving">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingAMedicalCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingAMedicalCondition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingContractualAgreement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingContractualAgreement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInPossession -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInPossession">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInternalSrarePlus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInternalSrarePlus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInternalStateMin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInternalStateMin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Healing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Healing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Increasing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Increasing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:QuantityChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Instrument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Instrument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:InternalChange -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:InternalChange">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Invasion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Invasion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Attacking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:JoiningAnOrganization -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:JoiningAnOrganization">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Killing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Killing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Attacking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Leaving -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Leaving">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Translocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:LeavingAnOrganization -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:LeavingAnOrganization">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:LosingPossession -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:LosingPossession">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Mismanagement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Mismanagement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Mutiny -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Mutiny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Uprising"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Occupation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Occupation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Path -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Path">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Patient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Patient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:PoliticalRevolution -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:PoliticalRevolution">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Uprising"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:QuantityChange -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:QuantityChange">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:RelationshipChange -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:RelationshipChange">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Repairing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Repairing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Replacing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Replacing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Request -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Request">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Riot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Riot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Uprising"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:InternalChange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Selling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Selling">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Trade"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Sinking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Sinking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Source -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Source">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:StartingAConflict -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:StartingAConflict">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:StartingAWar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:StartingAWar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:StartingAConflict"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:TakingUnderControl -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:TakingUnderControl">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Target -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Target">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Time -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Time">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EventArguments"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Trade -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Trade">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Translocation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Translocation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Transportation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Transportation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Translocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Unrest -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Unrest">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Uprising -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Uprising">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ViolentContest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ViolentContest -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ViolentContest">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Visit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Visit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Voyage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Voyage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Translocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:DynamicEvent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobaliseEventTaxonomy#owl:StaticEvent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Agent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:AgentPatient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Benefactive"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Cargo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Instrument"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Location"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Path"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Patient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Source"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Target"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Time"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:AlteringARelationship"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeginningARelationship"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingARelationship"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Arriving"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Leaving"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Transportation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Voyage"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Attacking"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Encounter"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:EndingAConflict"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ForceToAct"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Request"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:StartingAConflict"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:TakingUnderControl"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ViolentContest"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Visit"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingAtAPlace"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingAtPeace"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDamaged"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDead"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingDestroyed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingEmployed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInARelationship"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInConflict"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingInDebt"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:BeingLeader"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Collaboration"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingAMedicalCondition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingContractualAgreement"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInPossession"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInternalSrarePlus"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:HavingInternalStateMin"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Occupation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Unrest"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Besieging"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Invasion"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Killing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:InternalChange"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Mismanagement"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Sinking"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialInteraction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Translocation"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ChangeOfPossession"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:InternalChange"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:SocialStatusChange"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Damaging"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:FallingIll"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Healing"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:QuantityChange"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Repairing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Destroying"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Dying"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:ScalarChange"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Election"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:JoiningAnOrganization"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:LeavingAnOrganization"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:RelationshipChange"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Replacing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:FinancialTransaction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Getting"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Giving"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:LosingPossession"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Trade"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Mutiny"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:PoliticalRevolution"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stellaverkijk/ontologies/2023/6/GlobTaxonomyJul23/owl:Riot"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
