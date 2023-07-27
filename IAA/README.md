@@ -18,7 +18,7 @@ These files will be used to resolve the problematic disagreements amongst all an
 IAA_analysis.py uses files processed by process_inception_output.py.
 
 For more information on how IAA was analyzed, see [this report](https://docs.google.com/document/d/1MwkARk0_K2c8tQIeM1eLbb6N5QwhUhEQb1zJAzxe1Lw/edit?usp=sharing)
-For more information on how the test set was created, see [this report](https://docs.google.com/document/d/1yMQXSOlToAFLvL4NFlZkI-O37MUIz-Msvqme0MMq3w0/edit?usp=sharing
+For more information on how the test set was created, see [this report](https://docs.google.com/document/d/1yMQXSOlToAFLvL4NFlZkI-O37MUIz-Msvqme0MMq3w0/edit?usp=sharing)
 
 ## Requirements
 pandas == 2.0.3
