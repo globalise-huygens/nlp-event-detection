@@ -79,10 +79,10 @@ def general_statistics(df_Brecht, df_Kay, df_Manjusha, df_Lodewijk):
 
     print('Number of total annotations: ', len(all_annos))
 
-    print('Number of exact agreements between all annotators: ', len(agreements))
+    print('Number of first token ids of an event mention span that received a label from all annotators (mention detection): ', len(agreements))
     #print(agreements)
 
-    print('Percentage of exact agreement: ', (len(agreements)/len(all_annos))*100)
+    print('Percentage of mention detection agreement: ', (len(agreements)/len(all_annos))*100)
 
     print()
     print('Average amount of annotations is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4))
