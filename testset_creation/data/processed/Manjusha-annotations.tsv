@@ -1,4 +1,4 @@
-,mention,anchor_type,mention_token_id,mention_character_id,eventclass,Patient_offsets,Agent_offsets,Location_offsets,Time_offsets,AgentPatient_offsets,Benefactive_offsets,Cargo_offsets,Source_offsets,Target_offsets,Path_offsets,Instrument_offsets,mention_span,mention_span_ids,eventclass_no_number,last_token_id
+,token,anchor_type,token_id,character_ids,eventclass,Patient_offsets,Agent_offsets,Location_offsets,Time_offsets,AgentPatient_offsets,Benefactive_offsets,Cargo_offsets,Source_offsets,Target_offsets,Path_offsets,Instrument_offsets,mention_span,mention_span_ids,eventclass_no_number,last_token_id
 0,ee,0,1-1,0-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,No Span
 1,eee,0,1-2,3-6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,No Span
 2,phemmeer,0,1-3,7-15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,No Span

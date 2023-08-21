@@ -40,10 +40,10 @@ def make_base_dict(path):
             if row[8] != '_':
                 #begin a new dictionary and add the mention, the ids and the event label
                 eventdict = {}
-                eventdict['mention'] = row[2]
+                eventdict['token'] = row[2]
                 eventdict['anchor_type'] = row[9].split('[')[0]
-                eventdict['mention_token_id'] = row[0]
-                eventdict['mention_character_id'] = row[1]
+                eventdict['token_id'] = row[0]
+                eventdict['character_ids'] = row[1]
                 eventdict['eventclass'] = row[8] #.split('[')[0]
                 # for all the possible semantic roles
                 for arg in list_of_args:
@@ -63,10 +63,10 @@ def make_base_dict(path):
             else:
                 #begin a new dictionary and add the mention, the ids and the event label
                 eventdict = {}
-                eventdict['mention'] = row[2]
+                eventdict['token'] = row[2]
                 eventdict['anchor_type'] = 0
-                eventdict['mention_token_id'] = row[0]
-                eventdict['mention_character_id'] = row[1]
+                eventdict['token_id'] = row[0]
+                eventdict['character_ids'] = row[1]
                 eventdict['eventclass'] = 0
                 # for all the possible semantic roles
                 for arg in list_of_args:
@@ -101,7 +101,7 @@ def check_spans(df, i):
             if df.at[i, 'eventclass'] != df.at[i-1, 'eventclass']:
                 #check if the token_id of the second token within the instance of the event class at i is +1 the token_id of the first token within the instance of the event class
                 try:
-                    if int(df.at[i, 'mention_token_id'].split('-')[1])+1 == int(df.at[i+1, 'mention_token_id'].split('-')[1]):
+                    if int(df.at[i, 'token_id'].split('-')[1])+1 == int(df.at[i+1, 'token_id'].split('-')[1]):
                         for i2 in range (1,20):
                             try:
                                 if df.at[i, 'eventclass'] != df.at[i+i2, 'eventclass']:
@@ -122,8 +122,8 @@ def get_mention_spans(dicts, df):
         #for row in df.iterrows():
         if type(check_spans(df, i)) != int:
             if dict['eventclass'] != 0:
-                dict['mention_span'] = dict['mention']
-                dict['mention_span_ids'] = [df.at[i, 'mention_token_id']]
+                dict['mention_span'] = dict['token']
+                dict['mention_span_ids'] = [df.at[i, 'token_id']]
             else:
                 dict['mention_span'] = 0
                 dict['mention_span_ids'] = 0
@@ -131,8 +131,8 @@ def get_mention_spans(dicts, df):
             mentions = []
             ids = []
             for i2 in range (i, i+check_spans(df, i)):
-                mentions.append(df.at[i2, 'mention'])
-                ids.append(df.at[i2, 'mention_token_id'])
+                mentions.append(df.at[i2, 'token'])
+                ids.append(df.at[i2, 'token_id'])
             mentionspan = (' ').join(mentions)
             dict['mention_span'] = mentionspan
             dict['mention_span_ids'] = ids
@@ -157,7 +157,7 @@ def insert_span(df):
             len_span = len(df.at[i, 'mention_span'].split(' '))
             try:
                 for i2 in range(0, len_span):
-                    if df.at[i+i2, 'mention'] in df.at[i, 'mention_span'].split(' '): #and df.at[i+i2, 'eventclass'] != 0:
+                    if df.at[i+i2, 'token'] in df.at[i, 'mention_span'].split(' '): #and df.at[i+i2, 'eventclass'] != 0:
                         df.at[i+i2, 'mention_span'] = df.at[i, 'mention_span']
                         #df.at[i+i2, 'mention_in_context'] = df.at[i, 'mention_in_context']
                         df.at[i + i2, 'mention_span_ids'] = df.at[i, 'mention_span_ids']
@@ -207,4 +207,4 @@ def main(input_path, output_path1, output_path2):
 main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-1.tsv", "data/processed/Manjusha_inc_output_clean.tsv", "data/processed/Manjusha-annotations.tsv")
 main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-2.tsv", "data/processed/Kay_inc_output_clean.tsv", "data/processed/Kay-annotations.tsv")
 main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-3.tsv", "data/processed/Brecht_inc_output_clean.tsv", "data/processed/Brecht-annotations.tsv")
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv", "data/processed/Lodewijk_inc_output_clean.tsv", "data/processed/Lodewijk-anntations.tsv")
+main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv", "data/processed/Lodewijk_inc_output_clean.tsv", "data/processed/Lodewijk-annotations.tsv")

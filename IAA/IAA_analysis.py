@@ -9,6 +9,7 @@ import pandas as pd
 from process_inception_output import main
 import sys, os
 from collections import defaultdict
+import ast
 
 def blockPrint():
     sys.stdout = open(os.devnull, 'w')
