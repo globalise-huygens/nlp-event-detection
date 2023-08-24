@@ -51,6 +51,7 @@ B = drop_splitup_tokens(B)
 L = drop_splitup_tokens(L)
 
 
+
 print(len(M))
 print(len(K))
 print(len(B))
@@ -72,6 +73,8 @@ def delete_mistakes(l):
 def insert_annos(df, df_checks):
 
     tuples = get_checked_annotations(df_checks)
+    print('checking tuples....')
+    print(tuples)
 
     i = -1
     token_ids = df['token_id'].tolist()
@@ -79,6 +82,7 @@ def insert_annos(df, df_checks):
     for item in token_ids:
         i += 1
         for x in tuples:
+            #print(x)
             if x[0] == item:
                 indices.append((i, x[1]))
 
@@ -95,7 +99,7 @@ Mcheck3 = pd.read_csv('data/checked_data/Mcheck3.tsv', delimiter='\t')
 Mcheck4 = pd.read_csv('data/checked_data/Mcheck4.tsv', delimiter='\t')
 Mcheck = pd.concat([Mcheck2, Mcheck3, Mcheck4])
 
-#M = insert_annos(K, Mcheck)
+M = insert_annos(M, Mcheck)
 
 #checks Kay
 Kcheck1 = pd.read_csv('data/checked_data/Kcheck1.tsv', delimiter='\t')
@@ -103,7 +107,7 @@ Kcheck3 = pd.read_csv('data/checked_data/Kcheck3.tsv', delimiter='\t')
 Kcheck4 = pd.read_csv('data/checked_data/Kcheck4.tsv', delimiter='\t')
 Kcheck = pd.concat([Kcheck1, Kcheck3, Kcheck4])
 
-#K = insert_annos(K, Kcheck)
+K = insert_annos(K, Kcheck)
 
 #checks Brecht
 Bcheck1 = pd.read_csv('data/checked_data/Bcheck1.tsv', delimiter='\t')
@@ -111,7 +115,7 @@ Bcheck2 = pd.read_csv('data/checked_data/Bcheck2.tsv', delimiter='\t')
 Bcheck4 = pd.read_csv('data/checked_data/Bcheck4.tsv', delimiter='\t')
 Bcheck = pd.concat([Bcheck1, Bcheck2, Bcheck4])
 
-#B = insert_annos(B, Bcheck)
+B = insert_annos(B, Bcheck)
 
 #checks Lodewijk
 Lcheck1 = pd.read_csv('data/checked_data/Lcheck1.tsv', delimiter='\t')
@@ -119,8 +123,9 @@ Lcheck2 = pd.read_csv('data/checked_data/Lcheck2.tsv', delimiter='\t')
 Lcheck3 = pd.read_csv('data/checked_data/Lcheck3.tsv', delimiter='\t')
 Lcheck = pd.concat([Lcheck1, Lcheck2, Lcheck3])
 
-#L = insert_annos(L, Lcheck)
+L = insert_annos(L, Lcheck)
 
+L.to_csv("Lodewijk_after_check.csv")
 
 def merge_annotations(df1, df2, df3, df4):
     annos1 = df1['eventclass_no_number'].tolist()
@@ -247,6 +252,9 @@ possession_events = ['Buying', 'Selling', 'Getting', 'Giving', 'LosingPossession
                          'ChangeOfPossession']
 unrest_events = ['Mutiny', 'Riot', 'PoliticalRevolution', 'Uprising']
 misc_events = ['0', 'Miscellaneous']
+scalar_events = ['ScalarChange', 'Decreasing', 'Increasing', 'QuantityChange']
+relationship_events = ['BeginningARelationship', 'RelationshipChange', 'AlteringARelationship',
+                           'EndingARelationship']
 
 
 def taxonomic_resolve(annos, possible_classes, resolution):
@@ -281,10 +289,22 @@ resulTransPossUpr = taxonomic_resolve(classes, unrest_events, 'Uprising')
 for x in resulTransPossUpr:
     classes[x[0]] = x[1]
 
-resulTransPossUpr = taxonomic_resolve(classes, misc_events, '0')
+resulTransPossUprMisc = taxonomic_resolve(classes, misc_events, '0')
 
-for x in resulTransPossUpr:
+for x in resulTransPossUprMisc:
     classes[x[0]] = x[1]
+
+resulTransPossUprMiscSc = taxonomic_resolve(classes, scalar_events, 'ScalarChange')
+
+for x in resulTransPossUprMiscSc:
+    classes[x[0]] = x[1]
+
+resulTransPossUprMiscScRel = taxonomic_resolve(classes, relationship_events, 'RelationshipChange')
+
+for x in resulTransPossUprMiscScRel:
+    classes[x[0]] = x[1]
+
+
 
 print('....')
 
@@ -305,7 +325,6 @@ print('not resolved: ', i_unresolved)
 
 df['event_resolve2'] = classes
 
-
 i_annos = 0
 i = 0
 for item in classes:
@@ -317,6 +336,69 @@ for item in classes:
 
 print(i_annos)
 print(i)
+
+damaging_events = ['Damaging']
+damaging_static = ['BeingDamaged']
+
+translocation_static = ['BeingAtAPlace']
+
+def static_resolve(annos, dynamic_classes, static_classes, resolution):
+    i = -1
+    to_add = []
+    for tuple in annos:
+        i += 1
+        #if type(tuple) == tuple:
+        i_dyn_key=0
+        i_stat_key=0
+        for key in tuple:
+            if key in dynamic_classes:
+                i_dyn_key += 1
+            if key in static_classes:
+                i_stat_key +=1
+            if i_dyn_key >= 1 and i_stat_key >=1 and i_dyn_key+i_stat_key >= 3:
+                to_add.append((i, resolution))
+
+    return(to_add)
+
+resulDamStat = static_resolve(classes, damaging_events, damaging_static, 'BeingDamaged')
+
+for x in resulDamStat:
+    classes[x[0]] = x[1]
+
+resulDamStatTranStat = static_resolve(classes, translocation_events, translocation_static, 'BeingAtAPlace')
+
+for x in resulDamStatTranStat:
+    classes[x[0]] = x[1]
+
+
+
+print('....')
+
+i_class=0
+i_noneclass = 0
+i_unresolved = 0
+for item in classes:
+    if type(item) == str and item != '0':
+        i_class += 1
+    if type(item) == str and item == '0':
+        i_noneclass += 1
+    if type(item) != str:
+        i_unresolved +=1
+
+print()
+print('Third resolve step (merging classes on static classes) resulted in a total resolution of ', i_class)
+print('not resolved: ', i_unresolved)
+
+df['event_resolve3'] = classes
+
+i_annos = 0
+i = 0
+for item in classes:
+    if item!= '0':
+        i_annos+=1
+    if item == '0':
+        i+=1
+
 
 
 
@@ -378,11 +460,21 @@ for item in classes:
 
 
 print()
-print('Third resolve step (merging classes on taxonomic level for Translocation events) resulted in a total resolution of ', i_class)
+print('Fourth resolve step (inserting handmade resolutions) resulted in a total resolution of ', i_class)
 print('not resolved: ', i_unresolved)
 
-df['event_resolve3'] = classes
-df['anchor_resolve'] = anchor_type
+anchor_types = []
+for anchor in anchor_type:
+    if anchor == ('0', '0', '0', '0'):
+        anchor_types.append('0')
+    else:
+        anchor_types.append(anchor)
+
+
+df['anchor_resolve'] = anchor_types
+df['event_resolve4'] = classes
+
+
 
 
 i_annos = 0
@@ -411,8 +503,9 @@ new_df['token'] = df['token']
 new_df['anchor_type_tocheck'] = df['anchor_resolve']
 new_df['event_anno_tocheck'] = df['event_resolve3']
 
-#new_df.to_csv('data/handmade_resolutions/tocheck.csv')
 
 for item in classes:
     if type(item) != str:
         print(item)
+
+#new_df.to_csv('data/handmade_resolutions/tocheck.csv')

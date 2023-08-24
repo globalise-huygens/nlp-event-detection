@@ -1,3 +1,56 @@
+import ast
+
+def merge_check_df(df_og, df_checl):
+
+    indces = []
+    for index, row in df_check.iterrows():
+        if row['Should this mention be annotated as an event?'] != 'yes':
+            indces.append(index)
+
+
+    df_check = df_check.drop(indces)
+
+    anno_tuples = []
+    for index, row in df_check.iterrows:
+        anno_tuples.append(ast.literal_eval(row['mention_ids']), row['If so, which event class should the mention be annotated with?'])
+
+
+
+
+    return(result_df)
+
+def append_checked_annotations(df_original, df_check1, df_check2, df_check3):
+
+    try:
+    #make sure mention_ids are list types
+        mention_ids_l = []
+        for item in df_check1['mention_ids']:
+            mention_ids_l.append(ast.literal_eval(item))
+
+        df_check1['mention_ids'] = mention_ids_l
+
+        mention_ids_l = []
+        for item in df_check2['mention_ids']:
+            mention_ids_l.append(ast.literal_eval(item))
+
+        df_check2['mention_ids'] = mention_ids_l
+
+        mention_ids_l = []
+        for item in df_check3['mention_ids']:
+        mention_ids_l.append(ast.literal_eval(item))
+
+        df_check3['mention_ids'] = mention_ids_l
+    except AttributeError:
+        x = 0
+
+    merge1 = merge_dfs(df_original, df_check1)
+    merge2 = merge_dfs(merge1, df_check2)
+    complete = merge_dfs(merge2, df_check3)
+
+    return(complete)
+
+
+
 
 
 
