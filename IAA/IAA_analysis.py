@@ -371,6 +371,9 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2, df_check1, df_check
     print("Combined agreement score: ",
           ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100))
 
+    print("Combined agreement score with no resolutions: ",
+          (len(examples_partial) / len(
+              df2) * 100))
     print()
     print("Event category disagreement score: ", ((len(real_disagreements)/ len(df2)) * 100))
     print("Coverage disagreement score: ", (100-(len(real_disagreements)/ len(df2)) * 100)-(((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100)
@@ -557,13 +560,15 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2, df_check1, df_check
 
     print("FINAL SCORES")
 
-
     print()
     print(annotator2, ' compared to ', annotator1, ':')
     print("Partial span and exact event type match: ", ((len(examples_partial)/len(complete2))*100))
     print("Partial span and event category match: ", (((len(examples_partial_different)-len(real_disagreements))/ len(complete2)) * 100))
     print("Combined agreement score: ",
           ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(complete2)) * 100))
+    print("Combined agreement score with no resolutions: ",
+          (len(examples_partial) / len(
+              complete2) * 100))
     print()
     print("Event category disagreement score: ", ((len(real_disagreements)/ len(complete2)) * 100))
     print("Coverage disagreement score: ", (100-(len(real_disagreements)/ len(complete2)) * 100)-(((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(complete2)) * 100)
@@ -709,5 +714,5 @@ df_coverage = pd.DataFrame(final_coverage_disagreements)
 condition = df_coverage['mention_span_ids'].isin(df_type_disagreements['mention_span_ids'])
 df_coverage.drop(df_coverage[condition].index, inplace = True)
 
-df_type_disagreements.to_csv("data/unresolved_disagreements/annotated_disagreements_test_set_triggers.tsv")
-df_coverage.to_csv('data/unresolved_disagreements/filtered_coverage_disagreements_test_set_triggers.tsv')
+#df_type_disagreements.to_csv("data/unresolved_disagreements/annotated_disagreements_test_set_triggers.tsv")
+#df_coverage.to_csv('data/unresolved_disagreements/filtered_coverage_disagreements_test_set_triggers.tsv')

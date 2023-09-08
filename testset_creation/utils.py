@@ -120,8 +120,6 @@ unrest_events = ['Mutiny', 'Riot', 'PoliticalRevolution', 'Uprising']
 relationship_events = ['BeginningARelationship', 'RelationshipChange', 'AlteringARelationship',
                            'EndingARelationship']
 scalar_events = ['ScalarChange', 'Decreasing', 'Increasing', 'QuantityChange']
-
-
 stateplus_events = ['Repairing', 'Healing']
 statemin_events = ['Damaging', 'FallingIll']
 translocation_static = ['BeingAtAPlace']

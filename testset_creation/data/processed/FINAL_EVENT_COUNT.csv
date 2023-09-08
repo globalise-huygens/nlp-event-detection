@@ -1,0 +1,53 @@
+,events,counts
+0,0,2422
+1,Transportation,20
+2,Leaving,6
+3,Translocation,18
+4,Arriving,11
+5,SocialInteraction,1
+6,Encounter,1
+7,Getting; Transportation,3
+8,Voyage,6
+9,Repairing,7
+10,HavingInPossession,5
+11,Trade,13
+12,Decreasing,6
+13,Uprising,1
+14,Translocation ,1
+15,Giving,1
+16,ChangeOfPossession,3
+17,Getting,7
+18,Mismanagement,1
+19,Collaboration,5
+20,HavingInternalState+,6
+21,BeingInARelationship,3
+22,ForceToAct,10
+23,BeingAtAPlace,3
+24,TakingUnderControl ,1
+25,BeingInConflict ,2
+26,FinancialTransaction,2
+27,Getting; Translocation,1
+28,Selling,1
+29,Request,6
+30,Buying,2
+31,Arriving ,1
+32,BeingEmployed,4
+33,HavingInternalState+ ,1
+34,Invasion,1
+35,BeingInConflict,1
+36,Unrest,3
+37,LosingPossession,1
+38,Increasing,1
+39,Getting ,4
+40,ViolentContest,4
+41,BeingDestroyed ,1
+42,HavingInternalState-,5
+43,HavingInternalState+; Repairing ,1
+44,RelationshipChange,4
+45,AlteringARelationship,4
+46,EndingConflict,7
+47,Giving; Transportation,2
+48,HavingInPossession; BeingAtAPlace,1
+49,FinancialTransaction ,2
+50,ViolentContest; Translocation,1
+51,BeingDamaged,1

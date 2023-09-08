@@ -24,3 +24,28 @@ for index, row in df.iterrows():
 counted_tokens = count(annotated_tokens)
 print()
 print(counted_tokens)
+
+l_tokens = []
+l_counts = []
+for key, value in counted_tokens.items():
+    l_tokens.append(key)
+    l_counts.append(value)
+
+df1 = pd.DataFrame()
+df1['tokens'] = l_tokens
+df1['counts'] = l_counts
+
+l_events = []
+l_counts = []
+for key, value in counted.items():
+    l_events.append(key)
+    l_counts.append(value)
+
+df2 = pd.DataFrame()
+df2['events'] = l_events
+df2['counts'] = l_counts
+
+
+df1.to_csv('data/processed/FINAL_TOKEN_COUNT.csv')
+df2.to_csv('data/processed/FINAL_EVENT_COUNT.csv')
+
