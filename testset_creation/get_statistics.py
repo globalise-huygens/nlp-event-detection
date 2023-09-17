@@ -1,6 +1,8 @@
 import pandas as pd
 from collections import Counter as count
 
+
+
 df = pd.read_csv('FINAL.tsv', delimiter= '\t')
 print(df)
 
@@ -46,6 +48,6 @@ df2['events'] = l_events
 df2['counts'] = l_counts
 
 
-df1.to_csv('data/processed/FINAL_TOKEN_COUNT.csv')
-df2.to_csv('data/processed/FINAL_EVENT_COUNT.csv')
+#df1.to_csv('data/processed/FINAL_TOKEN_COUNT.csv')
+#df2.to_csv('data/processed/FINAL_EVENT_COUNT.csv')
 

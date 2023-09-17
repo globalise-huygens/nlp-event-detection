@@ -125,7 +125,7 @@ Lcheck = pd.concat([Lcheck1, Lcheck2, Lcheck3])
 
 L = insert_annos(L, Lcheck)
 
-L.to_csv("Lodewijk_after_check.csv")
+
 
 def merge_annotations(df1, df2, df3, df4):
     annos1 = df1['eventclass_no_number'].tolist()
@@ -489,7 +489,7 @@ for item in classes:
 print(i_annos)
 print(i)
 
-df.to_csv('data/processed/merged_and_resolved.csv')
+#df.to_csv('data/processed/merged_and_resolved.csv')
 
 print()
 print()
