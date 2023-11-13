@@ -8,8 +8,8 @@ For more information on how scores were calculated, see the Event annotation IAA
 import pandas as pd
 from process_inception_output import main
 import sys, os
-from collections import defaultdict
-import ast
+from prettytable import PrettyTable
+
 
 def blockPrint():
     sys.stdout = open(os.devnull, 'w')
@@ -40,14 +40,14 @@ def post_clean(jsonfile, print_param):
     return(cleaned_df)
 
 
-main("data2/NL-HaNA_1.04.02_1812_0803-0808-1.tsv", "data2/foelie.tsv", "data2/foelie-triggers-c.tsv", "data2/foelie-triggers-conll.json")
-main("data2/NL-HaNA_1.04.02_1812_0803-0808-2.tsv", "data2/kruidnagel.tsv", "data2/kruidnagel-triggers-c.tsv", "data2/kruidnagel-triggers-conll.json")
-main("data2/NL-HaNA_1.04.02_1812_0803-0808-3.tsv", "data2/nootmuskaat.tsv", "data2/nootmuskaat-triggers-c.tsv", "data2/nootmuskaat-triggers-conll.json")
+main("team_data/inception_output/NL-HaNA_1.04.02_1812_0803-0808-1.tsv", "team_data/processed/foelie.tsv", "team_data/processed/foelie-triggers-c.tsv", "team_data/processed/foelie-triggers-conll.json")
+main("team_data/inception_output/NL-HaNA_1.04.02_1812_0803-0808-2.tsv", "team_data/processed/kruidnagel.tsv", "team_data/processed/kruidnagel-triggers-c.tsv", "team_data/processed/kruidnagel-triggers-conll.json")
+main("team_data/inception_output/NL-HaNA_1.04.02_1812_0803-0808-3.tsv", "team_data/processed/nootmuskaat.tsv", "team_data/processed/nootmuskaat-triggers-c.tsv", "team_data/processed/nootmuskaat-triggers-conll.json")
 
 
-df_foelie = post_clean("data2/foelie-triggers-conll.json", 'print')
-df_kruidnagel = post_clean("data2/kruidnagel-triggers-conll.json", 'print')
-df_nootmuskaat = post_clean("data2/nootmuskaat-triggers-conll.json", 'print')
+df_foelie = post_clean("team_data/processed/foelie-triggers-conll.json", 'print')
+df_kruidnagel = post_clean("team_data/processed/kruidnagel-triggers-conll.json", 'print')
+df_nootmuskaat = post_clean("team_data/processed/nootmuskaat-triggers-conll.json", 'print')
 
 
 print('Total amount of annotations Foelie: ', len(df_foelie))
@@ -62,6 +62,13 @@ def make_dict(df):
     for index, row in df.iterrows():
         l.append({'mention_token_id': row['mention_token_id']})
     return(l)
+
+def make_span_dict(df):
+    l = []
+    for index, row in df.iterrows():
+        l.append({'mention_ids': row['mention_ids']})
+    return(l)
+
 
 def general_statistics(df1, df2):
     foelie = make_dict(df_foelie)
@@ -78,7 +85,7 @@ def general_statistics(df1, df2):
 
     print('Number of total annotations: ', len(all_annos))
 
-    print('Number of first token ids of an event mention span that received a label from all annotators (mention detection): ', len(agreements))
+    print('Number of tokens that received an event class label of all annotators: ', len(agreements))
     #print(agreements)
 
     print('Percentage of mention detection agreement: ', (len(agreements)/len(all_annos))*100)
@@ -87,6 +94,29 @@ def general_statistics(df1, df2):
     print('Average amount of annotations is: ' , ((len(foelie)+len(kruidnagel)+len(nootmuskaat))/3))
     #print('Average amount of annotations per scan is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4) / 5)
 
+    print()
+
+    foelie = make_dict(df_foelie)
+    kruidnagel = make_dict(df_kruidnagel)
+    nootmuskaat = make_dict(df_nootmuskaat)
+
+    print('Total amount of span annotations Foelie: ', len(df_foelie))
+    print('Total amount of span annotations Kruidnagel:', len(df_kruidnagel))
+    print('Total amount of span annotations Nootmsuskaat:', len(df_nootmuskaat))
+
+    all_annos = [x for x in foelie + kruidnagel + nootmuskaat]
+    agreements = [x for x in foelie + kruidnagel + nootmuskaat if x in foelie and x in kruidnagel and x in nootmuskaat]
+
+    print('Number of total annotations: ', len(all_annos))
+
+    print('Number of tokens that received an event class label of all annotators: ', len(agreements))
+    # print(agreements)
+
+    print('Percentage of mention detection agreement: ', (len(agreements) / len(all_annos)) * 100)
+
+    print()
+    print('Average amount of annotations is: ', ((len(foelie) + len(kruidnagel) + len(nootmuskaat)) / 3))
+    # print('Average amount of annotations per scan is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4) / 5)
 
 def merge_dfs(df1, df2):
 
@@ -366,14 +396,19 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     print()
     print('---------------------------------------------------------------------------------------')
     print()
-    print("INTERMEDIATE SCORES")
+    print("SCORES")
 
     print()
     print(annotator2, ' compared to ', annotator1, ':')
     print("Partial span and exact event type match: ", ((len(examples_partial)/len(df2))*100))
     print("Partial span and event category match: ", (((len(examples_partial_different)-len(real_disagreements))/ len(df2)) * 100))
+
+    agree_res = ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100)
+
     print("Combined agreement score: ",
           ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100))
+
+    agree_nores = (len(examples_partial) / len(df2) * 100)
 
     print("Combined agreement score with no resolutions: ",
           (len(examples_partial) / len(
@@ -382,12 +417,18 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     print("Event category disagreement score: ", ((len(real_disagreements)/ len(df2)) * 100))
     print("Coverage disagreement score: ", (100-(len(real_disagreements)/ len(df2)) * 100)-(((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100)
     print()
+    print()
+    all_spans_by_both_annotators = len(examples_partial) + len(examples_partial_different)
+    class_agreement = (len(examples_partial) / all_spans_by_both_annotators) * 100
+    print('amount of class agreement before reso: ', class_agreement)
+
+    class_agreement_reso = ((len(examples_partial) + (len(examples_partial_different)-len(real_disagreements))) / all_spans_by_both_annotators) * 100
+    print('amount of class agreement after reso: ', class_agreement_reso)
     print('---------------------------------------------------------------------------------------')
 
 
-
-
-    #return(disagreement_dicts, process_disagreements)
+    scores = {'agree_nores':agree_nores, 'agree_res':agree_res, 'class_agreement': class_agreement, 'class_agreement_reso': class_agreement_reso}
+    return(scores)
 
 
 print('---------------------------------------------------------------------------------------')
@@ -402,19 +443,45 @@ print()
 
 print('RESULTS foelie')
 #d1,p1=analyse_annotator_pair(df_kruidnagel, df_foelie, 'Team Kruidnagel', 'Team foelie')
-analyse_annotator_pair(df_kruidnagel, df_foelie, 'Team Kruidnagel', 'Team Foelie')
-analyse_annotator_pair(df_nootmuskaat, df_foelie, 'Team Nootmuskaat', 'Team Foelie')
+scores_FK = analyse_annotator_pair(df_kruidnagel, df_foelie, 'Team Kruidnagel', 'Team Foelie')
+scores_FN = analyse_annotator_pair(df_nootmuskaat, df_foelie, 'Team Nootmuskaat', 'Team Foelie')
 
 print('RESULTS kruidnagel')
 #d2,p2=analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team foelie', 'Team Kruidnagel')
-analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team Foelie', 'Team Kruidnagel')
-analyse_annotator_pair(df_nootmuskaat, df_kruidnagel, 'Team Nootmuskaat', 'Team Kruidnagel')
+scores_KF = analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team Foelie', 'Team Kruidnagel')
+scores_KN = analyse_annotator_pair(df_nootmuskaat, df_kruidnagel, 'Team Nootmuskaat', 'Team Kruidnagel')
 
 print('RESULTS nootmuskaat')
 #d2,p2=analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team foelie', 'Team Kruidnagel')
-analyse_annotator_pair(df_foelie, df_nootmuskaat, 'Team Foelie', 'Team Nootmuskaat')
-analyse_annotator_pair(df_kruidnagel, df_nootmuskaat, 'Team Kruidnagel', 'Team Nootmuskaat')
+scores_NF = analyse_annotator_pair(df_foelie, df_nootmuskaat, 'Team Foelie', 'Team Nootmuskaat')
+scores_NK = analyse_annotator_pair(df_kruidnagel, df_nootmuskaat, 'Team Kruidnagel', 'Team Nootmuskaat')
 
+avg_nores = (scores_FK['agree_nores'] + scores_KF['agree_nores'] + scores_FN['agree_nores'] + scores_NF['agree_nores'] + scores_KN['agree_nores'] + scores_NK['agree_nores']) / 6
+avg_nores_trained = (scores_FK['agree_nores'] + scores_KF['agree_nores']) / 2
 
+avg_res = (scores_FK['agree_res'] + scores_KF['agree_res'] + scores_FN['agree_res'] + scores_NF['agree_res'] + scores_KN['agree_res'] + scores_NK['agree_res']) / 6
+avg_res_trained = (scores_FK['agree_res'] + scores_KF['agree_res']) / 2
 
+print("Scores after check and after resolution (fin_agree_res)")
+table = PrettyTable()
+table.field_names = ["", "T1/T2", "T2/T1", "T1/T3", "T3/T1", "T2/T3", "T3/T2", "avg", "only trained avg"]
+table.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], scores_FN['agree_nores'], scores_NF['agree_nores'], scores_KN['agree_nores'], scores_NK['agree_nores'], avg_nores, avg_nores_trained])
+table.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], scores_FN['agree_res'], scores_NF['agree_res'], scores_KN['agree_res'], scores_NK['agree_res'], avg_res, avg_res_trained])
+
+print(table)
+
+print()
+print()
+
+avg_br_tr = (scores_FK['class_agreement'] + scores_KF['class_agreement']) /2
+avg_ar_tr = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso']) /2
+avg_br_ntr = (scores_FK['class_agreement'] + scores_KF['class_agreement'] + scores_FN['class_agreement'] + scores_NF['class_agreement'] + scores_KN['class_agreement'] + scores_NK['class_agreement']) / 6
+avg_ar_ntr = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso'] + scores_FN['class_agreement_reso'] + scores_NF['class_agreement_reso'] + scores_KN['class_agreement_reso'] + scores_NK['class_agreement_reso']) / 6
+
+print("Average class agreement scores (span level; partial overlap")
+table = PrettyTable()
+table.field_names = ["", "S2-tr", "S2-notr"]
+table.add_row(["BR", avg_br_tr, avg_br_ntr])
+table.add_row(["AR", avg_ar_tr, avg_ar_ntr])
+print(table)
 

@@ -9,6 +9,7 @@ import pandas as pd
 from process_inception_output import main
 import sys, os
 from collections import defaultdict
+from prettytable import PrettyTable
 import ast
 
 def blockPrint():
@@ -40,15 +41,15 @@ def post_clean(jsonfile, print_param):
     return(cleaned_df)
 
 
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-1.tsv", "data/Manjusha.tsv", "data/Manjusha-triggers-c.tsv", "data/Manjusha-triggers-conll.json")
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-2.tsv", "data/Kay.tsv", "data/Kay-triggers-c.tsv", "data/Kay-triggers-conll.json")
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-3.tsv", "data/Brecht.tsv", "data/Brecht-triggers-c.tsv", "data/Brecht-triggers-conll.json")
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv", "data/Lodewijk.tsv", "data/Lodewijk-triggers-c.tsv", "data/Lodewijk-triggers-conll.json")
+main("individual_data/inception_output/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-1.tsv", "individual_data/processed/Manjusha.tsv", "individual_data/processed/Manjusha-triggers-c.tsv", "individual_data/processed/Manjusha-triggers-conll.json")
+main("individual_data/inception_output/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-2.tsv", "individual_data/processed/Kay.tsv", "individual_data/processed/Kay-triggers-c.tsv", "individual_data/processed/Kay-triggers-conll.json")
+main("individual_data/inception_output/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-3.tsv", "individual_data/processed/Brecht.tsv", "individual_data/processed/Brecht-triggers-c.tsv", "individual_data/processed/Brecht-triggers-conll.json")
+main("individual_data/inception_output/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv", "individual_data/processed/Lodewijk.tsv", "individual_data/processed/Lodewijk-triggers-c.tsv", "individual_data/processed/Lodewijk-triggers-conll.json")
 
-df_Manjusha = post_clean("data/Manjusha-triggers-conll.json", 'print')
-df_Brecht = post_clean("data/Brecht-triggers-conll.json", 'print')
-df_Kay = post_clean("data/Kay-triggers-conll.json", 'print')
-df_Lodewijk = post_clean("data/Lodewijk-triggers-conll.json", 'print')
+df_Manjusha = post_clean("individual_data/processed/Manjusha-triggers-conll.json", 'print')
+df_Brecht = post_clean("individual_data/processed/Brecht-triggers-conll.json", 'print')
+df_Kay = post_clean("individual_data/processed/Kay-triggers-conll.json", 'print')
+df_Lodewijk = post_clean("individual_data/processed/Lodewijk-triggers-conll.json", 'print')
 
 print('Total amount of annotations Manjusha: ', len(df_Manjusha))
 print('Total amount of annotations Lodewijk:', len(df_Lodewijk))
@@ -63,11 +64,18 @@ def make_dict(df):
         l.append({'mention_token_id': row['mention_token_id']})
     return(l)
 
+def make_span_dict(df):
+    l = []
+    for index, row in df.iterrows():
+        l.append({'mention_ids': row['mention_ids']})
+    return(l)
+
 def general_statistics(df_Brecht, df_Kay, df_Manjusha, df_Lodewijk):
     Brecht = make_dict(df_Brecht)
     Lodewijk = make_dict(df_Lodewijk)
     Manjusha = make_dict(df_Manjusha)
     Kay = make_dict(df_Kay)
+    print(Kay)
 
     print('Total amount of annotations Manjusha: ', len(df_Manjusha))
     print('Total amount of annotations Lodewijk:', len(df_Lodewijk))
@@ -76,18 +84,50 @@ def general_statistics(df_Brecht, df_Kay, df_Manjusha, df_Lodewijk):
     print()
 
     all_annos = [x for x in Brecht + Lodewijk + Manjusha + Kay]
+    print('all annos, ', all_annos)
     agreements = [x for x in Brecht + Lodewijk + Manjusha + Kay if x in Brecht and x in Kay and x in Lodewijk and x in Manjusha]
 
     print('Number of total annotations: ', len(all_annos))
 
-    print('Number of first token ids of an event mention span that received a label from all annotators (mention detection): ', len(agreements))
+    print('Number of tokens that received an event class label of all annotators: ', len(agreements))
     #print(agreements)
 
-    print('Percentage of mention detection agreement: ', (len(agreements)/len(all_annos))*100)
+    print('Percentage of mention detection agreement (token level): ', (len(agreements)/len(all_annos))*100)
 
     print()
     print('Average amount of annotations is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4))
     print('Average amount of annotations per scan is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4) / 5)
+
+    print()
+
+    Brecht = make_span_dict(df_Brecht)
+    Lodewijk = make_span_dict(df_Lodewijk)
+    Manjusha = make_span_dict(df_Manjusha)
+    Kay = make_span_dict(df_Kay)
+    print(Kay)
+
+    print('Total amount of span annotations Manjusha: ', len(df_Manjusha))
+    print('Total amount of span annotations Lodewijk:', len(df_Lodewijk))
+    print('Total amount of span annotations Brecht: ', len(df_Brecht))
+    print('Total amount of span annotations Kay:', len(df_Kay))
+    print()
+
+    all_annos = [x for x in Brecht + Lodewijk + Manjusha + Kay]
+    print('all annos, ', all_annos)
+    agreements = [x for x in Brecht + Lodewijk + Manjusha + Kay if x in Brecht and x in Kay and x in Lodewijk and x in Manjusha]
+
+    print('Number of total span annotations: ', len(all_annos))
+
+    print('Number of spans that received an event class label of all annotators (perfect match): ', len(agreements))
+    #print(agreements)
+
+    print('Percentage of mention detection agreement (span level): ', (len(agreements)/len(all_annos))*100)
+
+    print()
+    print('Average amount of span annotations is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4))
+    print('Average amount of span annotations per scan is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4) / 5)
+
+
 
 
 def merge_dfs(df1, df2):
@@ -368,9 +408,12 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2, df_check1, df_check
     print(annotator2, ' compared to ', annotator1, ':')
     print("Partial span and exact event type match: ", ((len(examples_partial)/len(df2))*100))
     print("Partial span and event category match: ", (((len(examples_partial_different)-len(real_disagreements))/ len(df2)) * 100))
+
+    int_agree_res = ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100)
     print("Combined agreement score: ",
           ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100))
 
+    int_agree_nores = (len(examples_partial) / len(df2) * 100)
     print("Combined agreement score with no resolutions: ",
           (len(examples_partial) / len(
               df2) * 100))
@@ -378,6 +421,13 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2, df_check1, df_check
     print("Event category disagreement score: ", ((len(real_disagreements)/ len(df2)) * 100))
     print("Coverage disagreement score: ", (100-(len(real_disagreements)/ len(df2)) * 100)-(((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(df2)) * 100)
     print()
+    print()
+    all_spans_by_both_annotators = len(examples_partial) + len(examples_partial_different)
+    class_agreement = (len(examples_partial) / all_spans_by_both_annotators) * 100
+    print('amount of class agreement before reso: ', class_agreement)
+
+    class_agreement_reso = ((len(examples_partial) + (len(examples_partial_different)-len(real_disagreements))) / all_spans_by_both_annotators) * 100
+    print('amount of class agreement after reso: ', class_agreement_reso)
     print('---------------------------------------------------------------------------------------')
 
 
@@ -564,8 +614,12 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2, df_check1, df_check
     print(annotator2, ' compared to ', annotator1, ':')
     print("Partial span and exact event type match: ", ((len(examples_partial)/len(complete2))*100))
     print("Partial span and event category match: ", (((len(examples_partial_different)-len(real_disagreements))/ len(complete2)) * 100))
+
+    fin_agree_res = ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(complete2)) * 100)
     print("Combined agreement score: ",
           ((((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(complete2)) * 100))
+
+    fin_agree_nores = (len(examples_partial) / len(complete2) * 100)
     print("Combined agreement score with no resolutions: ",
           (len(examples_partial) / len(
               complete2) * 100))
@@ -573,25 +627,33 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2, df_check1, df_check
     print("Event category disagreement score: ", ((len(real_disagreements)/ len(complete2)) * 100))
     print("Coverage disagreement score: ", (100-(len(real_disagreements)/ len(complete2)) * 100)-(((len(examples_partial_different) - len(real_disagreements)) + len(examples_partial))/ len(complete2)) * 100)
     print()
+    print()
+    all_spans_by_both_annotators = len(examples_partial) + len(examples_partial_different)
+    class_agreement2 = (len(examples_partial) / all_spans_by_both_annotators) * 100
+    print('amount of class agreement before reso: ', class_agreement2)
+
+    class_agreement_reso2 = ((len(examples_partial) + (len(examples_partial_different)-len(real_disagreements))) / all_spans_by_both_annotators) * 100
+    print('amount of class agreement after reso: ', class_agreement_reso2)
     print('---------------------------------------------------------------------------------------')
 
-    return(disagreement_dicts, process_disagreements)
+    scores = {'int_agree_nores': int_agree_nores, 'int_agree_res':int_agree_res, 'fin_agree_nores':fin_agree_nores, 'fin_agree_res':fin_agree_res, 'class_agreement': class_agreement, 'class_agreement_reso': class_agreement_reso, 'class_agreement2': class_agreement2, 'class_agreement_reso2': class_agreement_reso2}
+    return(scores, disagreement_dicts, process_disagreements)
 
-Lcheck1= pd.read_csv('data/checked_data/Lcheck1.tsv', delimiter='\t', index_col=None)
-Lcheck2= pd.read_csv('data/checked_data/Lcheck2.tsv', delimiter='\t', index_col=None)
-Lcheck3= pd.read_csv('data/checked_data/Lcheck3.tsv', delimiter='\t', index_col=None)
+Lcheck1= pd.read_csv('individual_data/checked_data/Lcheck1.tsv', delimiter='\t', index_col=None)
+Lcheck2= pd.read_csv('individual_data//checked_data/Lcheck2.tsv', delimiter='\t', index_col=None)
+Lcheck3= pd.read_csv('individual_data//checked_data/Lcheck3.tsv', delimiter='\t', index_col=None)
 
-Mcheck2= pd.read_csv('data/checked_data/Mcheck2.tsv', delimiter='\t', index_col=None)
-Mcheck3= pd.read_csv('data/checked_data/Mcheck3.tsv', delimiter='\t', index_col=None)
-Mcheck4= pd.read_csv('data/checked_data/Mcheck4.tsv', delimiter='\t', index_col=None)
+Mcheck2= pd.read_csv('individual_data//checked_data/Mcheck2.tsv', delimiter='\t', index_col=None)
+Mcheck3= pd.read_csv('individual_data//checked_data/Mcheck3.tsv', delimiter='\t', index_col=None)
+Mcheck4= pd.read_csv('individual_data//checked_data/Mcheck4.tsv', delimiter='\t', index_col=None)
 
-Kcheck1= pd.read_csv('data/checked_data/Kcheck1.tsv', delimiter='\t', index_col=None)
-Kcheck3= pd.read_csv('data/checked_data/Kcheck3.tsv', delimiter='\t', index_col=None)
-Kcheck4= pd.read_csv('data/checked_data/Kcheck4.tsv', delimiter='\t', index_col=None)
+Kcheck1= pd.read_csv('individual_data//checked_data/Kcheck1.tsv', delimiter='\t', index_col=None)
+Kcheck3= pd.read_csv('individual_data//checked_data/Kcheck3.tsv', delimiter='\t', index_col=None)
+Kcheck4= pd.read_csv('individual_data//checked_data/Kcheck4.tsv', delimiter='\t', index_col=None)
 
-Bcheck1= pd.read_csv('data/checked_data/Bcheck1.tsv', delimiter='\t', index_col=None)
-Bcheck2= pd.read_csv('data/checked_data/Bcheck2.tsv', delimiter='\t', index_col=None)
-Bcheck4= pd.read_csv('data/checked_data/Bcheck4.tsv', delimiter='\t', index_col=None)
+Bcheck1= pd.read_csv('individual_data//checked_data/Bcheck1.tsv', delimiter='\t', index_col=None)
+Bcheck2= pd.read_csv('individual_data//checked_data/Bcheck2.tsv', delimiter='\t', index_col=None)
+Bcheck4= pd.read_csv('individual_data//checked_data/Bcheck4.tsv', delimiter='\t', index_col=None)
 
 complete_B = append_checked_annotations2(df_Brecht, Bcheck1, Bcheck2, Bcheck4)
 complete_L = append_checked_annotations2(df_Lodewijk, Lcheck1, Lcheck2, Lcheck3)
@@ -613,24 +675,24 @@ print()
 print('---------------------------------------------------------------------------------------')
 
 print('RESULTS LODEWIJK')
-d1,p1=analyse_annotator_pair(df_Kay, df_Lodewijk, 'Kay', 'Lodewijk', Kcheck4, Lcheck2)
-d2,p2=analyse_annotator_pair(df_Manjusha, df_Lodewijk, 'Manjusha', 'Lodewijk', Mcheck4, Lcheck1)
-d3,p3=analyse_annotator_pair(df_Brecht, df_Lodewijk, 'Brecht', 'Lodewijk', Bcheck4, Lcheck3)
+scores_LK,d1,p1=analyse_annotator_pair(df_Kay, df_Lodewijk, 'Kay', 'Lodewijk', Kcheck4, Lcheck2)
+scores_LM,d2,p2=analyse_annotator_pair(df_Manjusha, df_Lodewijk, 'Manjusha', 'Lodewijk', Mcheck4, Lcheck1)
+scores_LB,d3,p3=analyse_annotator_pair(df_Brecht, df_Lodewijk, 'Brecht', 'Lodewijk', Bcheck4, Lcheck3)
 
 print('RESULTS BRECHT')
-d4,p4=analyse_annotator_pair(df_Manjusha, df_Brecht, 'Manjusha', 'Brecht', Mcheck3, Bcheck1)
-d5,p5=analyse_annotator_pair(df_Lodewijk, df_Brecht, 'Lodewijk', 'Brecht', Lcheck3, Bcheck4)
-d6,p6=analyse_annotator_pair(df_Kay, df_Brecht, 'Kay', 'Brecht', Kcheck3, Bcheck2)
+scores_BM,d4,p4=analyse_annotator_pair(df_Manjusha, df_Brecht, 'Manjusha', 'Brecht', Mcheck3, Bcheck1)
+scores_BL,d5,p5=analyse_annotator_pair(df_Lodewijk, df_Brecht, 'Lodewijk', 'Brecht', Lcheck3, Bcheck4)
+scores_BK,d6,p6=analyse_annotator_pair(df_Kay, df_Brecht, 'Kay', 'Brecht', Kcheck3, Bcheck2)
 
 print('RESULTS KAY')
-d7,p7=analyse_annotator_pair(df_Brecht, df_Kay, 'Brecht', 'Kay', Bcheck2, Kcheck3)
-d8,p8=analyse_annotator_pair(df_Lodewijk, df_Kay, 'Lodewijk', 'Kay', Lcheck2, Kcheck4)
-d9,p9=analyse_annotator_pair(df_Manjusha, df_Kay, 'Manjusha', 'Kay', Mcheck2, Kcheck1)
+scores_KB,d7,p7=analyse_annotator_pair(df_Brecht, df_Kay, 'Brecht', 'Kay', Bcheck2, Kcheck3)
+scores_KL,d8,p8=analyse_annotator_pair(df_Lodewijk, df_Kay, 'Lodewijk', 'Kay', Lcheck2, Kcheck4)
+scores_KM,d9,p9=analyse_annotator_pair(df_Manjusha, df_Kay, 'Manjusha', 'Kay', Mcheck2, Kcheck1)
 
 print('RESULTS MANJUSHA')
-d10,p10=analyse_annotator_pair(df_Lodewijk, df_Manjusha, 'Lodewijk', 'Manjusha', Lcheck1, Mcheck4)
-d11,p11=analyse_annotator_pair(df_Kay, df_Manjusha, 'Kay', 'Manjusha', Kcheck1, Mcheck2)
-d12,p12=analyse_annotator_pair(df_Brecht, df_Manjusha, 'Brecht', 'Manjusha', Bcheck1, Mcheck3)
+scores_ML,d10,p10=analyse_annotator_pair(df_Lodewijk, df_Manjusha, 'Lodewijk', 'Manjusha', Lcheck1, Mcheck4)
+scores_MK,d11,p11=analyse_annotator_pair(df_Kay, df_Manjusha, 'Kay', 'Manjusha', Kcheck1, Mcheck2)
+scores_MB,d12,p12=analyse_annotator_pair(df_Brecht, df_Manjusha, 'Brecht', 'Manjusha', Bcheck1, Mcheck3)
 
 
 ########## Get label disagreements
@@ -716,3 +778,68 @@ df_coverage.drop(df_coverage[condition].index, inplace = True)
 
 #df_type_disagreements.to_csv("data/unresolved_disagreements/annotated_disagreements_test_set_triggers.tsv")
 #df_coverage.to_csv('data/unresolved_disagreements/filtered_coverage_disagreements_test_set_triggers.tsv')
+
+############# print tables
+
+# before check before resolution (int_agree_nores)
+
+print("Scores before check and before resolution (int_agree_nores)")
+table = PrettyTable()
+table.field_names = ["", "Ann1", "Ann2", "Ann3", "Ann4"]
+table.add_row(["Ann1", "X", scores_KM['int_agree_nores'], scores_BM['int_agree_nores'], scores_LM['int_agree_nores']])
+table.add_row(["Ann2", scores_MK['int_agree_nores'], 'X', scores_BK['int_agree_nores'], scores_LK['int_agree_nores']])
+table.add_row(["Ann3", scores_MB['int_agree_nores'], scores_KB['int_agree_nores'], 'X', scores_LB['int_agree_nores']])
+table.add_row(["Ann4", scores_ML['int_agree_nores'], scores_KL['int_agree_nores'], scores_BL['int_agree_nores'], 'X'])
+print(table)
+
+print()
+print()
+
+print("Scores before check and after resolution (int_agree_res)")
+table = PrettyTable()
+table.field_names = ["", "Ann1", "Ann2", "Ann3", "Ann4"]
+table.add_row(["Ann1", "X", scores_KM['int_agree_res'], scores_BM['int_agree_res'], scores_LM['int_agree_res']])
+table.add_row(["Ann2", scores_MK['int_agree_res'], 'X', scores_BK['int_agree_res'], scores_LK['int_agree_res']])
+table.add_row(["Ann3", scores_MB['int_agree_res'], scores_KB['int_agree_res'], 'X', scores_LB['int_agree_res']])
+table.add_row(["Ann4", scores_ML['int_agree_res'], scores_KL['int_agree_res'], scores_BL['int_agree_res'], 'X'])
+print(table)
+
+print()
+print()
+
+print("Scores after check and before resolution (fin_agree_nores)")
+table = PrettyTable()
+table.field_names = ["", "Ann1", "Ann2", "Ann3", "Ann4"]
+table.add_row(["Ann1", "X", scores_KM['fin_agree_nores'], scores_BM['fin_agree_nores'], scores_LM['fin_agree_nores']])
+table.add_row(["Ann2", scores_MK['fin_agree_nores'], 'X', scores_BK['fin_agree_nores'], scores_LK['fin_agree_nores']])
+table.add_row(["Ann3", scores_MB['fin_agree_nores'], scores_KB['fin_agree_nores'], 'X', scores_LB['fin_agree_nores']])
+table.add_row(["Ann4", scores_ML['fin_agree_nores'], scores_KL['fin_agree_nores'], scores_BL['fin_agree_nores'], 'X'])
+print(table)
+
+print()
+print()
+
+print("Scores after check and after resolution (fin_agree_res)")
+table = PrettyTable()
+table.field_names = ["", "Ann1", "Ann2", "Ann3", "Ann4"]
+table.add_row(["Ann1", "X", scores_KM['fin_agree_res'], scores_BM['fin_agree_res'], scores_LM['fin_agree_res']])
+table.add_row(["Ann2", scores_MK['fin_agree_res'], 'X', scores_BK['fin_agree_res'], scores_LK['fin_agree_res']])
+table.add_row(["Ann3", scores_MB['fin_agree_res'], scores_KB['fin_agree_res'], 'X', scores_LB['fin_agree_res']])
+table.add_row(["Ann4", scores_ML['fin_agree_res'], scores_KL['fin_agree_res'], scores_BL['fin_agree_res'], 'X'])
+print(table)
+
+
+print()
+print()
+
+avg_bc_br = (scores_KM['class_agreement'] + scores_KL['class_agreement'] + scores_KB['class_agreement'] + scores_MK['class_agreement'] + scores_MB['class_agreement'] + scores_ML['class_agreement'] + scores_BL['class_agreement'] + scores_BK['class_agreement'] + scores_BM['class_agreement'] + scores_LM['class_agreement'] + scores_LK['class_agreement'] + scores_LB['class_agreement']) /12
+avg_bc_ar = (scores_KM['class_agreement_reso'] + scores_KL['class_agreement_reso'] + scores_KB['class_agreement_reso'] + scores_MK['class_agreement_reso'] + scores_MB['class_agreement_reso'] + scores_ML['class_agreement_reso'] + scores_BL['class_agreement_reso'] + scores_BK['class_agreement_reso'] + scores_BM['class_agreement_reso'] + scores_LM['class_agreement_reso'] + scores_LK['class_agreement_reso'] + scores_LB['class_agreement_reso']) /12
+avg_ac_br = (scores_KM['class_agreement2'] + scores_KL['class_agreement2'] + scores_KB['class_agreement2'] + scores_MK['class_agreement2'] + scores_MB['class_agreement2'] + scores_ML['class_agreement2'] + scores_BL['class_agreement2'] + scores_BK['class_agreement2'] + scores_BM['class_agreement2'] + scores_LM['class_agreement2'] + scores_LK['class_agreement2'] + scores_LB['class_agreement2']) /12
+avg_ac_ar = (scores_KM['class_agreement_reso2'] + scores_KL['class_agreement_reso2'] + scores_KB['class_agreement_reso2'] + scores_MK['class_agreement_reso2'] + scores_MB['class_agreement_reso2'] + scores_ML['class_agreement_reso2'] + scores_BL['class_agreement_reso2'] + scores_BK['class_agreement_reso2'] + scores_BM['class_agreement_reso2'] + scores_LM['class_agreement_reso2'] + scores_LK['class_agreement_reso2'] + scores_LB['class_agreement_reso2']) /12
+
+print("Average class agreement scores (span level; partial overlap")
+table = PrettyTable()
+table.field_names = ["", "S1.1", "S1.2"]
+table.add_row(["BR", avg_bc_br, avg_ac_br])
+table.add_row(["AR", avg_bc_ar, avg_ac_ar])
+print(table)

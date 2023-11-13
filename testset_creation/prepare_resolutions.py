@@ -70,7 +70,7 @@ df2.loc[df1["Resolved span"].isnull(),'Resolved span'] = df2["mention_span_ids"]
 
 
 df = pd.concat([df1, df2])
-df.to_csv('test.csv')
+#df.to_csv('test.csv')
 
 
 
@@ -87,6 +87,3 @@ for index, row in df.iterrows():
                 tuples4.append((ast.literal_eval(row['Resolved span'])[i], row['Resolved class']))
     except ValueError:
         continue
-print('...................')
-print(tuples3)
-print(tuples4)

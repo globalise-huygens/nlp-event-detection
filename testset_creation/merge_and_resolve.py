@@ -164,7 +164,7 @@ def merge_annotations(df1, df2, df3, df4):
 
 df, classes = merge_annotations(M, K, B, L)
 
-print("HIEEER")
+
 def remove_nans(df):
     new = []
     old = df['event_anno'].tolist()
@@ -340,6 +340,7 @@ print(i)
 damaging_events = ['Damaging']
 damaging_static = ['BeingDamaged']
 
+unrest_static = ['Unrest']
 translocation_static = ['BeingAtAPlace']
 
 def static_resolve(annos, dynamic_classes, static_classes, resolution):
@@ -368,6 +369,11 @@ for x in resulDamStat:
 resulDamStatTranStat = static_resolve(classes, translocation_events, translocation_static, 'BeingAtAPlace')
 
 for x in resulDamStatTranStat:
+    classes[x[0]] = x[1]
+
+resulDamStatTranStatUnreStat = static_resolve(classes, unrest_events, unrest_static, 'Unrest')
+
+for x in resulDamStatTranStatUnreStat:
     classes[x[0]] = x[1]
 
 

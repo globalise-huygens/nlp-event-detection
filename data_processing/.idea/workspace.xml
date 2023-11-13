@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="185873f3-7f1b-4b98-af4a-9510684bfc1a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../IAA/IAA_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/../IAA/IAA_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/IAA_analysis2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../IAA/IAA_analysis_teams.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Bcheck1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Bcheck2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Bcheck4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Kcheck1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Kcheck3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Kcheck4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Lcheck1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Lcheck2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Lcheck3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Mcheck2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Mcheck3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/checked_data/Mcheck4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/unresolved_disagreements/annotated_disagreements_test_set_triggers.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data/unresolved_disagreements/filtered_coverage_disagreements_test_set_triggers.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/NL-HaNA_1.04.02_1812_0803-0808-1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/NL-HaNA_1.04.02_1812_0803-0808-2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/NL-HaNA_1.04.02_1812_0803-0808-3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/foelie-triggers-c.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/foelie-triggers-conll.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/foelie.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/kruidnagel-triggers-c.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/kruidnagel-triggers-conll.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/kruidnagel.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/nootmuskaat-triggers-c.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/nootmuskaat-triggers-conll.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/data2/nootmuskaat.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IAA/deleeted_IAA_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/.idea/dictionaries" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/FINAL.numbers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/FINAL.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/Training Data Sep 2023.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/dictionaries" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/NL-HaNA_1.04.02_1090_0313-0322 - 1626 - Copie generale missive aan de heeren bewinthebberen in dato 15 Februarij 1626.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/NL-HaNA_1.04.02_1812_0803-0808 - 1711 - Originele missive door Willem Backer Jacobsz…en den Gamronse raad aan den Gouverneur Generaal en...tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/NL-HaNA_1.04.02_3476_0517-0534 - 1777 - Dagelijksche aantekening gehouden op de heen en terugreijde zoo meede verblijf aan het Bantamsche...tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/NL-HaNA_1.04.02_9001_0344-0356 - 1720 - Verscheijde extracten uijt het Cochims dagregister concernerende de aankomst aldaar van 3 Portuge...tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/NL-HaNA_1.04.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_1_pre.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_1_processed.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_2_pre.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_2_processed.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_3_pre.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_3_processed.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_4_pre.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_4_processed.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_5_pre.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/Training Data Sep 2023/processed/doc_5_processed.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Bcheck1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Bcheck2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Bcheck4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Kcheck1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Kcheck3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Kcheck4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Lcheck1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Lcheck2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Lcheck3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Mcheck2.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Mcheck3.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/checked_data/Mcheck4.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/handmade_resolutions/RES_annotated_disagreements_test_set_triggers - Blad1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/handmade_resolutions/RES_filtered_coverage_disagreements_test_set_triggers - Blad1.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Brecht-annotations.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Brecht_inc_output_clean.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/FINAL_EVENT_COUNT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/FINAL_TOKEN_COUNT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Kay-annotations.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Kay_inc_output_clean.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Lodewijk-annotations.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Lodewijk_inc_output_clean.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Manjusha-annotations.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/Manjusha_inc_output_clean.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/data/processed/merged_and_resolved.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/get_statistics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/merge_and_resolve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/prepare_resolutions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/process_inception.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/process_traindata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/Lodewijk_after_check.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/Lodewijk_before_check.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/Resolved_all_stages.numbers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/Stella_check_24_aug.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/Stella_resolutions_23_aug.numbers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/merged_and_resolved 3.numbers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/trash_data/tocheck.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testset_creation/trash/utils.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2UQI1J6I1g2kOKXeIe0YWS65T8t" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/stellaverkijk/Documents/GitHub/nlp-event-detection/data_processing",
+    "settings.editor.selected.configurable": "Errors"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="185873f3-7f1b-4b98-af4a-9510684bfc1a" name="Changes" comment="" />
+      <created>1692865162126</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692865162126</updated>
+    </task>
+    <servers />
+  </component>
+</project>

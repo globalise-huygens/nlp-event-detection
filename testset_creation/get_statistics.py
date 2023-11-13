@@ -33,6 +33,7 @@ for key, value in counted_tokens.items():
     l_tokens.append(key)
     l_counts.append(value)
 
+
 df1 = pd.DataFrame()
 df1['tokens'] = l_tokens
 df1['counts'] = l_counts
