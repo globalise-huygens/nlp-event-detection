@@ -204,7 +204,7 @@ def main(input_path, output_path1, output_path2):
     post_processed.to_csv(output_path2)
 
 
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-1.tsv", "data/processed/Manjusha_inc_output_clean.tsv", "data/processed/Manjusha-annotations.tsv")
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-2.tsv", "data/processed/Kay_inc_output_clean.tsv", "data/processed/Kay-annotations.tsv")
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-3.tsv", "data/processed/Brecht_inc_output_clean.tsv", "data/processed/Brecht-annotations.tsv")
-main("data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv", "data/processed/Lodewijk_inc_output_clean.tsv", "data/processed/Lodewijk-annotations.tsv")
+#main("testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-1.tsv", "data/processed/Manjusha_inc_output_clean.tsv", "data/processed/Manjusha-annotations.tsv")
+#main("testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-2.tsv", "data/processed/Kay_inc_output_clean.tsv", "data/processed/Kay-annotations.tsv")
+#main("testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-3.tsv", "data/processed/Brecht_inc_output_clean.tsv", "data/processed/Brecht-annotations.tsv")
+#main("testset_creation/data/NL-HaNA_1.04.02_1092_0017_0021-per-text-region-4.tsv", "data/processed/Lodewijk_inc_output_clean.tsv", "data/processed/Lodewijk-annotations.tsv")

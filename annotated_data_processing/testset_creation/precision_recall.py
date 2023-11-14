@@ -167,7 +167,7 @@ print('Precision: ', precision)
 print('Recall: ', recall)
 
 # Test set as gold
-gold = pd.read_csv('FINAL.tsv', sep='\t')
+gold = pd.read_csv('FINAL_testset.tsv', sep='\t')
 gold_annos = gold['final_event'].tolist()
 print('asserting same lengths...')
 assert(len(gold_annos)==len(annos_kay)==len(annos_lod)==len(annos_br)==len(annos_manj))
@@ -281,7 +281,7 @@ annos_lod = L['eventclass_no_number'].tolist()
 
 
 # Test set as gold
-gold = pd.read_csv('FINAL.tsv', sep='\t')
+gold = pd.read_csv('FINAL_testset.tsv', sep='\t')
 gold_annos = gold['final_event'].tolist()
 print('asserting same lengths...')
 assert(len(gold_annos)==len(annos_kay)==len(annos_lod)==len(annos_br)==len(annos_manj))
