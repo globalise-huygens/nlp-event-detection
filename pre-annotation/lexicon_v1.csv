@@ -1,0 +1,74 @@
+tokens,relationtype,label
+versoucken; versocht; verzoeken; versouck; verzoek,isOfType,Request
+leverantie,evokes,Transportation
+aenkomst; aenkomen; aencompst; aencompste; aankomende,isOfType,Arriving
+vertreck; vertrocken; vertreckende; vertrokken; vertrek,isOfType,Leaving
+voijagie,isOfType,Voyage
+affvaerdigen; affgevaerdigt,evokes,Leaving
+ontfangen; ontfangst,isOfType,Getting
+geeven; geven; geevende; gevende,isOfType,Giving
+affgeladene,evokes,Transportation
+geladene,evokes,Transportation
+affgescheepte; gescheept,evokes,Transportation
+versonden; versondene; versenden,evokes,Transportation
+affsenden; affgesonden; affgesondene,evokes,Transportation
+receptie,isOfType,Getting
+besendinge,evokes,Transportation
+verseeckeren; verseekeren,isOfType,Occupation
+cruijssen; kruissen,#N/A,Translocation
+order; ordre,evokes,SocialInteraction
+verblijf,evokes,BeingAtAPlace
+quamen; komst; comen; koomen; gekoomen; gekomen; gecomen; gecoomen; komende; koomende,isOfType,Arriving
+transport; transporteren,isOfType,Transportation
+commando; gecommandeert,evokes,BeingLeader
+depart,isOfType,Leaving
+oorloge; oorlogh; oorlooge,evokes,BeingInConflict
+sterfte; dood,evokes,BeingDead
+gestorven; sterven; sterfen,isOfType,BeingDead
+arrivement; arrive,isOfType,Arriving
+overleden; overlijden; overledene,isOfType,BeingDead
+vermoorden,isOfType,Killing
+moord; moort,evokes,Killing
+gesneuvelt,isOfType,Dying
+hazenpad; hasepad; hazepad,evokes,Leaving
+sieckelijk; siecte; sieckte,evokes,FallingIll
+vervoeren,isOfType,Transportation
+aentasten,isOfType,Attacking
+demolieren,isOfType,Destroying
+handel,isOfType,Trade
+depescheren,isOfType,Translocation
+verlaten,isOfType,Leaving
+tocht; togt,#N/A,Voyage
+successeur,evokes,Replacing
+Leverantie,evokes,Trade
+overgaende; overgaen; overgaet,isOfType,Translocation
+reijse; reize,isOfType,Voyage
+afscheid,evokes,Leaving
+geconduiseert,evokes,Translocation
+gehoorende,evokes,HavingInPossession
+afgegeven,isOfType,Giving
+anker; ancker,evokes,BeingAtAPlace
+geligt,evokes,Leaving
+onderzeil,evokes,Leaving
+passeerden; passeren,isOfType,Translocation
+gemonteert,evokes,BeingAtAPlace
+gesaiseerd,isOfType,TakingUnderControl
+varen,evokes,Translocation
+aliantie; alliantie,isOfType,Collaboration
+vruntschap; vrunden,evokes,BeingInARelationship
+debit; schulden,evokes,BeingInDebt
+aengelandt,isOfType,Arriving
+gesonden; senden; toegesonden; toesenden,isOfType,Translocation
+gekeert; wedergekeert; wederkeren; wederkeeren,isOfType,Translocation
+laden,evokes,Transportation
+blijven,evokes,BeingAtAPlace
+becomen,isOfType,Getting
+t'vervoeren,isOfType,Transportation
+verdestrueert,evokes,Destroying
+gelicht,evokes,Destroying
+handel,isOfType,Trade
+toecomen; toegecomen,isOfType,Translocation
+gewelt,isOfType,ViolentContest
+executeren; executeeren,isOfType,Killing
+verkoopen; verkopen; verkocht; verkochte; verkogt; verkogte,isOfType,Selling
+koopen; kopen; kocht; gekocht; gekochte; gekogt; gekogte,isOfType,Buying
