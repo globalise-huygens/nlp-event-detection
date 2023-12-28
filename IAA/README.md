@@ -13,12 +13,10 @@ Running IAA_analysis.py will print a complete report on Inter-Annotator Agreemen
 - in ./individual_data/processed Inception output but without full sentences in tsv format for each annotator
 - in ./individual_data/processed Inception output (each row represents one annotated event) for each annotator in tsv format
 - in ./individual_data/processed Inception output (each row represents one annotated event) for each annotator in json format
-- in ./individual_data/unresolved_disagreements: all disagreements that should be solved manually (two files)
-- in ./team_data/processed Inception output but without full sentences in tsv format for each annotator
-- in ./team_data/processed Inception output (each row represents one annotated event) for each annotator in tsv format
-- in ./team_data/processed Inception output (each row represents one annotated event) for each annotator in json format
 These files will be used to resolve the problematic disagreements amongst all annotators, creating a reliable test set for a Event Trigger Classification system. 
 IAA_analysis.py uses files processed by process_inception_output.py.
+
+Running IAA_analysis_teams.py will have similar results but for the team data, and files will be outputted to the corresponding folders in ./team_data
 
 For more information on how IAA was analyzed, see [this report](https://docs.google.com/document/d/1MwkARk0_K2c8tQIeM1eLbb6N5QwhUhEQb1zJAzxe1Lw/edit?usp=sharing)
 For more information on how the test set was created, see [this report](https://docs.google.com/document/d/1yMQXSOlToAFLvL4NFlZkI-O37MUIz-Msvqme0MMq3w0/edit?usp=sharing)
