@@ -1,10 +1,8 @@
-### 1. directory of csv's to json
-### 2. enrich train json with lexicon json
+### 2. enrich train json with lexicon in csv
 
-import glob
 import csv, json
 import pandas as pd
-import os
+
 
 def read_data(path_to_traindata):
 
@@ -112,19 +110,6 @@ def evaluate(test, bio_or_binary = 'bio'):
 
     return(precision, recall)
 
-
-def parse_lexicon_old(csv_file, jsonfilepath):
-    data = {}
-    with open(csv_file) as csvfile:
-            csvReader = csv.DictReader(csvfile)
-            for rows in csvReader:
-                print(rows)
-                id = rows['token']
-                data[id] = rows
-
-    with open(jsonfilepath, 'w') as jsonfile:
-        jsonfile.write(json.dumps(data))
-
 def pred_to_csv(test, outfile):
     all_words = []
     all_preds = []
@@ -142,30 +127,14 @@ def pred_to_csv(test, outfile):
 
     df.to_csv(outfile)
 
-#def add_lexicon(df):
-
-df = pd.read_csv('lexicon/lexicon_v1.csv')
-print(df)
+# parse lexicon
+df = pd.read_csv('lexicon_v1.csv')
 tokens = df['tokens'].tolist()
 labels = df['label'].tolist()
 relationtypes = df['relationtype'].tolist()
-
 zipped_ref = zip(tokens, labels, relationtypes)
 
-zipped = zip(tokens, labels)
-#for t, l in zipped:
-    #if ';' in t:
-        #print(t)
-
-#d = {}
-#for t, l in zipped:
-   # d[t] = l
-
-d = dict(zipped)
-print(d)
-
-#d_ref = dict(zipped_ref)
-
+# create dictionary of lexicon
 new_dict = {}
 for t, l, r in zipped_ref:
     print(t, l)
@@ -180,70 +149,17 @@ for t, l, r in zipped_ref:
     else:
         new_dict[t] = [r, l]
 
-old_dict = {}
-
-for t, l in d.items():
-    print(t, l)
-    if ';' in t:
-        old_dict[t.split('; ')[0]]= l
-        old_dict[t.split('; ')[1]] = l
-        for i in range(2, 20):
-            try:
-                old_dict[t.split('; ')[i]] = l
-            except IndexError:
-                x = 0
-    else:
-        old_dict[t] = l
-
-print(len(new_dict))
-print(new_dict)
-
-to_annotate = []
-for t, lr in new_dict.items():
-    to_annotate.append(t)
-
-
-#doc_names = os.listdir(os.path.join('data/to_annotate_2024/'))
-#for doc in doc_names:
-#    print(doc)
-#    testdata = read_data(doc)
-#    labeled = label_with_lexicon(testdata, new_dict)
-
-#    with open("predictions/to_annotate_2024/pre_annotate-"+ doc, "w") as outfile:
-#        # json.dump(labeled, outfile)
-#        for sentence in labeled:
-#            json.dump(sentence, outfile)
-#            outfile.write("\n")
-
-#testdata = read_data('data/dev.json')
-#testdata = read_data('data/to_annotate_2024/NL-HaNA_1.04.02_11012_0229-0251.json')
-#labeled = label_with_lexicon(testdata, to_annotate)
-#labeled = label_with_lexicon_and_types(testdata, new_dict)
-
+# list files that you want to pre-annotate
 filenames = ['NL-HaNA_1-8.json','NL-HaNA_1-9.json', 'NL-HaNA_1-10.json', 'NL-HaNA_1.04.02_3598_0797-0809.json', 'NL-HaNA_1.04.02_11012_0229-0251.json']
 
-print(new_dict)
-
+# loop over files and create new jsonfiles with labels for any words that overlap with lexicon
 for file in filenames:
-    data = read_data('data/to_annotate_2024/'+file)
+    data = read_data('data/'+file)
     labeled = label_with_lexicon_and_types(data, new_dict)
 
-    with open("predictions/to_annotate_2024/type-pre_annotate-"+file, "w") as outfile:
+    with open("data/predictions/type-pre_annotate-"+file, "w") as outfile:
         #json.dump(labeled, outfile)
         for sentence in labeled:
             json.dump(sentence, outfile)
             outfile.write("\n")
 
-#print(labeled)
-#p, r = evaluate(labeled, bio_or_binary='binary')
-#print(p, r)
-
-#print(labeled)
-
-
-#for dict in labeled:
-  #  print(dict['words'])
-  #  print(dict['events'])
-  #  print(dict['preds'])
-
-#pred_to_csv(labeled, 'lexicon/lexicon_v1_types_check.csv')

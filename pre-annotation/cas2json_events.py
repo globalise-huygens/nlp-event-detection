@@ -1,5 +1,4 @@
 from cassis import *
-import click
 import os
 from enum import Enum
 import itertools
@@ -59,19 +58,19 @@ def cas2jsonl_ner(cas, jsonl):
 
 def cas2json_zip(datadir, json_zip_path):
     """converts xmi files from an Inception export (prealably unzipped) into json"""
-    with z.ZipFile(os.path.join(datadir, 'json.zip'), 'w') as ozf:
-        for doc_folder in os.listdir(os.path.join(datadir, 'firstfive')):
-            with open(os.path.join(datadir, 'firstfive', doc_folder, TYPESYSTEM), 'rb') as f:
+    with z.ZipFile(os.path.join(datadir, 'jsonfiles.zip'), 'w') as ozf:
+        for doc_folder in os.listdir(os.path.join(datadir, 'data_inception_output')):
+            with open(os.path.join(datadir, 'data_inception_output', doc_folder, TYPESYSTEM), 'rb') as f:
                 typesystem = load_typesystem(f)
-            with open(os.path.join(datadir, 'firstfive', doc_folder, str(doc_folder) + ".xmi"), 'rb') as f:
+            with open(os.path.join(datadir, 'data_inception_output', doc_folder, str(doc_folder) + ".xmi"), 'rb') as f:
                 cas = load_cas_from_xmi(f, typesystem=typesystem)
-            json_path = os.path.basename(doc_folder).split()[0]
+            json_path = os.path.basename(doc_folder).split()[0] +'.json'
             cas2jsonl_ner(cas, json_path)
             ozf.write(json_path)
     print(f"converted {len(z.ZipFile(json_zip_path).namelist())} files")
 
 
-def json2cas_zip(json_path, casdir, doc_folder, prediction_dir="predicted/with_types"):
+def json2cas_zip(json_path, casdir, doc_folder, prediction_dir="pre-annotated"):
     """Copies curated xmi files from the 'curation' folder of CASDIR to a PREDICTION_DIR subfolder of CASDIR,
     replacing entities with those found at JSON_PATH.
 
@@ -89,9 +88,9 @@ def json2cas_zip(json_path, casdir, doc_folder, prediction_dir="predicted/with_t
         json_lines = f.readlines()
     json_line_offset = 0
     #for doc_folder in doc_folders:
-    with open(os.path.join(casdir, 'firstfive', doc_folder, TYPESYSTEM), 'rb') as f:
+    with open(os.path.join(casdir, 'data_inception_output', doc_folder, TYPESYSTEM), 'rb') as f:
         typesystem = load_typesystem(f)
-    with open(os.path.join(casdir, 'firstfive', doc_folder, str(doc_folder) + ".xmi"), 'rb') as f:
+    with open(os.path.join(casdir, 'data_inception_output', doc_folder, str(doc_folder) + ".xmi"), 'rb') as f:
         cas = load_cas_from_xmi(f, typesystem=typesystem)
         nb_sentences = len(cas.select(SENTENCE))
         event_tags = []
@@ -143,28 +142,10 @@ def compress_BIO_tags(entity_bio_tags, tokens, cas, typesystem, treat_I_init_as_
         except UnboundLocalError:
             y = 0
 
-@click.command()
-@click.option('--json2cas/--cas2json', default=False, help="add predicted entities to xmi files (default: cas2json)")
-@click.argument('input', type=click.Path(exists=True))
-@click.argument('output', type=click.Path(exists=False))
-def cli(json2cas, input, output):
-    """Extracts json files of tokens and entities from an inception directory,
-    or adds entities from json files to inception xmi files.
-
-    INPUT: inception directory or json file path if JSON2CAS is set\n
-    OUTPUT: zip of json files or reference/output inception directory if JSON2CAS is set"""
-    if json2cas:
-        json2cas_zip(input, output)
-    else:
-        cas2json_zip(input, output)
 
 
-# if __name__ == '__main__':
-#     cli()
+filenames = ['NL-HaNA_1-8','NL-HaNA_1-9', 'NL-HaNA_1-10', 'NL-HaNA_1.04.02_3598_0797-0809', 'NL-HaNA_1.04.02_11012_0229-0251']
 
-#filenames = ['NL-HaNA_1-8.json','NL-HaNA_1-9.json', 'NL-HaNA_1-10.json', 'NL-HaNA_1.04.02_3598_0797-0809.json', 'NL-HaNA_1.04.02_11012_0229-0251.json']
-
-
-
-#cas2json_zip("annotations/to_annotate_2024/", "data/dummy.zip")
-json2cas_zip("predictions/to_annotate_2024/with_types/type-pre_annotate-NL-HaNA_1-10.json", 'annotations/to_annotate_2024/', 'NL-HaNA_1-10')
+#cas2json_zip("data/", "data/jsonfiles.zip")
+for file in filenames:
+    json2cas_zip("data/predictions/type-pre_annotate-"+file+'.json', 'data/', file)
