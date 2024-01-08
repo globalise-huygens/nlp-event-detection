@@ -14,3 +14,6 @@ Unzip and put the files you just converted to .json in the *data/* folder. Run a
 
 ### Executing step 3
 In cas2json_events.py, comment out the command you used for step 1 and uncomment the last two lines. Run the .py file. The converted .xmi documents will be stored in *data/pre-annotated*
+
+##NB
+It might happen that the code will throw an error saying it encountered a DS_Store folder/file that it cannot parse. If this happens, run the following command in your terminal to delete any DS_Store files from your computer: ```sudo find / -name ".DS_Store" -depth -exec rm {} \;```
