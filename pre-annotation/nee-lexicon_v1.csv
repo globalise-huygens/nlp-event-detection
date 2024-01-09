@@ -15,7 +15,7 @@ affsenden; affgesonden; affgesondene,evokes,Transportation
 receptie,isOfType,Getting
 besendinge,evokes,Transportation
 verseeckeren; verseekeren,isOfType,Occupation
-cruijssen; kruissen,isOfType,Translocation
+cruijssen; kruissen,#N/A,Translocation
 order; ordre,evokes,SocialInteraction
 verblijf,evokes,BeingAtAPlace
 quamen; komst; comen; koomen; gekoomen; gekomen; gecomen; gecoomen; komende; koomende,isOfType,Arriving
@@ -38,7 +38,7 @@ demolieren,isOfType,Destroying
 handel,isOfType,Trade
 depescheren,isOfType,Translocation
 verlaten,isOfType,Leaving
-tocht; togt,isOfType,Voyage
+tocht; togt,#N/A,Voyage
 successeur,evokes,Replacing
 Leverantie,evokes,Trade
 overgaende; overgaen; overgaet,isOfType,Translocation
@@ -58,7 +58,7 @@ aliantie; alliantie,isOfType,Collaboration
 vruntschap; vrunden,evokes,BeingInARelationship
 debit; schulden,evokes,BeingInDebt
 aengelandt,isOfType,Arriving
-gesonden; senden; toegesonden; toesenden,evokes,Translocation
+gesonden; senden; toegesonden; toesenden,isOfType,Translocation
 gekeert; wedergekeert; wederkeren; wederkeeren,isOfType,Translocation
 laden,evokes,Transportation
 blijven,evokes,BeingAtAPlace

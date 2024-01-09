@@ -123,6 +123,7 @@ def compress_BIO_tags(entity_bio_tags, tokens, cas, typesystem, treat_I_init_as_
     event_tokens = [(bio, token) for (bio, token) in zip(entity_bio_tags, tokens) if bio != "O"]
     for bio, token in event_tokens:
         val = bio.split('-')[1]
+        relation = bio.split('-')[2]
         is_start = bio.startswith('B')
         maybe_start = bio.startswith('I') and treat_I_init_as_B and val != current_type
         maybe_last = not bio.startswith('O')
@@ -134,11 +135,11 @@ def compress_BIO_tags(entity_bio_tags, tokens, cas, typesystem, treat_I_init_as_
         if maybe_last:
             end = token.end
         if follows_last:
-            cas.add(Event(begin=start, end=end, category=val))
+            cas.add(Event(begin=start, end=end, category=val, relationtype=relation))
             recording = True
     if recording:
         try:
-            cas.add(Event(begin=start, end=end, category=val))
+            cas.add(Event(begin=start, end=end, category=val, relationtype=relation))
         except UnboundLocalError:
             y = 0
 
@@ -148,4 +149,4 @@ filenames = ['NL-HaNA_1-8','NL-HaNA_1-9', 'NL-HaNA_1-10', 'NL-HaNA_1.04.02_3598_
 
 #cas2json_zip("data/", "data/jsonfiles.zip")
 for file in filenames:
-    json2cas_zip("data/predictions/type-pre_annotate-"+file+'.json', 'data/', file)
+    json2cas_zip("data/predictions/rel-pre_annotate-"+file+'.json', 'data/', file)

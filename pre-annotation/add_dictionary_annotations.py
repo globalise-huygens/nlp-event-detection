@@ -48,7 +48,7 @@ def label_with_lexicon_and_types(testdata, anno_dict):
             if word not in list_of_keys:
                 annotated.append('O')
             elif word in list_of_keys:
-                annotated.append('B-' + anno_dict[word][1])
+                annotated.append('B-' + anno_dict[word][1] + '-' + str(anno_dict[word][0]))
 
         dict['preds'] = annotated
 
@@ -137,7 +137,6 @@ zipped_ref = zip(tokens, labels, relationtypes)
 # create dictionary of lexicon
 new_dict = {}
 for t, l, r in zipped_ref:
-    print(t, l)
     if ';' in t:
         new_dict[t.split('; ')[0]]= [r, l]
         new_dict[t.split('; ')[1]] = [r, l]
@@ -152,12 +151,14 @@ for t, l, r in zipped_ref:
 # list files that you want to pre-annotate
 filenames = ['NL-HaNA_1-8.json','NL-HaNA_1-9.json', 'NL-HaNA_1-10.json', 'NL-HaNA_1.04.02_3598_0797-0809.json', 'NL-HaNA_1.04.02_11012_0229-0251.json']
 
+print(new_dict)
+
 # loop over files and create new jsonfiles with labels for any words that overlap with lexicon
 for file in filenames:
     data = read_data('data/'+file)
     labeled = label_with_lexicon_and_types(data, new_dict)
 
-    with open("data/predictions/type-pre_annotate-"+file, "w") as outfile:
+    with open("rel-pre_annotate-"+file, "w") as outfile:
         #json.dump(labeled, outfile)
         for sentence in labeled:
             json.dump(sentence, outfile)
