@@ -101,7 +101,8 @@ def json2cas_zip(json_path, casdir, doc_folder, prediction_dir="pre-annotated"):
         # Remove event tags already present
         for e in cas.select(EVENT):
             cas.remove(e)
-        for e in cas.select(NAMED_ENTITY):
+        # Remove entity tags already present
+        for e in cas.select(NAMED_ENTITY): # DO NOT USE THIS LINE AND THE FOLLOWING IF YOU ARE PRE-ANNOTATING A FILE PRE-ANNOTATED WITH ENTITIES ALREADY
             cas.remove(e)
         # Remove SemArg for cleaner look
         for e in cas.select(SEM_ARG):
