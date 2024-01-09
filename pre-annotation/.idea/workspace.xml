@@ -5,15 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a5e6290-84ec-41f8-9a83-4ca4eabb0b0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add_dictionary_annotations.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_dictionary_annotations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cas2json_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/cas2json_events.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pre-annotated/NL-HaNA_1-10.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pre-annotated/NL-HaNA_1-8.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pre-annotated/NL-HaNA_1-9.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pre-annotated/NL-HaNA_1.04.02_11012_0229-0251.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pre-annotated/NL-HaNA_1.04.02_3598_0797-0809.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lexicon_v1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/lexicon_v1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1-10.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1-8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1-9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1.04.02_11012_0229-0251.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1.04.02_3598_0797-0809.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/jsonfiles.zip" beforeDir="false" afterPath="$PROJECT_DIR$/data/jsonfiles.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-10 13.43.32.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-8 13.43.32.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-9 13.43.32.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1.04.02_11012_0229-0251 13.43.32.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1.04.02_3598_0797-0809 13.43.32.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.add_dictionary_annotations">
+  <component name="RunManager" selected="Python.cas2json_events">
     <configuration name="add_dictionary_annotations" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pre-annotation" />
       <option name="INTERPRETER_OPTIONS" value="" />
