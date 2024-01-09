@@ -7,10 +7,10 @@ This code
 This repository works with five files that have been selected for annotation in 2024.
 
 ### Executing step 1
-In cas2json_events.py, comment out the last two lines, uncomment the line <#cas2json_zip("data/", "data/jsonfiles.zip")> and run the .py file. The converted .json documents will be stored in *data/jsonfiles.zip*. 
+In cas2json_events.py, comment out the last two lines, uncomment the line <#cas2json_zip("data/", "data/jsonfiles.zip")> and run the .py file. The converted .json documents will be stored in the main directory and *data/jsonfiles.zip*. 
 
 ### Executing step 2
-Unzip and put the files you just converted to .json in the *data/* folder. Run add_dictionary_annotations.py. .json files with lexion pre-annotations will be stored in *data/predictions/*
+(Unzip and) put the files you just converted to .json in the *data/* folder. Run add_dictionary_annotations.py. .json files with lexion pre-annotations will be stored in *data/predictions/*
 
 ### Executing step 3
 In cas2json_events.py, comment out the command you used for step 1 and uncomment the last two lines. Run the .py file. The converted .xmi documents will be stored in *data/pre-annotated*
