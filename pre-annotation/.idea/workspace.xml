@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5e6290-84ec-41f8-9a83-4ca4eabb0b0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1-10.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1-8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1-9.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1.04.02_11012_0229-0251.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/NL-HaNA_1.04.02_3598_0797-0809.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/jsonfiles.zip" beforeDir="false" afterPath="$PROJECT_DIR$/data/jsonfiles.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-10 13.43.32.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-8 13.43.32.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-9 13.43.32.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1.04.02_11012_0229-0251 13.43.32.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1.04.02_3598_0797-0809 13.43.32.json" beforeDir="false" />
-    </list>
+    <list default="true" id="8a5e6290-84ec-41f8-9a83-4ca4eabb0b0b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
