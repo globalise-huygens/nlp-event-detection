@@ -39,21 +39,25 @@ def post_clean(jsonfile, print_param):
     cleaned_df = new_df[['mention_span', 'eventclass_no_number', 'anchor_type', 'mention_in_context', 'mention_span_ids', 'mention_token_id', 'mention_ids']]
     return(cleaned_df)
 
+path_input_kaneel = "team_data_2024/inception_output/kaneel_IAA_feb_2024.tsv"
+path_input_foelie = "team_data_2024/inception_output/foelie_IAA_feb_2024.tsv"
+path_output = "team_data_2024/processed/"
 
+def preprocess(path_input, path_output, teamname):
+    main(path_input, path_output+teamname+'.tsv', path_output+teamname+'-triggers-c.tsv', path_output+teamname+'-triggers-conll.json')
 
-main("team_data/inception_output/NL-HaNA_1.04.02_1812_0803-0808-1.tsv", "team_data/processed/foelie.tsv", "team_data/processed/foelie-triggers-c.tsv", "team_data/processed/foelie-triggers-conll.json")
-main("team_data/inception_output/NL-HaNA_1.04.02_1812_0803-0808-2.tsv", "team_data/processed/kruidnagel.tsv", "team_data/processed/kruidnagel-triggers-c.tsv", "team_data/processed/kruidnagel-triggers-conll.json")
-main("team_data/inception_output/NL-HaNA_1.04.02_1812_0803-0808-3.tsv", "team_data/processed/nootmuskaat.tsv", "team_data/processed/nootmuskaat-triggers-c.tsv", "team_data/processed/nootmuskaat-triggers-conll.json")
+preprocess(path_input_foelie, path_output, 'foelie')
+preprocess(path_input_kaneel, path_output, 'kaneel')
 
-df_foelie = post_clean("team_data/processed/foelie-triggers-conll.json", 'print')
-df_kruidnagel = post_clean("team_data/processed/kruidnagel-triggers-conll.json", 'print')
-df_nootmuskaat = post_clean("team_data/processed/nootmuskaat-triggers-conll.json", 'print')
+#df_foelie = post_clean("team_data_2024/processed/foelie-triggers-conll.json", 'print')
+#df_kruidnagel = post_clean("team_data_2024/processed/kruidnagel-triggers-conll.json", 'print')
+#df_nootmuskaat = post_clean("team_data_2024/processed/nootmuskaat-triggers-conll.json", 'print')
 
+df_foelie = post_clean("team_data_2024/processed/foelie-triggers-conll.json", 'print')
+df_kaneel = post_clean("team_data_2024/processed/kaneel-triggers-conll.json", 'print')
 
 print('Total amount of annotations Foelie: ', len(df_foelie))
-print('Total amount of annotations Kruidnagel:', len(df_kruidnagel))
-print('Total amount of annotations Nootmuskaat:', len(df_nootmuskaat))
-
+print('Total amount of annotations Kaneel:', len(df_kaneel))
 
 #EXACT MATCHES ALL ANNOTATORS
 
@@ -72,16 +76,13 @@ def make_span_dict(df):
 
 def general_statistics(df1, df2):
     foelie = make_dict(df_foelie)
-    kruidnagel = make_dict(df_kruidnagel)
-    nootmuskaat = make_dict(df_nootmuskaat)
-
+    kaneel = make_dict(df_kaneel)
 
     print('Total amount of annotations Foelie: ', len(df_foelie))
-    print('Total amount of annotations Kruidnagel:', len(df_kruidnagel))
-    print('Total amount of annotations Nootmsuskaat:', len(df_nootmuskaat))
+    print('Total amount of annotations Kaneel: ', len(df_kaneel))
 
-    all_annos = [x for x in foelie + kruidnagel + nootmuskaat]
-    agreements = [x for x in foelie + kruidnagel + nootmuskaat if x in foelie and x in kruidnagel and x in nootmuskaat]
+    all_annos = [x for x in foelie + kaneel]
+    agreements = [x for x in foelie + kaneel if x in foelie and x in kaneel]
 
     print('Number of total annotations: ', len(all_annos))
 
@@ -91,123 +92,10 @@ def general_statistics(df1, df2):
     print('Percentage of mention detection agreement: ', (len(agreements)/len(all_annos))*100)
 
     print()
-    print('Average amount of annotations is: ' , ((len(foelie)+len(kruidnagel)+len(nootmuskaat))/3))
-    #print('Average amount of annotations per scan is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4) / 5)
+    print('Average amount of annotations is: ' , (len(foelie)+len(kaneel))/2)
+
 
     print()
-
-    foelie = make_dict(df_foelie)
-    kruidnagel = make_dict(df_kruidnagel)
-    nootmuskaat = make_dict(df_nootmuskaat)
-
-    print('Total amount of span annotations Foelie: ', len(df_foelie))
-    print('Total amount of span annotations Kruidnagel:', len(df_kruidnagel))
-    print('Total amount of span annotations Nootmsuskaat:', len(df_nootmuskaat))
-
-    all_annos = [x for x in foelie + kruidnagel + nootmuskaat]
-    agreements = [x for x in foelie + kruidnagel + nootmuskaat if x in foelie and x in kruidnagel and x in nootmuskaat]
-
-    print('Number of total annotations: ', len(all_annos))
-
-    print('Number of tokens that received an event class label of all annotators: ', len(agreements))
-    # print(agreements)
-
-    print('Percentage of mention detection agreement: ', (len(agreements) / len(all_annos)) * 100)
-
-    print()
-    print('Average amount of annotations is: ', ((len(foelie) + len(kruidnagel) + len(nootmuskaat)) / 3))
-    # print('Average amount of annotations per scan is: ' , ((len(Brecht)+len(Lodewijk)+len(Manjusha)+len(Kay))/4) / 5)
-
-def merge_dfs(df1, df2):
-
-    indces = []
-    for index, row in df2.iterrows():
-        if row['Should this mention be annotated as an event?'] != 'yes':
-            indces.append(index)
-
-
-    df2 = df2.drop(indces)
-
-    mention_ids = df1['mention_ids'].tolist() + df2['mention_ids'].tolist()
-    eventclass = df1['eventclass_no_number'].tolist() + df2['If so, which event class should the mention be annotated with?'].tolist()
-    mention_in_context = df1['mention_in_context'].tolist() + df2['mention_in_context'].tolist()
-    mention_token_id = df1['mention_token_id'].tolist() + df2['mention_token_id'].tolist()
-    mention_span = df1['mention_span'].tolist() + df2['mention_span'].tolist()
-
-    result_df = pd.DataFrame()
-    result_df['mention_span'] = mention_span
-    result_df['mention_ids'] = mention_ids
-    result_df['eventclass_no_number'] = eventclass
-    result_df['mention_in_context'] = mention_in_context
-    result_df['mention_token_id'] = mention_token_id
-
-
-    return(result_df)
-
-def append_checked_annotations(df_original, df_check):
-
-
-    try:
-    #make sure mention_ids are list types
-        mention_ids_l = []
-        for item in df_check['mention_ids']:
-            l2= []
-            l = item.split(',')
-            for item in l:
-                l2.append(item.strip("['").strip("']").strip(" ").strip('"').strip("'"))
-            mention_ids_l.append(l2)
-
-        df_check['mention_ids'] = mention_ids_l
-
-    except AttributeError:
-        x = 0
-
-    complete = merge_dfs(df_original, df_check)
-
-    return(complete)
-
-def append_checked_annotations2(df_original, df_check1, df_check2, df_check3):
-
-
-    try:
-    #make sure mention_ids are list types
-        mention_ids_l = []
-        for item in df_check1['mention_ids']:
-            l2= []
-            l = item.split(',')
-            for item in l:
-                l2.append(item.strip("['").strip("']").strip(" ").strip('"').strip("'"))
-            mention_ids_l.append(l2)
-
-        df_check1['mention_ids'] = mention_ids_l
-
-        mention_ids_l = []
-        for item in df_check2['mention_ids']:
-            l2= []
-            l = item.split(',')
-            for item in l:
-                l2.append(item.strip("['").strip("']").strip(" ").strip('"').strip("'"))
-            mention_ids_l.append(l2)
-
-        df_check2['mention_ids'] = mention_ids_l
-
-        mention_ids_l = []
-        for item in df_check3['mention_ids']:
-            l2= []
-            l = item.split(',')
-            for item in l:
-                l2.append(item.strip("['").strip("']").strip(" ").strip('"').strip("'"))
-            mention_ids_l.append(l2)
-
-        df_check3['mention_ids'] = mention_ids_l
-    except AttributeError:
-        x = 0
-
-    merge1 = merge_dfs(df_original, df_check1)
-    merge2 = merge_dfs(merge1, df_check2)
-    complete = merge_dfs(merge2, df_check3)
-
-    return(complete)
 
 def analyse_annotator_pair(df1, df2, annotator1, annotator2):
 
@@ -294,6 +182,8 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     spelling2 = ['TakingUnderControl', 'TakingSomeoneUnderControl']
     stateplus_events = ['Repairing', 'Healing']
     statemin_events = ['Damaging', 'FallingIll']
+    occupation_events = ['TakingUnderControl', 'Enslaving']
+    visit_events = ['Visit', 'Encounter', 'SocialInteraction']
 
     translocation_static = ['BeingAtAPlace']
     possession_static = ['HavingInPossession']
@@ -302,6 +192,7 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     relationship_static = ['BeingInARelationship']
     internalmin_static = ['HavingInternalState-', 'HavingInternalState']
     internalplus_static = ['HavingInternalState+']
+    occupation_static = ['Occupation']
 
     real_disagreements = []
     disagreement_dicts = []
@@ -319,6 +210,7 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     i_nan2 = 0
     i_spelling = 0
     i_conflict = 0
+    i_visit = 0
     for item in examples_partial_different:
         if type(item[0][1]) != str or type(item[1][1]) != str:
             i_nan2 += 1
@@ -356,6 +248,10 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
             i_stat_dyn += 1
         elif item[1][1] in translocation_static and item[0][1] in translocation_events:
             i_stat_dyn += 1
+        elif item[0][1] in occupation_static and item[1][1] in occupation_events:
+            i_stat_dyn += 1
+        elif item[1][1] in occupation_static and item[0][1] in occupation_events:
+            i_stat_dyn += 1
         elif item[0][1] in violentcontest_events and item[1][1] in violentcontest_events:
             i_violentcontest += 1
         elif item[0][1] in translocation_events and item[1][1] in translocation_events:
@@ -370,6 +266,8 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
             i_scalar += 1
         elif item[0][1] in relationship_events and item[1][1] in relationship_events:
             i_relationship += 1
+        elif item[0][1] in visit_events and item[1][1] in visit_events:
+            i_visit += 1
         else:
             real_disagreements.append((item[0][1], item[1][1]))
             #disagreement_dicts.append(
@@ -386,6 +284,7 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     print('Amount of disagreement within ChangeOfPossession events: ', i_possess)
     print('Amount of disagreement within Uprising events: ', i_unrest)
     print('Amount of disagreement within RelationshipChange events: ', i_relationship)
+    print('Amount of disagreement within Visit events: ', i_visit)
     print('Amount of disagreement within ScalarChange events: ', i_scalar)
     print()
     print('Amount of problematic disagreements: ', len(real_disagreements))
@@ -433,9 +332,9 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
 
 print('---------------------------------------------------------------------------------------')
 print()
-print('GENERAL STATISTICS BEFORE CHECK TASK')
+print('GENERAL STATISTICS')
 print()
-general_statistics(df_foelie, df_kruidnagel)
+general_statistics(df_foelie, df_kaneel)
 print()
 print('---------------------------------------------------------------------------------------')
 print()
@@ -443,46 +342,37 @@ print()
 
 print('RESULTS foelie')
 #d1,p1=analyse_annotator_pair(df_kruidnagel, df_foelie, 'Team Kruidnagel', 'Team foelie')
-scores_FK = analyse_annotator_pair(df_kruidnagel, df_foelie, 'Team Kruidnagel', 'Team Foelie')
-scores_FN = analyse_annotator_pair(df_nootmuskaat, df_foelie, 'Team Nootmuskaat', 'Team Foelie')
+scores_FK = analyse_annotator_pair(df_kaneel, df_foelie, 'Team Kaneel', 'Team Foelie')
 
-print('RESULTS kruidnagel')
+
+print('RESULTS kaneel')
 #d2,p2=analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team foelie', 'Team Kruidnagel')
-scores_KF = analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team Foelie', 'Team Kruidnagel')
-scores_KN = analyse_annotator_pair(df_nootmuskaat, df_kruidnagel, 'Team Nootmuskaat', 'Team Kruidnagel')
+scores_KF = analyse_annotator_pair(df_foelie, df_kaneel, 'Team Foelie', 'Team Kaneel')
 
-print('RESULTS nootmuskaat')
-#d2,p2=analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team foelie', 'Team Kruidnagel')
-scores_NF = analyse_annotator_pair(df_foelie, df_nootmuskaat, 'Team Foelie', 'Team Nootmuskaat')
-scores_NK = analyse_annotator_pair(df_kruidnagel, df_nootmuskaat, 'Team Kruidnagel', 'Team Nootmuskaat')
 
-avg_nores = (scores_FK['agree_nores'] + scores_KF['agree_nores'] + scores_FN['agree_nores'] + scores_NF['agree_nores'] + scores_KN['agree_nores'] + scores_NK['agree_nores']) / 6
-avg_nores_trained = (scores_FK['agree_nores'] + scores_KF['agree_nores']) / 2
+avg_nores = (scores_FK['agree_nores'] + scores_KF['agree_nores']) / 2
 
-avg_res = (scores_FK['agree_res'] + scores_KF['agree_res'] + scores_FN['agree_res'] + scores_NF['agree_res'] + scores_KN['agree_res'] + scores_NK['agree_res']) / 6
-avg_res_trained = (scores_FK['agree_res'] + scores_KF['agree_res']) / 2
+avg_res = (scores_FK['agree_res'] + scores_KF['agree_res'] ) / 2
+
 
 print("Scores after check and after resolution (fin_agree_res)")
 table = PrettyTable()
-table.field_names = ["", "T1/T2", "T2/T1", "T1/T3", "T3/T1", "T2/T3", "T3/T2", "avg", "only trained avg"]
-table.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], scores_FN['agree_nores'], scores_NF['agree_nores'], scores_KN['agree_nores'], scores_NK['agree_nores'], avg_nores, avg_nores_trained])
-table.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], scores_FN['agree_res'], scores_NF['agree_res'], scores_KN['agree_res'], scores_NK['agree_res'], avg_res, avg_res_trained])
+table.field_names = ["", "Kaneel/Foelie", "Foelie/Kaneel", "avg"]
+table.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], avg_nores])
+table.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], avg_res])
 
 print(table)
 
 print()
 print()
 
-
-avg_br_tr = (scores_FK['class_agreement'] + scores_KF['class_agreement']) /2
-avg_ar_tr = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso']) /2
-avg_br_ntr = (scores_FK['class_agreement'] + scores_KF['class_agreement'] + scores_FN['class_agreement'] + scores_NF['class_agreement'] + scores_KN['class_agreement'] + scores_NK['class_agreement']) / 6
-avg_ar_ntr = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso'] + scores_FN['class_agreement_reso'] + scores_NF['class_agreement_reso'] + scores_KN['class_agreement_reso'] + scores_NK['class_agreement_reso']) / 6
+avg_br = (scores_FK['class_agreement'] + scores_KF['class_agreement']) /2
+avg_ar = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso']) /2
 
 print("Average class agreement scores (span level; partial overlap")
 table = PrettyTable()
-table.field_names = ["", "S2-tr", "S2-notr"]
-table.add_row(["BR", avg_br_tr, avg_br_ntr])
-table.add_row(["AR", avg_ar_tr, avg_ar_ntr])
+table.field_names = ["", "class agreement"]
+table.add_row(["BR", avg_br])
+table.add_row(["AR", avg_ar])
 print(table)
 
