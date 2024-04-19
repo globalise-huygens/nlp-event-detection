@@ -22,12 +22,13 @@ class BIO(Enum):
 
     @classmethod
     def begin(cls, label):
-        return f"B-event"
+        #return f"B-event"
+        return "B-"+str(label)
 
     @classmethod
     def midword(cls, label):
-        return f"I-event"
-
+        #return f"I-event"
+        return "I-"+str(label)
 
 def get_tokens_and_labels(sentence, cas):
     tokens = cas.select_covered(TOKEN, sentence)
@@ -57,12 +58,12 @@ def cas2jsonl_ner(cas, jsonl):
 
 
 def cas2json_zip(datadir, json_zip_path):
-    """converts xmi files from an Inception export (prealably unzipped) into json"""
+    """converts xmi files from an Inception export (preferably unzipped) into json"""
     with z.ZipFile(os.path.join(datadir, 'jsonfiles.zip'), 'w') as ozf:
-        for doc_folder in os.listdir(os.path.join(datadir, 'data_inception_output')):
-            with open(os.path.join(datadir, 'data_inception_output', doc_folder, TYPESYSTEM), 'rb') as f:
+        for doc_folder in os.listdir(os.path.join(datadir, 'input_for_lexicon_v2/xmi')):
+            with open(os.path.join(datadir, 'input_for_lexicon_v2/xmi', doc_folder, TYPESYSTEM), 'rb') as f:
                 typesystem = load_typesystem(f)
-            with open(os.path.join(datadir, 'data_inception_output', doc_folder, str(doc_folder) + ".xmi"), 'rb') as f:
+            with open(os.path.join(datadir, 'input_for_lexicon_v2/xmi', doc_folder, str(doc_folder) + ".xmi"), 'rb') as f:
                 cas = load_cas_from_xmi(f, typesystem=typesystem)
             json_path = os.path.basename(doc_folder).split()[0] +'.json'
             cas2jsonl_ner(cas, json_path)
@@ -148,6 +149,7 @@ def compress_BIO_tags(entity_bio_tags, tokens, cas, typesystem, treat_I_init_as_
 
 filenames = ['NL-HaNA_1-8','NL-HaNA_1-9', 'NL-HaNA_1-10', 'NL-HaNA_1.04.02_3598_0797-0809', 'NL-HaNA_1.04.02_11012_0229-0251']
 
-#cas2json_zip("data/", "data/jsonfiles.zip")
-for file in filenames:
-    json2cas_zip("data/predictions/rel-pre_annotate-"+file+'.json', 'data/', file)
+cas2json_zip("data/", "data/jsonfiles.zip")
+
+#for file in filenames:
+    #json2cas_zip("data/predictions/rel-pre_annotate-"+file+'.json', 'data/', file)

@@ -41,6 +41,8 @@ def post_clean(jsonfile, print_param):
 
 path_input_kaneel = "team_data_2024/inception_output/kaneel_IAA_feb_2024.tsv"
 path_input_foelie = "team_data_2024/inception_output/foelie_IAA_feb_2024.tsv"
+path_input_kruidnagel = "team_data_2024/inception_output/kruidnagel_IAA_feb_2024-2.tsv"
+path_input_nootmuskaat = "team_data_2024/inception_output/nootmuskaat_IAA_feb_2024-2.tsv"
 path_output = "team_data_2024/processed/"
 
 def preprocess(path_input, path_output, teamname):
@@ -48,6 +50,8 @@ def preprocess(path_input, path_output, teamname):
 
 preprocess(path_input_foelie, path_output, 'foelie')
 preprocess(path_input_kaneel, path_output, 'kaneel')
+preprocess(path_input_kruidnagel, path_output, 'kruidnagel')
+preprocess(path_input_nootmuskaat, path_output, 'nootmuskaat')
 
 #df_foelie = post_clean("team_data_2024/processed/foelie-triggers-conll.json", 'print')
 #df_kruidnagel = post_clean("team_data_2024/processed/kruidnagel-triggers-conll.json", 'print')
@@ -55,9 +59,13 @@ preprocess(path_input_kaneel, path_output, 'kaneel')
 
 df_foelie = post_clean("team_data_2024/processed/foelie-triggers-conll.json", 'print')
 df_kaneel = post_clean("team_data_2024/processed/kaneel-triggers-conll.json", 'print')
+df_kruidnagel = post_clean("team_data_2024/processed/kruidnagel-triggers-conll.json", 'print')
+df_nootmuskaat = post_clean("team_data_2024/processed/nootmuskaat-triggers-conll.json", 'print')
 
 print('Total amount of annotations Foelie: ', len(df_foelie))
 print('Total amount of annotations Kaneel:', len(df_kaneel))
+print('Total amount of annotations Kruidnagel:', len(df_kruidnagel))
+print('Total amount of annotations Nootmuskaat:', len(df_nootmuskaat))
 
 #EXACT MATCHES ALL ANNOTATORS
 
@@ -77,9 +85,13 @@ def make_span_dict(df):
 def general_statistics(df1, df2):
     foelie = make_dict(df_foelie)
     kaneel = make_dict(df_kaneel)
+    kruidnagel = make_dict(df_kruidnagel)
+    nootmuskaat = make_dict(df_nootmuskaat)
 
     print('Total amount of annotations Foelie: ', len(df_foelie))
     print('Total amount of annotations Kaneel: ', len(df_kaneel))
+    print('Total amount of annotations Kruidnagel: ', len(df_kruidnagel))
+    print('Total amount of annotations Nootmuskaat: ', len(df_nootmuskaat))
 
     all_annos = [x for x in foelie + kaneel]
     agreements = [x for x in foelie + kaneel if x in foelie and x in kaneel]
@@ -96,6 +108,8 @@ def general_statistics(df1, df2):
 
 
     print()
+
+
 
 def analyse_annotator_pair(df1, df2, annotator1, annotator2):
 
@@ -151,6 +165,16 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
                 examples_partial.append(((row_1['mention_in_context'], row_1['eventclass_no_number']), (row_2['mention_in_context'], row_2['eventclass_no_number'])))
 
     print("# partial span matches with the same label: ", len(examples_partial))
+
+
+    combined_trigger_overlap = 0
+    for index_1, row_1 in df1.iterrows():
+        for index_2, row_2 in df2.iterrows():
+            #if row_1['mention_ids'] == row_2['mention_ids']:   # exact span match trigger detect overlap
+            if len(set(row_1['mention_ids']).intersection(set(row_2['mention_ids'])))>0:     # partial span match trigger detect overlap
+                combined_trigger_overlap += 1
+
+    print("combined_trigger_overlap is", combined_trigger_overlap)
 
     #for item in examples_partial[:5]:
     #    print(item)
@@ -321,12 +345,14 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     class_agreement = (len(examples_partial) / all_spans_by_both_annotators) * 100
     print('amount of class agreement before reso: ', class_agreement)
 
+    trigger_detection_agreement = len(examples_partial)
+
     class_agreement_reso = ((len(examples_partial) + (len(examples_partial_different)-len(real_disagreements))) / all_spans_by_both_annotators) * 100
     print('amount of class agreement after reso: ', class_agreement_reso)
     print('---------------------------------------------------------------------------------------')
 
 
-    scores = {'agree_nores':agree_nores, 'agree_res':agree_res, 'class_agreement': class_agreement, 'class_agreement_reso': class_agreement_reso}
+    scores = {'agree_nores':agree_nores, 'agree_res':agree_res, 'class_agreement': class_agreement, 'class_agreement_reso': class_agreement_reso, 'span_detect_overlap': combined_trigger_overlap}
     return(scores)
 
 
@@ -343,36 +369,107 @@ print()
 print('RESULTS foelie')
 #d1,p1=analyse_annotator_pair(df_kruidnagel, df_foelie, 'Team Kruidnagel', 'Team foelie')
 scores_FK = analyse_annotator_pair(df_kaneel, df_foelie, 'Team Kaneel', 'Team Foelie')
-
+scores_FKr = analyse_annotator_pair(df_kruidnagel, df_foelie, 'Team Kruidnagel', 'Team Foelie')
+scores_FN = analyse_annotator_pair(df_nootmuskaat, df_foelie, 'Team Nootmuskaat', 'Team Foelie')
 
 print('RESULTS kaneel')
 #d2,p2=analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team foelie', 'Team Kruidnagel')
 scores_KF = analyse_annotator_pair(df_foelie, df_kaneel, 'Team Foelie', 'Team Kaneel')
+scores_KKr = analyse_annotator_pair(df_kruidnagel, df_kaneel, 'Team Kruidnagel', 'Team Kaneel')
+scores_KN = analyse_annotator_pair(df_nootmuskaat, df_kaneel, 'Team Nootmuskaat', 'Team Kaneel')
+
+print('RESULTS kruidnagel')
+scores_KrF = analyse_annotator_pair(df_foelie, df_kruidnagel, 'Team Foelie', 'Team Kruidnagel')
+scores_KrK = analyse_annotator_pair(df_kaneel, df_kruidnagel, 'Team Kaneel', 'Team Kruidnagel')
+scores_KrN = analyse_annotator_pair(df_nootmuskaat, df_kruidnagel, 'Team Nootmuskaat', 'Team Kruidnagel')
+
+print('RESULTS nootmuskaat')
+scores_NF = analyse_annotator_pair(df_foelie, df_nootmuskaat, 'Team Foelie', 'Team Nootmuskaat')
+scores_NK = analyse_annotator_pair(df_kaneel, df_nootmuskaat, 'Team Kaneel', 'Team Nootmuskaat')
+scores_NKr = analyse_annotator_pair(df_kruidnagel, df_nootmuskaat, 'Team Kruidnagel', 'Team Nootmuskaat')
 
 
-avg_nores = (scores_FK['agree_nores'] + scores_KF['agree_nores']) / 2
 
-avg_res = (scores_FK['agree_res'] + scores_KF['agree_res'] ) / 2
+avg_nores_before = (scores_FK['agree_nores'] + scores_KF['agree_nores']) / 2
+avg_res_before = (scores_FK['agree_res'] + scores_KF['agree_res'] ) / 2
+
+avg_nores_after = (scores_FK['agree_nores'] + scores_KF['agree_nores'] + scores_FKr['agree_nores'] + scores_KKr['agree_nores'] + scores_KrF['agree_nores'] + scores_KrK['agree_nores']) / 6
+avg_res_after = (scores_FK['agree_res'] + scores_KF['agree_res'] + scores_FKr['agree_res'] + scores_KKr['agree_res'] + scores_KrF['agree_res'] + scores_KrK['agree_res']) / 6
+print("NEW SCORES")
+print(avg_nores_before)
+print(avg_nores_after)
+print()
+print(avg_res_before)
+print(avg_res_after)
+
+avg_nores_total = (scores_FK['agree_nores'] + scores_KF['agree_nores'] + scores_FKr['agree_nores'] + scores_KKr['agree_nores'] + scores_KrF['agree_nores'] + scores_KrK['agree_nores'] + scores_NF['agree_nores'] + scores_NKr['agree_nores'] + scores_NK['agree_nores'] + scores_FN['agree_nores'] + scores_KrN['agree_nores'] + scores_KN['agree_nores']) / 12
+avg_res_total = (scores_FK['agree_res'] + scores_KF['agree_res'] + scores_FKr['agree_res'] + scores_KKr['agree_res'] + scores_KrF['agree_res'] + scores_KrK['agree_res'] + scores_NF['agree_res'] + scores_NKr['agree_res'] + scores_NK['agree_res'] + scores_FN['agree_res'] + scores_KrN['agree_res'] + scores_KN['agree_res'])  / 12
+
+print('-------------------')
+print("FINAL SCORES AVG")
+print(avg_nores_total)
+print(avg_res_total)
+print('-------------------')
 
 
 print("Scores after check and after resolution (fin_agree_res)")
 table = PrettyTable()
-table.field_names = ["", "Kaneel/Foelie", "Foelie/Kaneel", "avg"]
-table.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], avg_nores])
-table.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], avg_res])
+table.field_names = ["", "Kaneel/Foelie", "Foelie/Kaneel", "Kruidnagel/Foelie", "Foelie/Kruidnagel", "Kruidnagel/Kaneel", "Kaneel/Kruidnagel","avg"]
+table.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], scores_FKr['agree_nores'], scores_KrF['agree_nores'], scores_KrK['agree_nores'], scores_KKr['agree_nores'], avg_nores_after])
+table.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], scores_FKr['agree_res'], scores_KrF['agree_res'], scores_KrK['agree_res'], scores_KKr['agree_res'], avg_res_after])
 
 print(table)
 
-print()
-print()
 
-avg_br = (scores_FK['class_agreement'] + scores_KF['class_agreement']) /2
-avg_ar = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso']) /2
+
+print("Scores after check and after resolution (fin_agree_res)")
+table2 = PrettyTable()
+table2.field_names = ["", "Kaneel/Foelie", "Foelie/Kaneel", "Kruidnagel/Foelie", "Foelie/Kruidnagel", "Kruidnagel/Kaneel", "Kaneel/Kruidnagel", "Kaneel/Nootmuskaat", "Nootmuskaat/Kaneel", "Kruidnagel/Nootmuskaat", "Nootmuskaat/Kruidnagel", "Foelie/Nootmuskaat", "Nootmuskaat/Foelie", "avg"]
+table2.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], scores_FKr['agree_nores'], scores_KrF['agree_nores'], scores_KrK['agree_nores'], scores_KKr['agree_nores'], scores_NK['agree_nores'], scores_KN['agree_nores'], scores_NKr['agree_nores'], scores_KrN['agree_nores'], scores_NF['agree_nores'], scores_FN['agree_nores'], avg_nores_total])
+table2.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], scores_FKr['agree_res'], scores_KrF['agree_res'], scores_KrK['agree_res'], scores_KKr['agree_res'], scores_NK['agree_res'], scores_KN['agree_res'], scores_NKr['agree_res'], scores_KrN['agree_res'], scores_NF['agree_res'], scores_FN['agree_res'], avg_res_total])
+
+print()
+print(table2)
+
+avg_br = (scores_FK['class_agreement'] + scores_KF['class_agreement'] + scores_FKr['class_agreement'] + scores_KKr['class_agreement'] + scores_KrF['class_agreement'] + scores_KrK['class_agreement']) /6
+avg_ar = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso'] + scores_FKr['class_agreement_reso'] + scores_KKr['class_agreement_reso'] + scores_KrF['class_agreement_reso'] + scores_KrK['class_agreement_reso']) /6
+
 
 print("Average class agreement scores (span level; partial overlap")
-table = PrettyTable()
-table.field_names = ["", "class agreement"]
-table.add_row(["BR", avg_br])
-table.add_row(["AR", avg_ar])
-print(table)
+table3 = PrettyTable()
+table3.field_names = ["", "class agreement"]
+table3.add_row(["BR", avg_br])
+table3.add_row(["AR", avg_ar])
+print(table3)
+
+
+avg_br_total = (scores_FK['class_agreement'] + scores_KF['class_agreement'] + scores_FKr['class_agreement'] + scores_KKr['class_agreement'] + scores_KrF['class_agreement'] + scores_KrK['class_agreement'] + scores_NK['class_agreement'] + scores_KN['class_agreement'] + scores_NKr['class_agreement'] + scores_KrN['class_agreement'] + scores_NF['class_agreement'] + scores_FN['class_agreement']) /12
+avg_ar_total = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso'] + scores_FKr['class_agreement_reso'] + scores_KKr['class_agreement_reso'] + scores_KrF['class_agreement_reso'] + scores_KrK['class_agreement_reso'] + scores_NK['class_agreement_reso'] + scores_KN['class_agreement_reso'] + scores_NKr['class_agreement_reso'] + scores_KrN['class_agreement_reso'] + scores_NF['class_agreement_reso'] + scores_FN['class_agreement_reso']) /12
+
+
+print("Average class agreement scores (span level; partial overlap")
+table4 = PrettyTable()
+table4.field_names = ["", "class agreement"]
+table4.add_row(["BR", avg_br_total])
+table4.add_row(["AR", avg_ar_total])
+print(table4)
+
+print()
+print("Calculating trigger detection agreement...")
+tr_FK = ((scores_FK['span_detect_overlap'] / len(df_foelie)) + (scores_FK['span_detect_overlap'] / len(df_kaneel))) / 2
+tr_FKr = ((scores_FKr['span_detect_overlap'] / len(df_foelie)) + (scores_FKr['span_detect_overlap'] / len(df_kruidnagel))) / 2
+tr_FN = ((scores_FN['span_detect_overlap'] / len(df_foelie)) + (scores_FN['span_detect_overlap'] / len(df_nootmuskaat))) / 2
+tr_NK = ((scores_NK['span_detect_overlap'] / len(df_nootmuskaat)) + (scores_NK['span_detect_overlap'] / len(df_kaneel))) / 2
+tr_NKr = ((scores_NKr['span_detect_overlap'] / len(df_nootmuskaat)) + (scores_NKr['span_detect_overlap'] / len(df_kruidnagel))) / 2
+tr_KrK = ((scores_KrK['span_detect_overlap'] / len(df_kruidnagel)) + (scores_KrK['span_detect_overlap'] / len(df_kaneel))) / 2
+avg_triggerdetect = (tr_FK+tr_FKr+tr_FN+tr_NK+tr_NKr+tr_KrK) / 6
+
+table5 = PrettyTable()
+table5.field_names = ["FKr", "FK", "FN", "NK", "NKr", "KrK", "avg"]
+table5.add_row([tr_FKr, tr_FK, tr_FN, tr_NK, tr_NKr, tr_KrK, avg_triggerdetect])
+print(table5)
+
+
+
+
 

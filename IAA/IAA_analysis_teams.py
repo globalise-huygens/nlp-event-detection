@@ -267,6 +267,15 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     #for item in examples_partial[:5]:
     #    print(item)
 
+    combined_trigger_overlap = 0
+    for index_1, row_1 in df1.iterrows():
+        for index_2, row_2 in df2.iterrows():
+            if row_1['mention_ids'] == row_2['mention_ids']:   # exact span match trigger detect overlap
+            #if len(set(row_1['mention_ids']).intersection(set(row_2['mention_ids'])))>0:     # partial span match trigger detect overlap
+                combined_trigger_overlap += 1
+
+    print("combined_trigger_overlap is", combined_trigger_overlap)
+
 
     ### PARTIAL SPAN MATCHES DIFFERENT LABEL seeing which spans are annotated with a different label
 
@@ -427,7 +436,7 @@ def analyse_annotator_pair(df1, df2, annotator1, annotator2):
     print('---------------------------------------------------------------------------------------')
 
 
-    scores = {'agree_nores':agree_nores, 'agree_res':agree_res, 'class_agreement': class_agreement, 'class_agreement_reso': class_agreement_reso}
+    scores = {'agree_nores':agree_nores, 'agree_res':agree_res, 'class_agreement': class_agreement, 'class_agreement_reso': class_agreement_reso, 'span_detect_overlap': combined_trigger_overlap}
     return(scores)
 
 
@@ -486,3 +495,16 @@ table.add_row(["BR", avg_br_tr, avg_br_ntr])
 table.add_row(["AR", avg_ar_tr, avg_ar_ntr])
 print(table)
 
+
+
+print()
+print("Calculating trigger detection agreement...")
+tr_FK = ((scores_FK['span_detect_overlap'] / len(df_foelie)) + (scores_FK['span_detect_overlap'] / len(df_kruidnagel))) / 2
+tr_FN = ((scores_FN['span_detect_overlap'] / len(df_foelie)) + (scores_FN['span_detect_overlap'] / len(df_nootmuskaat))) / 2
+tr_NK = ((scores_NK['span_detect_overlap'] / len(df_nootmuskaat)) + (scores_NK['span_detect_overlap'] / len(df_kruidnagel))) / 2
+avg_triggerdetect = (tr_FK+tr_FN+tr_NK) / 3
+
+table5 = PrettyTable()
+table5.field_names = ["FK", "FN", "NK", "avg"]
+table5.add_row([tr_FK, tr_FN, tr_NK, avg_triggerdetect])
+print(table5)

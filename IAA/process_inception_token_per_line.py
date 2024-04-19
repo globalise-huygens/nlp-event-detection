@@ -140,8 +140,6 @@ def get_mention_spans(dicts, df):
     return(new_mentions)
 
 
-
-
 def insert_span(df):
     #context_mentions = []
     #i=-1
