@@ -190,3 +190,52 @@ for item in ids_patient_foelie:
 
 print(exact_match)
 print(partial_match)
+
+zipped_kr = zip(kruid_df['mention_span_ids'].tolist(), kruid_df['Patient_offsets'].tolist())
+zipped_foelie = zip(foelie_df['mention_span_ids'].tolist(), foelie_df['Patient_offsets'].tolist())
+
+zipped_mentions = zip(kruid_df['mention_span_ids'].tolist(), foelie_df['mention_span_ids'].tolist())
+
+
+result = []
+for event1, role1 in zipped_kr:
+    print('event1: ', event1)
+    #print('event: ', ast.literal_eval(event), 'role: ', role)
+    for event2, role2 in zipped_foelie:
+        print('event2: ', event2)
+        #check for span overlap in event selection
+        if len(set(ast.literal_eval(event1)).intersection(set(ast.literal_eval(event2)))) > 0:
+            print('overlap')
+            continue
+        #if len(set(ast.literal_eval(event1)).intersection(set(ast.literal_eval(event2)))) < 0:
+            #print('no overlap')
+            #dict['event_mention_span1'] = ast.literal_eval(event1)
+            #dict['event_mention_span2'] = ast.literal_eval(event1)
+            #dict['Patient_offset1'] = ast.literal_eval(role1)
+            #dict['Patient_offset2'] = ast.literal_eval(role2)
+        #result.append(dict)
+    #print(result)
+
+print()
+print(len(kruid_df))
+
+
+
+ex1 = ['8-230', '8-231', '8-232']
+ex2 = ['8-230']
+ex3 = ['8-229']
+
+new_set = set(set(kruid_df['mention_span_ids'].tolist()).intersection(set(nootmuskaat_df['mention_span_ids'].tolist())))
+print(new_set)
+
+
+if len(set(ex2).intersection(set(ex1)))>0:
+    print('overlap')
+
+
+print()
+print()
+
+
+#matching_mentions = set(set(kruid_df['mention_span_ids'].tolist()).intersection(set(nootmuskaat_df['mention_span_ids'].tolist())))
+#print(matching_mentions)
