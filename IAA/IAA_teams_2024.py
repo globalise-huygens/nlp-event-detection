@@ -412,17 +412,17 @@ print(avg_res_total)
 print('-------------------')
 
 
-print("Scores after check and after resolution (fin_agree_res)")
-table = PrettyTable()
-table.field_names = ["", "Kaneel/Foelie", "Foelie/Kaneel", "Kruidnagel/Foelie", "Foelie/Kruidnagel", "Kruidnagel/Kaneel", "Kaneel/Kruidnagel","avg"]
-table.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], scores_FKr['agree_nores'], scores_KrF['agree_nores'], scores_KrK['agree_nores'], scores_KKr['agree_nores'], avg_nores_after])
-table.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], scores_FKr['agree_res'], scores_KrF['agree_res'], scores_KrK['agree_res'], scores_KKr['agree_res'], avg_res_after])
+#print("Scores after check and after resolution (fin_agree_res)")
+#table = PrettyTable()
+#table.field_names = ["", "Kaneel/Foelie", "Foelie/Kaneel", "Kruidnagel/Foelie", "Foelie/Kruidnagel", "Kruidnagel/Kaneel", "Kaneel/Kruidnagel","avg"]
+#table.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], scores_FKr['agree_nores'], scores_KrF['agree_nores'], scores_KrK['agree_nores'], scores_KKr['agree_nores'], avg_nores_after])
+#table.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res'], scores_FKr['agree_res'], scores_KrF['agree_res'], scores_KrK['agree_res'], scores_KKr['agree_res'], avg_res_after])
 
-print(table)
+#print(table)
 
 
 
-print("Scores after check and after resolution (fin_agree_res)")
+print("Scores all four teams")
 table2 = PrettyTable()
 table2.field_names = ["", "Kaneel/Foelie", "Foelie/Kaneel", "Kruidnagel/Foelie", "Foelie/Kruidnagel", "Kruidnagel/Kaneel", "Kaneel/Kruidnagel", "Kaneel/Nootmuskaat", "Nootmuskaat/Kaneel", "Kruidnagel/Nootmuskaat", "Nootmuskaat/Kruidnagel", "Foelie/Nootmuskaat", "Nootmuskaat/Foelie", "avg"]
 table2.add_row(["Before resolution", scores_FK['agree_nores'], scores_KF['agree_nores'], scores_FKr['agree_nores'], scores_KrF['agree_nores'], scores_KrK['agree_nores'], scores_KKr['agree_nores'], scores_NK['agree_nores'], scores_KN['agree_nores'], scores_NKr['agree_nores'], scores_KrN['agree_nores'], scores_NF['agree_nores'], scores_FN['agree_nores'], avg_nores_total])
@@ -431,23 +431,23 @@ table2.add_row(["After resolution", scores_FK['agree_res'], scores_KF['agree_res
 print()
 print(table2)
 
-avg_br = (scores_FK['class_agreement'] + scores_KF['class_agreement'] + scores_FKr['class_agreement'] + scores_KKr['class_agreement'] + scores_KrF['class_agreement'] + scores_KrK['class_agreement']) /6
-avg_ar = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso'] + scores_FKr['class_agreement_reso'] + scores_KKr['class_agreement_reso'] + scores_KrF['class_agreement_reso'] + scores_KrK['class_agreement_reso']) /6
+#avg_br = (scores_FK['class_agreement'] + scores_KF['class_agreement'] + scores_FKr['class_agreement'] + scores_KKr['class_agreement'] + scores_KrF['class_agreement'] + scores_KrK['class_agreement']) /6
+#avg_ar = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso'] + scores_FKr['class_agreement_reso'] + scores_KKr['class_agreement_reso'] + scores_KrF['class_agreement_reso'] + scores_KrK['class_agreement_reso']) /6
 
 
-print("Average class agreement scores (span level; partial overlap")
-table3 = PrettyTable()
-table3.field_names = ["", "class agreement"]
-table3.add_row(["BR", avg_br])
-table3.add_row(["AR", avg_ar])
-print(table3)
+#print("Average class agreement scores (span level; partial overlap")
+#table3 = PrettyTable()
+#table3.field_names = ["", "class agreement"]
+#table3.add_row(["BR", avg_br])
+#table3.add_row(["AR", avg_ar])
+#print(table3)
 
 
 avg_br_total = (scores_FK['class_agreement'] + scores_KF['class_agreement'] + scores_FKr['class_agreement'] + scores_KKr['class_agreement'] + scores_KrF['class_agreement'] + scores_KrK['class_agreement'] + scores_NK['class_agreement'] + scores_KN['class_agreement'] + scores_NKr['class_agreement'] + scores_KrN['class_agreement'] + scores_NF['class_agreement'] + scores_FN['class_agreement']) /12
 avg_ar_total = (scores_FK['class_agreement_reso'] + scores_KF['class_agreement_reso'] + scores_FKr['class_agreement_reso'] + scores_KKr['class_agreement_reso'] + scores_KrF['class_agreement_reso'] + scores_KrK['class_agreement_reso'] + scores_NK['class_agreement_reso'] + scores_KN['class_agreement_reso'] + scores_NKr['class_agreement_reso'] + scores_KrN['class_agreement_reso'] + scores_NF['class_agreement_reso'] + scores_FN['class_agreement_reso']) /12
 
 
-print("Average class agreement scores (span level; partial overlap")
+print("Average class agreement scores all four teams (span level; partial overlap")
 table4 = PrettyTable()
 table4.field_names = ["", "class agreement"]
 table4.add_row(["BR", avg_br_total])

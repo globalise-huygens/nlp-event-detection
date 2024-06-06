@@ -1,6 +1,7 @@
 from process_inception_token_per_line import main
 import pandas as pd
 import ast
+import numpy as np
 import collections
 
 #main("team_data/inception_output/NL-HaNA_1.04.02_1812_0803-0808-1.tsv",
@@ -191,11 +192,17 @@ for item in ids_patient_foelie:
 print(exact_match)
 print(partial_match)
 
+
+
+
 zipped_kr = zip(kruid_df['mention_span_ids'].tolist(), kruid_df['Patient_offsets'].tolist())
 zipped_foelie = zip(foelie_df['mention_span_ids'].tolist(), foelie_df['Patient_offsets'].tolist())
 
 zipped_mentions = zip(kruid_df['mention_span_ids'].tolist(), foelie_df['mention_span_ids'].tolist())
 
+#compare mention span ids
+#store relevant mention_span_ids (intersection of >0)
+# find roles
 
 result = []
 for event1, role1 in zipped_kr:
@@ -239,3 +246,221 @@ print()
 
 #matching_mentions = set(set(kruid_df['mention_span_ids'].tolist()).intersection(set(nootmuskaat_df['mention_span_ids'].tolist())))
 #print(matching_mentions)
+
+
+
+rel_ment1 = []
+rel_ment2 = []
+for ment1, ment2 in zipped_mentions:
+    print(ment1)
+    print(ment2)
+    if len(set(ast.literal_eval(ment1)).intersection(set(ast.literal_eval(ment2)))) > 0:
+        rel_ment1.append(ment1)
+        rel_ment2.append(ment2)
+
+
+print(len(rel_ment2))
+print(len(rel_ment1))
+
+
+
+print(rel_ment1)
+print(rel_ment2)
+
+
+ment_kruid = kruid_df['mention_span_ids'].tolist()
+ment_foelie = foelie_df['mention_span_ids'].tolist()
+
+overlapping_ment = []
+for ment in ment_kruid:
+    for ment_f in ment_foelie:
+        if len(set(ast.literal_eval(ment)).intersection(set(ast.literal_eval(ment_f)))) > 0:
+            overlapping_ment.append((ment, ment_f))
+
+print()
+print()
+print(len(ment_kruid))
+print(overlapping_ment)
+print(len(overlapping_ment))
+print(len(set(overlapping_ment)))
+
+
+unique_overlap = list(set(overlapping_ment))
+print(len(unique_overlap))
+
+#new_df =pd.DataFrame()
+#new_df['mention_span_1'] = kruid_df
+
+only_kruid = []
+only_foelie = []
+patient_offsets = []
+for s in unique_overlap:
+    only_kruid.append(s[0])
+    only_foelie.append(s[1])
+
+print(only_kruid)
+
+condition1 = kruid_df['mention_span_ids'].isin(only_kruid)
+condition2 = foelie_df['mention_span_ids'].isin(only_foelie)
+
+df = kruid_df[condition1]
+df2 = foelie_df[condition2]
+
+print(len(df))
+print(len(df2))
+print()
+print()
+
+new_df = pd.DataFrame()
+new_df['mention_span1'] = only_kruid
+new_df['mention_span2'] = only_foelie
+
+print(new_df)
+
+offsets1 = []
+
+for index2, row2 in new_df.iterrows():
+    temp = []
+    for index, row in kruid_df.iterrows():
+        if row['mention_span_ids'] == row2['mention_span1']:
+            temp.append(row['Patient_offsets'])
+    offsets1.append(temp)
+
+print(len(offsets1))
+print(offsets1)
+offsets1_filtered = []
+for item in offsets1:
+    offsets1_filtered.append(item[0])
+
+print(offsets1_filtered)
+
+offsets2 = []
+for index2, row2 in new_df.iterrows():
+    temp = []
+    for index, row in foelie_df.iterrows():
+        if row['mention_span_ids'] == row2['mention_span1']:
+            temp.append(row['Patient_offsets'])
+    offsets2.append(temp)
+
+
+offsets2_filtered = []
+for item in offsets2:
+    try:
+        offsets2_filtered.append(item[0])
+    except IndexError:
+        offsets2_filtered.append(np.nan)
+
+new_df['offsets1'] = offsets1_filtered
+new_df['offsets2'] = offsets2_filtered
+
+print()
+print()
+
+print(offsets1_filtered)
+
+
+def create_window(offsets):
+    list_window = []
+    for item in offsets:
+        if type(item) == str:
+            item = ast.literal_eval(item)
+            if len(item)== 1:
+                for offset in item:
+                    window = []
+                    prefix = offset.split('-')[0]
+                    suffix = offset.split('-')[1]
+                    window.append(prefix + '-' + str(int(suffix)-1))
+                    window.append(offset)
+                    window.append(prefix + '-' + str(int(suffix)+1))
+                    list_window.append(window)
+            if len(item) > 1:
+                temp_window = []
+                for offset in item:
+                    window = []
+                    prefix = offset.split('-')[0]
+                    suffix = offset.split('-')[1]
+                    window.append(prefix + '-' + str(int(suffix) - 1))
+                    window.append(offset)
+                    window.append(prefix + '-' + str(int(suffix) + 1))
+                    temp_window.append(window)
+                list_window.append(temp_window)
+        else:
+            list_window.append('')
+    return(list_window)
+
+print('-----------------------------------------------')
+#print(offsets1_filtered)
+#print(offsets2_filtered)
+
+window_kruid = create_window(offsets1_filtered)
+window_foelie = create_window(offsets2_filtered)
+
+new_df['window1'] = window_kruid
+new_df['window2'] = window_foelie
+new_df.to_csv('experimental/patients_kruid_foelie.csv')
+
+### compare
+
+detection_disagree = 0
+detection_agree = 0
+no_arg_agree = 0
+
+# one team identified at least one arg and the other none:
+for index, row in new_df.iterrows():
+    if type(row['offsets1']) != type(row['offsets2']):
+        detection_disagree += 1
+    if type(row['offsets1']) == type(row['offsets2']) and type(row['offsets1']) != float:
+        detection_agree += 1
+    if type(row['offsets1']) == type(row['offsets2']) and type(row['offsets1']) == float:
+        no_arg_agree += 1
+
+perfect_match = 0
+match = 0
+# both one arg
+for index, row in new_df.iterrows():
+    if type(row['offsets1']) == type(row['offsets2']) and type(row['offsets1']) != float:
+        if len(ast.literal_eval(row['offsets1'])) == 1 and len(ast.literal_eval(row['offsets2'])) == 1:
+            #print(row['offsets1'], row['offsets2'])
+            if row['offsets1'] == row['offsets2']:
+                perfect_match += 1
+                match+= 1
+            else:
+                window1 = row['window1']
+                window2 = row['window2']
+                if len(set(window1).intersection(set(window2))) > 0:
+                    print(window1, window2)
+                    match +=1
+
+# both two args
+for index, row in new_df.iterrows():
+    if type(row['offsets1']) == type(row['offsets2']) and type(row['offsets1']) != float:
+        if len(ast.literal_eval(row['offsets1'])) > 1 and len(ast.literal_eval(row['offsets2'])) > 1:
+            if ast.literal_eval(row['offsets1'])[0] == ast.literal_eval(row['offsets2'])[0]:
+                perfect_match += 1
+                match+= 1
+            if ast.literal_eval(row['offsets1'])[1] == ast.literal_eval(row['offsets2'])[1]:
+                perfect_match += 1
+                match+= 1
+            if row['offsets1'] != row['offsets2']:
+                window1 = row['window1']
+                window2 = row['window2']
+                if len(set(window1[0]).intersection(set(window2[0]))) > 0:
+                    match += 1
+                if len(set(window1[0]).intersection(set(window2[0]))) > 0:
+                    match += 1
+
+
+print('Scores')
+print('Detection agreement (percentage of times both teams detected a Patient): ', (detection_agree / len(new_df)) * 100)
+print('Agreement: both teams identified the same item as a patient: ', (match / len(new_df)) * 100)
+print('Agreement: if both teams identify a patient they choose the same patient', (match / detection_agree) * 100)
+print('Agreement: if both teams identify a patient they choose the same patient with the exact same token as offset', (perfect_match / detection_agree) * 100)
+
+new_list = []
+for item in window_list:
+    if type(item) == list:
+        for x in item:
+            if type(x) == list:
+                new_list.append(x)
+            if type(x) == str:
+                new_list.append(item)

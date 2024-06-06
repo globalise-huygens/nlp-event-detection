@@ -30,7 +30,7 @@ class BIO(Enum):
         #return f"I-event"
         return "I-"+str(label)
 
-def get_tokens_and_labels(sentence, cas):
+def get_tokens_and_labels_events(sentence, cas):
     tokens = cas.select_covered(TOKEN, sentence)
     events = cas.select_covered(EVENT, sentence)
     entities = cas.select_covered(NAMED_ENTITY, sentence)
@@ -48,14 +48,31 @@ def get_tokens_and_labels(sentence, cas):
     labels.extend(list(itertools.chain.from_iterable(itertools.repeat(BIO.O.value, len(tokens) - i))))
     return list(map(lambda x: x.get_covered_text(), tokens)), labels
 
+def get_tokens_and_labels(sentence, cas):
+    tokens = cas.select_covered(TOKEN, sentence)
+    events = cas.select_covered(EVENT, sentence)
+    entities = cas.select_covered(NAMED_ENTITY, sentence)
+    labels = []
+    i = 0
+    for e in entities:
+        while i < len(tokens) and tokens[i].begin < e.begin:
+            labels.append(BIO.O.value)
+            i += 1
+        labels.append(BIO.begin(e.value)) #was e.value for ner
+        i += 1
+        while i < len(tokens) and tokens[i].end <= e.end:
+            labels.append(BIO.midword(e.value)) #was e.value for ner
+            i += 1
+    labels.extend(list(itertools.chain.from_iterable(itertools.repeat(BIO.O.value, len(tokens) - i))))
+    return list(map(lambda x: x.get_covered_text(), tokens)), labels
+
 
 def cas2jsonl_ner(cas, jsonl):
     with open(jsonl, 'w') as f:
         for sentence in cas.select(SENTENCE):
             tokens, labels = get_tokens_and_labels(sentence, cas)
-            json.dump({'words': tokens, 'events': labels}, f)
+            json.dump({'words': tokens, 'ner': labels}, f)
             f.write("\n")
-
 
 def cas2json_zip(datadir, json_zip_path):
     """converts xmi files from an Inception export (preferably unzipped) into json"""
@@ -147,9 +164,49 @@ def compress_BIO_tags(entity_bio_tags, tokens, cas, typesystem, treat_I_init_as_
 
 
 
-filenames = ['NL-HaNA_1-8','NL-HaNA_1-9', 'NL-HaNA_1-10', 'NL-HaNA_1.04.02_3598_0797-0809', 'NL-HaNA_1.04.02_11012_0229-0251']
+filenames_readme = ['NL-HaNA_1-8','NL-HaNA_1-9', 'NL-HaNA_1-10', 'NL-HaNA_1.04.02_3598_0797-0809', 'NL-HaNA_1.04.02_11012_0229-0251']
 
-cas2json_zip("data/", "data/jsonfiles.zip")
+
+#cas2json_zip("data/", "data/jsonfiles.zip")
 
 #for file in filenames:
     #json2cas_zip("data/predictions/rel-pre_annotate-"+file+'.json', 'data/', file)
+
+
+
+###### June 2024
+
+filenames_june2024 = ['data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_8596_0761-0766.xmi']
+
+for filename in filenames_june2024:
+    with open('data/globalise-xmi-2024-05-31-ner/TypeSystem.xml', 'rb') as f:
+        typesystem = load_typesystem(f)
+    with open(filename, 'rb') as f:
+        cas = load_cas_from_xmi(f, typesystem=typesystem)
+    json_path = 'data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/NL-HaNA_1.04.02_8596_0761-0766.json'
+    cas2jsonl_ner(cas, json_path)
+
+
+pattern = re.compile(" +")
+filenames_june2024_json = ['data/pre-annotated_june2024/json/preannotated-NL-HaNA_1.04.02_8596_0761-0766.json']
+for file in filenames_june2024_json:
+    with open(file) as f:
+        json_lines = f.readlines()
+    json_line_offset = 0
+    with open('data/globalise-xmi-2024-05-31-ner/TypeSystem.xml', 'rb') as f:
+        typesystem = load_typesystem(f)
+    with open('data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_8596_0761-0766.xmi', 'rb') as f:
+        cas = load_cas_from_xmi(f, typesystem=typesystem)
+        nb_sentences = len(cas.select(SENTENCE))
+        event_tags = []
+        for line in json_lines[json_line_offset:json_line_offset + nb_sentences]:
+            jdic = json.loads(line)
+            #event_tags.extend(jdic["ner"])
+            event_tags.extend(jdic["events"])
+
+        # filter out whitespace tokens
+        tokens = [t for t in cas.select(TOKEN) if not re.match(pattern, t.get_covered_text())]
+        compress_BIO_tags(event_tags, tokens, cas, typesystem)
+        cas.to_xmi('data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_8596_0761-0766.xmi')
+        json_line_offset += nb_sentences
+

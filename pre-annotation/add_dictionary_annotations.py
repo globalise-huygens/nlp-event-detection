@@ -36,24 +36,43 @@ def label_with_lexicon(testdata, tokens):
 
     return(testdata)
 
-def label_with_lexicon_and_types(testdata, anno_dict):
+def label_with_lexicon_and_types(data, anno_dict):
 
     list_of_keys = []
     for key, value in anno_dict.items():
         list_of_keys.append(key)
 
-    for dict in testdata:
+    for dict in data:
         annotated = []
         for word in dict['words']:
-            if word not in list_of_keys:
+            if word.lower() not in list_of_keys:
                 annotated.append('O')
-            elif word in list_of_keys:
-                annotated.append('B-' + anno_dict[word][1] + '-' + str(anno_dict[word][0]))
+            elif word.lower() in list_of_keys:
+                annotated.append('B-' + anno_dict[word.lower()][1] + '-' + str(anno_dict[word.lower()][0]))
+
+        dict['events'] = annotated
+
+    return(data)
+
+
+def label_with_lexicon_and_types_new(data, anno_dict):
+
+    list_of_keys = []
+    for key, value in anno_dict.items():
+        list_of_keys.append(key)
+
+    for dict in data:
+        annotated = []
+        for word in dict['words']:
+            for key in list_of_keys:
+                if word.lower() != key:
+                    annotated.append('O')
+                elif word.lower() == key:
+                    annotated.append('B-' + anno_dict[word.lower()][1] + '-' + str(anno_dict[word.lower()][0]))
 
         dict['preds'] = annotated
 
-    return(testdata)
-
+    return(data)
 
 def extend_annos(testdata, tokens):
 
@@ -128,7 +147,7 @@ def pred_to_csv(test, outfile):
     df.to_csv(outfile)
 
 # parse lexicon
-df = pd.read_csv('lexicon_v1.csv')
+df = pd.read_csv('lexicon_v2.csv')
 tokens = df['tokens'].tolist()
 labels = df['label'].tolist()
 relationtypes = df['relationtype'].tolist()
@@ -148,17 +167,22 @@ for t, l, r in zipped_ref:
     else:
         new_dict[t] = [r, l]
 
-# list files that you want to pre-annotate
-filenames = ['NL-HaNA_1-8.json','NL-HaNA_1-9.json', 'NL-HaNA_1-10.json', 'NL-HaNA_1.04.02_3598_0797-0809.json', 'NL-HaNA_1.04.02_11012_0229-0251.json']
-
 print(new_dict)
 
+
+
+# list files that you want to pre-annotate
+
+filenames_readme = ['NL-HaNA_1-8.json','NL-HaNA_1-9.json', 'NL-HaNA_1-10.json', 'NL-HaNA_1.04.02_3598_0797-0809.json', 'NL-HaNA_1.04.02_11012_0229-0251.json']
+
+filenames_june2024 = ['NL-HaNA_1.04.02_8596_0761-0766.json']
+
 # loop over files and create new jsonfiles with labels for any words that overlap with lexicon
-for file in filenames:
-    data = read_data('data/'+file)
+for file in filenames_june2024:
+    data = read_data('data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/'+file)
     labeled = label_with_lexicon_and_types(data, new_dict)
 
-    with open("rel-pre_annotate-"+file, "w") as outfile:
+    with open("preannotated-"+file, "w") as outfile:
         #json.dump(labeled, outfile)
         for sentence in labeled:
             json.dump(sentence, outfile)
