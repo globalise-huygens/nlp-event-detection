@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a5e6290-84ec-41f8-9a83-4ca4eabb0b0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../IAA/IAA_SemArg_clean.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IAA/get_semarg_iaa.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IAA/IAA_SemArg.py" beforeDir="false" afterPath="$PROJECT_DIR$/../IAA/IAA_SemArg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IAA/IAA_teams_2024.py" beforeDir="false" afterPath="$PROJECT_DIR$/../IAA/IAA_teams_2024.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IAA/experimental/check_def_prep.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/../IAA/experimental/check_def_prep.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add_dictionary_annotations.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_dictionary_annotations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cas2json_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/cas2json_events.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
