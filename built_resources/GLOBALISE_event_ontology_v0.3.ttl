@@ -9,7 +9,7 @@
                                                                  <http://purl.org/dc/terms/creator> "Stella Verkijk"^^rdfs:Literal ;
                                                                  rdfs:label "GLOBALISE Event Ontology"^^rdfs:Literal ;
                                                                  rdfs:seeAlso <https://globalise.huygens.knaw.nl/> ;
-                                                                 owl:versionInfo "0.2"^^rdfs:Literal .
+                                                                 owl:versionInfo "0.3"^^rdfs:Literal .
 
 #################################################################
 #    Classes
