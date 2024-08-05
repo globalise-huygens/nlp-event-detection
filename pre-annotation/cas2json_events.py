@@ -210,3 +210,5 @@ for file in filenames_june2024_json:
         cas.to_xmi('data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_8596_0761-0766.xmi')
         json_line_offset += nb_sentences
 
+
+
