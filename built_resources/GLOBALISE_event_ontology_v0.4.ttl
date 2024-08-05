@@ -1,0 +1,637 @@
+@prefix : <https://github.com/globalise-huygens/nlp-event-detection/wiki#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix glob: <https://github.com/globalise-huygens/nlp-event-detection/wiki#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/globalise-huygens/nlp-event-detection/wiki> .
+
+<https://github.com/globalise-huygens/nlp-event-detection/wiki> rdf:type owl:Ontology ;
+                                                                 <http://purl.org/dc/terms/creator> "Stella Verkijk"^^rdfs:Literal ;
+                                                                 rdfs:label "GLOBALISE Event Ontology"^^rdfs:Literal ;
+                                                                 rdfs:seeAlso <https://globalise.huygens.knaw.nl/> ;
+                                                                 owl:versionInfo "0.2"^^rdfs:Literal .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#evokes
+glob:evokes rdf:type owl:ObjectProperty .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#isOfType
+glob:isOfType rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Agent
+glob:Agent rdf:type owl:Class ;
+           rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#AgentPatient
+glob:AgentPatient rdf:type owl:Class ;
+                  rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#AlteringARelationship
+glob:AlteringARelationship rdf:type owl:Class ;
+                           rdfs:subClassOf glob:RelationshipChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Arriving
+glob:Arriving rdf:type owl:Class ;
+              rdfs:subClassOf glob:Translocation .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Attacking
+glob:Attacking rdf:type owl:Class ;
+               rdfs:subClassOf glob:ViolentContest ;
+               owl:disjointWith glob:Uprising .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeginningARelationship
+glob:BeginningARelationship rdf:type owl:Class ;
+                            rdfs:subClassOf glob:RelationshipChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingAtAPlace
+glob:BeingAtAPlace rdf:type owl:Class ;
+                   rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingAtPeace
+glob:BeingAtPeace rdf:type owl:Class ;
+                  rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingDamaged
+glob:BeingDamaged rdf:type owl:Class ;
+                  rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingDead
+glob:BeingDead rdf:type owl:Class ;
+               rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingDestroyed
+glob:BeingDestroyed rdf:type owl:Class ;
+                    rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingEmployed
+glob:BeingEmployed rdf:type owl:Class ;
+                   rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingInARelationship
+glob:BeingInARelationship rdf:type owl:Class ;
+                          rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingInConflict
+glob:BeingInConflict rdf:type owl:Class ;
+                     rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingInDebt
+glob:BeingInDebt rdf:type owl:Class ;
+                 rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#BeingLeader
+glob:BeingLeader rdf:type owl:Class ;
+                 rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Benefactive
+glob:Benefactive rdf:type owl:Class ;
+                 rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Besieging
+glob:Besieging rdf:type owl:Class ;
+               rdfs:subClassOf glob:Attacking .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Buying
+glob:Buying rdf:type owl:Class ;
+            rdfs:subClassOf glob:Trade ;
+            owl:disjointWith glob:Selling .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Cargo
+glob:Cargo rdf:type owl:Class ;
+           rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#ChangeOfPossession
+glob:ChangeOfPossession rdf:type owl:Class ;
+                        rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Collaboration
+glob:Collaboration rdf:type owl:Class ;
+                   rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Communication
+glob:Communication rdf:type owl:Class ;
+                   rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Damaging
+glob:Damaging rdf:type owl:Class ;
+              rdfs:subClassOf glob:ScalarChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Decreasing
+glob:Decreasing rdf:type owl:Class ;
+                rdfs:subClassOf glob:QuantityChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Destroying
+glob:Destroying rdf:type owl:Class ;
+                rdfs:subClassOf glob:InternalChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Dying
+glob:Dying rdf:type owl:Class ;
+           rdfs:subClassOf glob:InternalChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#DynamicEvent
+glob:DynamicEvent rdf:type owl:Class .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Election
+glob:Election rdf:type owl:Class ;
+              rdfs:subClassOf glob:SocialStatusChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Encounter
+glob:Encounter rdf:type owl:Class ;
+               rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#EndingARelationship
+glob:EndingARelationship rdf:type owl:Class ;
+                         rdfs:subClassOf glob:RelationshipChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#EndingAWar
+glob:EndingAWar rdf:type owl:Class ;
+                rdfs:subClassOf glob:EndingConflict .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#EndingConflict
+glob:EndingConflict rdf:type owl:Class ;
+                    rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Enslaving
+glob:Enslaving rdf:type owl:Class ;
+               rdfs:subClassOf glob:TakingUnderControl .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#EventArguments
+glob:EventArguments rdf:type owl:Class .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#FallingIll
+glob:FallingIll rdf:type owl:Class ;
+                rdfs:subClassOf glob:ScalarChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#FinancialTransaction
+glob:FinancialTransaction rdf:type owl:Class ;
+                          rdfs:subClassOf glob:ChangeOfPossession .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#ForceToAct
+glob:ForceToAct rdf:type owl:Class ;
+                rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Getting
+glob:Getting rdf:type owl:Class ;
+             rdfs:subClassOf glob:ChangeOfPossession .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Giving
+glob:Giving rdf:type owl:Class ;
+            rdfs:subClassOf glob:ChangeOfPossession .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#HavingAMedicalCondition
+glob:HavingAMedicalCondition rdf:type owl:Class ;
+                             rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#HavingContractualAgreement
+glob:HavingContractualAgreement rdf:type owl:Class ;
+                                rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#HavingInPossession
+glob:HavingInPossession rdf:type owl:Class ;
+                        rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#HavingInternalStateMin
+glob:HavingInternalStateMin rdf:type owl:Class ;
+                            rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#HavingInternalStatePlus
+glob:HavingInternalStatePlus rdf:type owl:Class ;
+                             rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Healing
+glob:Healing rdf:type owl:Class ;
+             rdfs:subClassOf glob:ScalarChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Increasing
+glob:Increasing rdf:type owl:Class ;
+                rdfs:subClassOf glob:QuantityChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Instrument
+glob:Instrument rdf:type owl:Class ;
+                rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#InternalChange
+glob:InternalChange rdf:type owl:Class ;
+                    rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Invasion
+glob:Invasion rdf:type owl:Class ;
+              rdfs:subClassOf glob:Attacking .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#JoiningAnOrganization
+glob:JoiningAnOrganization rdf:type owl:Class ;
+                           rdfs:subClassOf glob:SocialStatusChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Killing
+glob:Killing rdf:type owl:Class ;
+             rdfs:subClassOf glob:Attacking .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Leaving
+glob:Leaving rdf:type owl:Class ;
+             rdfs:subClassOf glob:Translocation .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#LeavingAnOrganization
+glob:LeavingAnOrganization rdf:type owl:Class ;
+                           rdfs:subClassOf glob:SocialStatusChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Location
+glob:Location rdf:type owl:Class ;
+              rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#LosingPossession
+glob:LosingPossession rdf:type owl:Class ;
+                      rdfs:subClassOf glob:ChangeOfPossession .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Mismanagement
+glob:Mismanagement rdf:type owl:Class ;
+                   rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Mutiny
+glob:Mutiny rdf:type owl:Class ;
+            rdfs:subClassOf glob:Uprising .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Occupation
+glob:Occupation rdf:type owl:Class ;
+                rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Path
+glob:Path rdf:type owl:Class ;
+          rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Patient
+glob:Patient rdf:type owl:Class ;
+             rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#PoliticalRevolution
+glob:PoliticalRevolution rdf:type owl:Class ;
+                         rdfs:subClassOf glob:Uprising .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Production
+glob:Production rdf:type owl:Class ;
+                rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Punishing
+glob:Punishing rdf:type owl:Class ;
+               rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#QuantityChange
+glob:QuantityChange rdf:type owl:Class ;
+                    rdfs:subClassOf glob:ScalarChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#RelationshipChange
+glob:RelationshipChange rdf:type owl:Class ;
+                        rdfs:subClassOf glob:SocialStatusChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Repairing
+glob:Repairing rdf:type owl:Class ;
+               rdfs:subClassOf glob:ScalarChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Replacing
+glob:Replacing rdf:type owl:Class ;
+               rdfs:subClassOf glob:SocialStatusChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Request
+glob:Request rdf:type owl:Class ;
+             rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Riot
+glob:Riot rdf:type owl:Class ;
+          rdfs:subClassOf glob:Uprising .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#ScalarChange
+glob:ScalarChange rdf:type owl:Class ;
+                  rdfs:subClassOf glob:InternalChange .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Selling
+glob:Selling rdf:type owl:Class ;
+             rdfs:subClassOf glob:Trade .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Sinking
+glob:Sinking rdf:type owl:Class ;
+             rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#SocialInteraction
+glob:SocialInteraction rdf:type owl:Class ;
+                       rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#SocialStatusChange
+glob:SocialStatusChange rdf:type owl:Class ;
+                        rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Source
+glob:Source rdf:type owl:Class ;
+            rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#StartingAWar
+glob:StartingAWar rdf:type owl:Class ;
+                  rdfs:subClassOf glob:StartingConflict .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#StartingConflict
+glob:StartingConflict rdf:type owl:Class ;
+                      rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#StaticEvent
+glob:StaticEvent rdf:type owl:Class .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#TakingUnderControl
+glob:TakingUnderControl rdf:type owl:Class ;
+                        rdfs:subClassOf glob:ForceToAct .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Target
+glob:Target rdf:type owl:Class ;
+            rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Time
+glob:Time rdf:type owl:Class ;
+          rdfs:subClassOf glob:EventArguments .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Trade
+glob:Trade rdf:type owl:Class ;
+           rdfs:subClassOf glob:ChangeOfPossession .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Translocation
+glob:Translocation rdf:type owl:Class ;
+                   rdfs:subClassOf glob:DynamicEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Transportation
+glob:Transportation rdf:type owl:Class ;
+                    rdfs:subClassOf glob:Translocation .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Unrest
+glob:Unrest rdf:type owl:Class ;
+            rdfs:subClassOf glob:StaticEvent .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Uprising
+glob:Uprising rdf:type owl:Class ;
+              rdfs:subClassOf glob:ViolentContest .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#ViolentContest
+glob:ViolentContest rdf:type owl:Class ;
+                    rdfs:subClassOf glob:SocialInteraction .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Visit
+glob:Visit rdf:type owl:Class ;
+           rdfs:subClassOf glob:Encounter .
+
+
+###  https://github.com/globalise-huygens/nlp-event-detection/wiki#Voyage
+glob:Voyage rdf:type owl:Class ;
+            rdfs:subClassOf glob:Translocation .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Agent
+                glob:AgentPatient
+                glob:Benefactive
+                glob:Cargo
+                glob:Instrument
+                glob:Location
+                glob:Path
+                glob:Patient
+                glob:Source
+                glob:Target
+                glob:Time
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:AlteringARelationship
+                glob:BeginningARelationship
+                glob:EndingARelationship
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Arriving
+                glob:Leaving
+                glob:Transportation
+                glob:Voyage
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Attacking
+                glob:Encounter
+                glob:EndingConflict
+                glob:ForceToAct
+                glob:Request
+                glob:StartingConflict
+                glob:TakingUnderControl
+                glob:ViolentContest
+                glob:Visit
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:BeingAtAPlace
+                glob:BeingAtPeace
+                glob:BeingDamaged
+                glob:BeingDead
+                glob:BeingDestroyed
+                glob:BeingEmployed
+                glob:BeingInARelationship
+                glob:BeingInConflict
+                glob:BeingInDebt
+                glob:BeingLeader
+                glob:Collaboration
+                glob:HavingAMedicalCondition
+                glob:HavingContractualAgreement
+                glob:HavingInPossession
+                glob:HavingInternalStateMin
+                glob:HavingInternalStatePlus
+                glob:Occupation
+                glob:Unrest
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Besieging
+                glob:Invasion
+                glob:Killing
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:ChangeOfPossession
+                glob:InternalChange
+                glob:Mismanagement
+                glob:Sinking
+                glob:SocialInteraction
+                glob:SocialStatusChange
+                glob:Translocation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:ChangeOfPossession
+                glob:InternalChange
+                glob:SocialStatusChange
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Damaging
+                glob:FallingIll
+                glob:Healing
+                glob:QuantityChange
+                glob:Repairing
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Destroying
+                glob:Dying
+                glob:ScalarChange
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Election
+                glob:JoiningAnOrganization
+                glob:LeavingAnOrganization
+                glob:RelationshipChange
+                glob:Replacing
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:FinancialTransaction
+                glob:Getting
+                glob:Giving
+                glob:LosingPossession
+                glob:Trade
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( glob:Mutiny
+                glob:PoliticalRevolution
+                glob:Riot
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
