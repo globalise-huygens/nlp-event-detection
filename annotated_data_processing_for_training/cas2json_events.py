@@ -1,14 +1,12 @@
 """
-Original code by Sophie Arnoult
+@StellaVerkijk
+Adaptation of original code by Sophie Arnoult
 """
 
 from cassis import *
-import os
 from enum import Enum
 import itertools
 import json
-import zipfile as z
-import re
 import pathlib
 
 TYPESYSTEM = "TypeSystem.xml"
@@ -64,17 +62,18 @@ def cas2jsonl(cas, jsonl):
 
 ###### July 2024
 
-folder = pathlib.Path("train/train_3")
-filenames_train_3 = list(folder.glob("*.xmi"))
+folder = pathlib.Path("train/train_4/")
+filenames = list(folder.glob("*.xmi"))
 
 
 file_id = 0
-for filename in filenames_train_3:
+for filename in filenames:
+    print(filename)
     file_id +=1
     with open('TypeSystem.xml', 'rb') as f:
         typesystem = load_typesystem(f)
     with open(filename, 'rb') as f:
         cas = load_cas_from_xmi(f, typesystem=typesystem)
-    json_path = 'json/train_3/'+str(file_id)+'.json'
+    json_path = 'json_per_doc/'+str(filename)[:-4]+'.json'
     cas2jsonl(cas, json_path)
 

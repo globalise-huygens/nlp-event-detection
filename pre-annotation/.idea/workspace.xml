@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8a5e6290-84ec-41f8-9a83-4ca4eabb0b0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analyse.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +38,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.add_dictionary_annotations">
     <configuration name="add_dictionary_annotations" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pre-annotation" />
       <option name="INTERPRETER_OPTIONS" value="" />

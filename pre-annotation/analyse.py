@@ -4,7 +4,7 @@ Code to analyse basic stats of different lexicon versions and compare
 
 import pandas as pd
 
-df = pd.read_csv('lexicon_v2.csv')
+df = pd.read_csv('lexicon_v3.csv')
 tokens = df['tokens'].tolist()
 labels = df['label'].tolist()
 relationtypes = df['relationtype'].tolist()
