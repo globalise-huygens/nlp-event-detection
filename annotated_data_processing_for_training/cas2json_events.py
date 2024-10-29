@@ -25,13 +25,13 @@ class BIO(Enum):
 
     @classmethod
     def begin(cls, label):
-        return f"B-event"
-        #return "B-"+str(label)
+        #return f"B-event"      # for binary mention detection
+        return "B-"+str(label)  # for classification
 
     @classmethod
     def midword(cls, label):
-        return f"I-event"
-        #return "I-"+str(label)
+        #return f"I-event"
+        return "I-"+str(label)
 
 def get_tokens_and_labels_events(sentence, cas):
     tokens = cas.select_covered(TOKEN, sentence)
@@ -62,7 +62,7 @@ def cas2jsonl(cas, jsonl):
 
 ###### July 2024
 
-folder = pathlib.Path("train/train_4/")
+folder = pathlib.Path("train/train_4")
 filenames = list(folder.glob("*.xmi"))
 
 
@@ -74,6 +74,6 @@ for filename in filenames:
         typesystem = load_typesystem(f)
     with open(filename, 'rb') as f:
         cas = load_cas_from_xmi(f, typesystem=typesystem)
-    json_path = 'json_per_doc/'+str(filename)[:-4]+'.json'
+    json_path = 'json_per_doc_class/'+str(filename)[:-4]+'.json'
     cas2jsonl(cas, json_path)
 
