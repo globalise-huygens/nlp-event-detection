@@ -176,39 +176,90 @@ filenames_readme = ['NL-HaNA_1-8','NL-HaNA_1-9', 'NL-HaNA_1-10', 'NL-HaNA_1.04.0
 
 ###### June 2024
 
-filenames_june2024 = ['data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_8596_0761-0766.xmi']
+#filenames_june2024 = ['data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_8596_0761-0766.xmi']
 
-for filename in filenames_june2024:
-    with open('data/globalise-xmi-2024-05-31-ner/TypeSystem.xml', 'rb') as f:
-        typesystem = load_typesystem(f)
-    with open(filename, 'rb') as f:
-        cas = load_cas_from_xmi(f, typesystem=typesystem)
-    json_path = 'data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/NL-HaNA_1.04.02_8596_0761-0766.json'
-    cas2jsonl_ner(cas, json_path)
+#for filename in filenames_june2024:
+#    with open('data/globalise-xmi-2024-05-31-ner/TypeSystem.xml', 'rb') as f:
+#        typesystem = load_typesystem(f)
+#    with open(filename, 'rb') as f:
+#        cas = load_cas_from_xmi(f, typesystem=typesystem)
+#    json_path = 'data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/NL-HaNA_1.04.02_8596_0761-0766.json'
+#    cas2jsonl_ner(cas, json_path)
+
+
+#pattern = re.compile(" +")
+#filenames_june2024_json = ['data/pre-annotated_june2024/json/preannotated-NL-HaNA_1.04.02_8596_0761-0766.json']
+#for file in filenames_june2024_json:
+#    with open(file) as f:
+#        json_lines = f.readlines()
+#    json_line_offset = 0
+#    with open('data/globalise-xmi-2024-05-31-ner/TypeSystem.xml', 'rb') as f:
+#        typesystem = load_typesystem(f)
+#    with open('data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_8596_0761-0766.xmi', 'rb') as f:
+#        cas = load_cas_from_xmi(f, typesystem=typesystem)
+#        nb_sentences = len(cas.select(SENTENCE))
+#        event_tags = []
+#        for line in json_lines[json_line_offset:json_line_offset + nb_sentences]:
+#            jdic = json.loads(line)
+#            #event_tags.extend(jdic["ner"])
+#            event_tags.extend(jdic["events"])
+
+        # filter out whitespace tokens
+#        tokens = [t for t in cas.select(TOKEN) if not re.match(pattern, t.get_covered_text())]
+#        compress_BIO_tags(event_tags, tokens, cas, typesystem)
+#        cas.to_xmi('data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_8596_0761-0766.xmi')
+#        json_line_offset += nb_sentences
+
+
+
+###### Dec 2024
+
+def get_filepath_list(root_path):
+    """
+    Get complete filepaths leading to all relevant training data documents in a list
+    :param root_path: str
+    """
+    file_list = []
+    for root, _, filenames in os.walk(root_path):
+        for filename in filenames:
+            file_list.append(os.path.join(root, filename))
+    return(file_list)
+
+#filenames = ['data/docs_dec_2024/xmi/NL-HaNA_1.04.02_1110_0891-0891 (ESTA) - 1634 - no title.xmi']
+#filenames = get_filepath_list('data/docs_dec_2024/xmi/')
+#filenames.remove('data/docs_dec_2024/xmi/TypeSystem.xml')
+
+#for filename in filenames:
+   # print(filename)
+   # with open('data/docs_dec_2024/xmi//TypeSystem.xml', 'rb') as f:
+   #     typesystem = load_typesystem(f)
+  #  with open(filename, 'rb') as f:
+   #     cas = load_cas_from_xmi(f, typesystem=typesystem)
+  #  json_path = 'data/docs_dec_2024/json/'+filename.split('/')[3][:-4]+'.json'
+#    cas2jsonl_ner(cas, json_path)
+
 
 
 pattern = re.compile(" +")
-filenames_june2024_json = ['data/pre-annotated_june2024/json/preannotated-NL-HaNA_1.04.02_8596_0761-0766.json']
-for file in filenames_june2024_json:
+filenames = get_filepath_list('data/docs_dec_2024/json_preannotated/')
+
+for file in filenames:
+    print(file)
     with open(file) as f:
         json_lines = f.readlines()
     json_line_offset = 0
-    with open('data/globalise-xmi-2024-05-31-ner/TypeSystem.xml', 'rb') as f:
+    with open('data/docs_dec_2024/xmi/TypeSystem.xml', 'rb') as f:
         typesystem = load_typesystem(f)
-    with open('data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_8596_0761-0766.xmi', 'rb') as f:
+    with open('data/docs_dec_2024/xmi/'+file.split('/')[3][:-5]+'.xmi', 'rb') as f:
         cas = load_cas_from_xmi(f, typesystem=typesystem)
         nb_sentences = len(cas.select(SENTENCE))
         event_tags = []
         for line in json_lines[json_line_offset:json_line_offset + nb_sentences]:
             jdic = json.loads(line)
-            #event_tags.extend(jdic["ner"])
             event_tags.extend(jdic["events"])
 
         # filter out whitespace tokens
         tokens = [t for t in cas.select(TOKEN) if not re.match(pattern, t.get_covered_text())]
         compress_BIO_tags(event_tags, tokens, cas, typesystem)
-        cas.to_xmi('data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_8596_0761-0766.xmi')
+        cas.to_xmi('data/docs_dec_2024/xmi_preannotated/'+file.split('/')[3][:-5])
         json_line_offset += nb_sentences
-
-
-

@@ -4,7 +4,92 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5e6290-84ec-41f8-9a83-4ca4eabb0b0b" name="Changes" comment="" />
+    <list default="true" id="8a5e6290-84ec-41f8-9a83-4ca4eabb0b0b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add_dictionary_annotations.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_dictionary_annotations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analyse.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cas2json_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/cas2json_events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1-10/NL-HaNA_1-10.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1-10/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1-8/NL-HaNA_1-8.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1-8/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1-9/NL-HaNA_1-9.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1-9/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1.04.02_11012_0229-0251/NL-HaNA_1.04.02_11012_0229-0251.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1.04.02_11012_0229-0251/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1.04.02_3598_0797-0809/NL-HaNA_1.04.02_3598_0797-0809.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_inception_output/NL-HaNA_1.04.02_3598_0797-0809/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_runningdata_annoround_april2024.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner-events.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner-events/preannotated-NL-HaNA_1.04.02_1066_0269-0270.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner-events/preannotated-NL-HaNA_1.04.02_1430_1125-1132.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner-events/preannotated-NL-HaNA_1.04.02_4071_1019-1021.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner-events/preannotated-NL-HaNA_1.04.02_8596_0761-0766.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_1066_0269-0270.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_1430_1125-1132.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_4071_1019-1021.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/NL-HaNA_1.04.02_8596_0761-0766.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/NL-HaNA_1.04.02_1066_0269-0270.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/NL-HaNA_1.04.02_1430_1125-1132.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/NL-HaNA_1.04.02_4071_1019-1021.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/NL-HaNA_1.04.02_8596_0761-0766.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/classification/all.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/classification/events_p_80-ner-NL-HaNA_1.04.02_1348_0784-0784.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/classification/events_p_80-ner-NL-HaNA_1.04.02_1439_0695-0695.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/classification/p_80-ner-event-preanno_NL-HaNA_1.04.02_11012_0229-0251.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/classification/p_80-ner-event-preanno_NL-HaNA_1.04.02_1595_0689-0699.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/classification/p_80-ner-event-preanno_NL-HaNA_1.04.02_3598_0797-0809.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/classification/p_80-ner-event-preanno_NL-HaNA_1.04.02_3604_0270-0276.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/detection/all.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/detection/events_p_80-ner-NL-HaNA_1.04.02_1348_0784-0784.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/detection/events_p_80-ner-NL-HaNA_1.04.02_1439_0695-0695.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/detection/p_80-ner-event-preanno_NL-HaNA_1.04.02_11012_0229-0251.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/detection/p_80-ner-event-preanno_NL-HaNA_1.04.02_1595_0689-0699.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/detection/p_80-ner-event-preanno_NL-HaNA_1.04.02_3598_0797-0809.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/json/detection/p_80-ner-event-preanno_NL-HaNA_1.04.02_3604_0270-0276.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/events_p_80-ner-NL-HaNA_1.04.02_1348_0784-0784 - 1679 - no title/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/events_p_80-ner-NL-HaNA_1.04.02_1348_0784-0784 - 1679 - no title/events_p_80-ner-NL-HaNA_1.04.02_1348_0784-0784 - 1679 - no title.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/events_p_80-ner-NL-HaNA_1.04.02_1439_0695-0695 - 1686 - no title/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/events_p_80-ner-NL-HaNA_1.04.02_1439_0695-0695 - 1686 - no title/events_p_80-ner-NL-HaNA_1.04.02_1439_0695-0695 - 1686 - no title.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_11012_0229-0251/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_11012_0229-0251/p_80-ner-event-preanno_NL-HaNA_1.04.02_11012_0229-0251.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_1595_0689-0699 - 1697 -/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_1595_0689-0699 - 1697 -/p_80-ner-event-preanno_NL-HaNA_1.04.02_1595_0689-0699 - 1697 -.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_3598_0797-0809 - 1781 -/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_3598_0797-0809 - 1781 -/p_80-ner-event-preanno_NL-HaNA_1.04.02_3598_0797-0809 - 1781 -.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_3604_0270-0276 - 1782 -/TypeSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input_for_lexicon_v2/xmi/p_80-ner-event-preanno_NL-HaNA_1.04.02_3604_0270-0276 - 1782 -/p_80-ner-event-preanno_NL-HaNA_1.04.02_3604_0270-0276 - 1782 -.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/jsonfiles.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/event-peranno_ NL-HaNA_1.04.02_2693_0117-0119 - 1747 -.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/event-preanno_ NL-HaNA_1.04.02_1595_0689-0699 - 1697 -.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/event-preanno_ NL-HaNA_1.04.02_3604_0270-0276 - 1782 -.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/event-preanno_NL-HaNA_1.04.02_11012_0229-0251.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/event-preanno_NL-HaNA_1.04.02_3598_0797-0809 - 1781 -.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/no_relations/NL-HaNA_1-10.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/no_relations/NL-HaNA_1-8.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/no_relations/NL-HaNA_1-9.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/no_relations/NL-HaNA_1.04.02_11012_0229-0251.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated/no_relations/NL-HaNA_1.04.02_3598_0797-0809.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/json/preannotated-NL-HaNA_1.04.02_1066_0269-0270.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/json/preannotated-NL-HaNA_1.04.02_1430_1125-1132.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/json/preannotated-NL-HaNA_1.04.02_4071_1019-1021.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/json/preannotated-NL-HaNA_1.04.02_8596_0761-0766.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_1066_0269-0270.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_1430_1125-1132.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_4071_1019-1021.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pre-annotated_june2024/preannotated-NL-HaNA_1.04.02_8596_0761-0766.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-10.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1-9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1.04.02_11012_0229-0251.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/rel-pre_annotate-NL-HaNA_1.04.02_3598_0797-0809.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/type-pre_annotate-NL-HaNA_1-10.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/type-pre_annotate-NL-HaNA_1-8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/type-pre_annotate-NL-HaNA_1-9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/type-pre_annotate-NL-HaNA_1.04.02_11012_0229-0251.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions/type-pre_annotate-NL-HaNA_1.04.02_3598_0797-0809.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,16 +176,5 @@
       <updated>1703794744282</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/add_dictionary_annotations.py</url>
-          <line>181</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

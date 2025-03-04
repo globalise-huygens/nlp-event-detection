@@ -1,6 +1,6 @@
 ### 2. enrich train json with lexicon in csv
 
-import csv, json
+import csv, json, os
 import pandas as pd
 
 
@@ -170,21 +170,49 @@ for t, l, r in zipped_ref:
 print(new_dict)
 
 
-
+#June 2024
 # list files that you want to pre-annotate
 
-filenames_readme = ['NL-HaNA_1-8.json','NL-HaNA_1-9.json', 'NL-HaNA_1-10.json', 'NL-HaNA_1.04.02_3598_0797-0809.json', 'NL-HaNA_1.04.02_11012_0229-0251.json']
+#filenames_readme = ['NL-HaNA_1-8.json','NL-HaNA_1-9.json', 'NL-HaNA_1-10.json', 'NL-HaNA_1.04.02_3598_0797-0809.json', 'NL-HaNA_1.04.02_11012_0229-0251.json']
 
-filenames_june2024 = ['NL-HaNA_1.04.02_8596_0761-0766.json']
+#filenames_june2024 = ['NL-HaNA_1.04.02_8596_0761-0766.json']
 
 # loop over files and create new jsonfiles with labels for any words that overlap with lexicon
-for file in filenames_june2024:
-    data = read_data('data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/'+file)
-    labeled = label_with_lexicon_and_types(data, new_dict)
+#for file in filenames_june2024:
+#    data = read_data('data/globalise-xmi-2024-05-31-ner/globalise-xmi-2024-06-03-ner-events/'+file)
+#    labeled = label_with_lexicon_and_types(data, new_dict)
 
-    with open("preannotated-"+file, "w") as outfile:
-        #json.dump(labeled, outfile)
+#    with open("preannotated-"+file, "w") as outfile:
+#        #json.dump(labeled, outfile)
+#        for sentence in labeled:
+#            json.dump(sentence, outfile)
+#            outfile.write("\n")
+
+
+# Dec 2024
+
+#list files that you want to pre-annotate
+def get_filepath_list(root_path):
+    """
+    Get complete filepaths leading to all relevant training data documents in a list
+    :param root_path: str
+    """
+    file_list = []
+    for root, _, filenames in os.walk(root_path):
+        for filename in filenames:
+            file_list.append(os.path.join(root, filename))
+    return(file_list)
+filenames = get_filepath_list('data/docs_dec_2024/json/')
+
+# loop over files and create new jsonfiles with labels for any words that overlap with lexicon
+for file in filenames:
+    print(file)
+    data = read_data(file)
+    labeled = label_with_lexicon_and_types(data, new_dict)
+    print(labeled)
+
+    with open("data/docs_dec_2024/json_preannotated/"+file.split('/')[3], "w") as outfile:
         for sentence in labeled:
+            print(sentence)
             json.dump(sentence, outfile)
             outfile.write("\n")
-
