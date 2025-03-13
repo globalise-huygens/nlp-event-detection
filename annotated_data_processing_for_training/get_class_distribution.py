@@ -15,7 +15,7 @@ def get_filepath_list(root_path):
 
 def read_labels(paths):
     """
-    Reads a jsonfile and returns the corpus as a list of list with a sentence er list
+    Reads a jsonfile and returns the corpus as a list of list with a sentence per list
     """
     eventlabels = []
     for path in paths:
@@ -25,8 +25,6 @@ def read_labels(paths):
         for item in data.split('\n'):
             list_data.append(ast.literal_eval(item))
 
-
-
         for d in list_data:
             for i in range(len(d['words'])):
                 eventlabels.append(d['events'][i]) #add [2:] for not including I- and B-
@@ -35,7 +33,6 @@ def read_labels(paths):
 
 root_dir = "json_per_doc_class/"
 filepaths = get_filepath_list(root_dir)
-print(filepaths)
 labels = read_labels(filepaths)
 counted = Counter(labels)
 
@@ -43,4 +40,5 @@ with open('labelcount-mentions.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in counted.items():
         if key.startswith("B-"):  # do not use this line if extracting token count, this is for mention count
-            writer.writerow([key, value])
+            writer.writerow([key[2:], value])
+

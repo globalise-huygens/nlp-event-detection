@@ -36,7 +36,7 @@ class BIO(Enum):
 def get_tokens_and_labels_events(sentence, cas):
     tokens = cas.select_covered(TOKEN, sentence)
     events = cas.select_covered(EVENT, sentence)
-    entities = cas.select_covered(NAMED_ENTITY, sentence)
+
     labels = []
     i = 0
     for e in events:
@@ -60,20 +60,25 @@ def cas2jsonl(cas, jsonl):
             f.write("\n")
 
 
-###### July 2024
+def get_json_data(input_path):
 
-folder = pathlib.Path("train/train_4")
-filenames = list(folder.glob("*.xmi"))
+    folder = pathlib.Path(input_path)
+    filenames = list(folder.glob("*.xmi"))
 
 
-file_id = 0
-for filename in filenames:
-    print(filename)
-    file_id +=1
-    with open('TypeSystem.xml', 'rb') as f:
-        typesystem = load_typesystem(f)
-    with open(filename, 'rb') as f:
-        cas = load_cas_from_xmi(f, typesystem=typesystem)
-    json_path = 'json_per_doc_class/'+str(filename)[:-4]+'.json'
-    cas2jsonl(cas, json_path)
+    file_id = 0
+    for filename in filenames:
+        print(filename)
+        file_id +=1
+        with open('TypeSystem.xml', 'rb') as f:
+            typesystem = load_typesystem(f)
+        with open(filename, 'rb') as f:
+            cas = load_cas_from_xmi(f, typesystem=typesystem)
+        json_path = 'json_per_doc_class/'+str(filename)[:-4]+'.json'
+        cas2jsonl(cas, json_path)
 
+def main():
+    get_json_data("train/train_4")
+
+if __name__ == '__main__':
+    main()
