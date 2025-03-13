@@ -36,7 +36,7 @@ doc_3598	reg_11	anno_1	tok_31	Namentlijk	O	O	O
 doc_3598	reg_11	anno_3	tok_1	Notitie	O	O	B-DOC
 doc_3598	reg_11	anno_3	tok_2	van	O	O	O
 doc_3598	reg_11	anno_3	tok_3	Alle	O	O	O
-doc_3598	reg_11	anno_3	tok_4	soo	O	O	O
+doc_3598	reg_11	anno_3	to››k_4	soo	O	O	O
 doc_3598	reg_11	anno_3	tok_5	van	O	O	O
 doc_3598	reg_11	anno_3	tok_6	,	O	O	O
 doc_3598	reg_11	anno_3	tok_7	als	O	O	O
