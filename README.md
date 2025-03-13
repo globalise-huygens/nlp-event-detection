@@ -7,7 +7,7 @@ This repository contains code for several aspects of the automatic event detecti
 
 Each (important) folder in this repo has their own README for further information. 
 
-## annotated_data_processing_for_IAA
+## annotated_data_processing_for_training
 Probably the most important folder here; contains code to process data outputted from INCEpTION in cas_xmi to different file formats for different tasks. Currently: json for event detection and event classification and conllu for semantic role labelling.
 
 ## pre-annotation
