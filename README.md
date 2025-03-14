@@ -1,5 +1,5 @@
 # nlp-event-detection
-This repository contains code for several aspects of the automatic event detection pipeline. It mostly contains code to process our data in different ways in order to prepare it for different experiments. It also contains some (documentation of) preliminary, small experiments mainly used for orientation. This repo still gets changed and updated. There are several seperate repos that contain finished experiments or modules of the pipeline, namely:
+This repository contains code that informs several aspects of the automatic event detection pipeline. It mostly contains code to process our data in different ways in order to prepare it for different experiments. It also contains some (documentation of) preliminary, small experiments mainly used for orientation. This repo still gets changed and updated. There are several seperate repos that contain finished experiments or modules of the pipeline, namely:
 - repo for our [lexical approach to event detection](https://github.com/globalise-huygens/nlp-event-lexical-approach)
 - repo for our [paper on annotation strategies](https://github.com/StellaVerkijk/VarDial2024)
 - repo introducing our [cross-validation on document-level approach](https://github.com/globalise-huygens/nlp-event-testset-experiment)
