@@ -5,7 +5,7 @@ This repository contains code that informs several aspects of the automatic even
 - repo introducing our [cross-validation on document-level approach](https://github.com/globalise-huygens/nlp-event-testset-experiment)
 - repo for [building and evaluating binary event detection models](https://github.com/globalise-huygens/nlp-binary-event-detection-models)
 
-Each (important) folder in this repo has their own README for further information. 
+Some folders in this repo have their own README for further information. 
 
 ## annotated_data_processing_for_training
 Probably the most important folder here; contains code to process data outputted from INCEpTION in cas_xmi to different file formats for different tasks. Currently: json for event detection and event classification and conllu for semantic role labelling.
