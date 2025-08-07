@@ -230,7 +230,7 @@ def get_SRL(input_path):
         cas2conll_with_entities(doc_id, cas, conllu_path)
 
 def main():
-    get_SRL("train/train_4")
+    get_SRL("train/train_5")
 
 if __name__ == '__main__':
     main()

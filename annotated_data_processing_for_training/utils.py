@@ -24,6 +24,8 @@ def create_data_inventory(file_list):
             round = '3'
         if spl[2] == 'train_4':
             round = '4'
+        if spl[2] == 'train_5':
+            round = '5'
         if spl[3] == 'special_topic_ESTA':
             round = '3_ESTA'
         year = int((spl[-1].split(' -')[1].strip()))
@@ -42,6 +44,9 @@ def create_data_inventory(file_list):
             inv_nr = ((spl[-1].split('_'))[4]).split(' - ')[0]
             scan_nrs = ((spl[-1].split('_'))[5]).split(' - ')[0]
         if round == '4':
+            inv_nr = ((spl[-1].split('_'))[2]).split(' - ')[0]
+            scan_nrs = ((spl[-1].split('_'))[3]).split(' - ')[0]
+        if round == '5':
             inv_nr = ((spl[-1].split('_'))[2]).split(' - ')[0]
             scan_nrs = ((spl[-1].split('_'))[3]).split(' - ')[0]
         d['original_filename'] = spl[-1]

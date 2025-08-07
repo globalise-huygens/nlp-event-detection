@@ -11,6 +11,7 @@ def get_filepath_list(root_path):
     for root, _, filenames in os.walk(root_path):
         for filename in filenames:
             file_list.append(os.path.join(root, filename))
+
     return(file_list)
 
 def read_labels(paths):
@@ -31,14 +32,15 @@ def read_labels(paths):
 
     return(eventlabels)
 
-root_dir = "json_per_doc_class/"
+root_dir = "../json_per_doc_class_BIO/"
 filepaths = get_filepath_list(root_dir)
 labels = read_labels(filepaths)
 counted = Counter(labels)
+sorted = (sorted(counted.items(), key=lambda x:x[1]))
 
 with open('labelcount-mentions.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
-    for key, value in counted.items():
-        if key.startswith("B-"):  # do not use this line if extracting token count, this is for mention count
-            writer.writerow([key[2:], value])
+    for tuple in sorted:
+        if tuple[0].startswith("B-"):  # do not use this line if extracting token count, this is for mention count
+            writer.writerow([tuple[0][2:], tuple[1]])
 
