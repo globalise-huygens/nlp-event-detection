@@ -207,7 +207,62 @@ def cas2conll_with_entities(doc_id, cas, conllfile):
                 f.write('\n\n')
             region_id += 1
 
+def cas2conll_with_curated_entities(doc_id, cas, cas_curated, conllfile):
+    with open(conllfile, 'w') as f:
+        region_id = 0
+        for sentence in cas.select(SENTENCE):
+            data_per_text_region = get_data_per_event(sentence, cas, with_entities=True)
+            data_per_text_region2 = get_data_per_event(sentence, cas_curated, with_entities=True)
+            for dict in data_per_text_region:
+                tok_id = 1
+                zipped = zip(dict['annotation_ids'], dict['tokens'], dict['events'], dict['args'], dict['entities'])
+                for anno_id, tok, e, a, ent in zipped:
+                    #print(tok, e, a)
+                    f.write('doc_'+str(doc_id))
+                    f.write('\t')
+                    f.write('reg_'+str(region_id))
+                    f.write('\t')
+                    f.write('anno_'+str(anno_id))
+                    f.write('\t')
+                    f.write('tok_'+str(tok_id))
+                    f.write('\t')
+                    f.write(tok)
+                    f.write('\t')
+                    f.write(e)
+                    f.write('\t')
+                    f.write(a)
+                    f.write('\t')
+                    f.write(ent)
+                    f.write('\n')
+                    tok_id+=1
+                f.write('\n\n')
+            region_id += 1
+
 def get_SRL(input_path):
+    folder = pathlib.Path(input_path)
+    filenames = list(folder.glob("*.xmi"))
+
+    file_list = get_filepath_list("json_per_doc/")
+    data_inv = create_data_inventory(file_list)
+
+    file_id = 0
+    for filename in filenames:
+        print(filename)
+        file_id +=1
+        for dict in data_inv:
+            print(dict['original_filename'])
+            if str(filename).split('/')[-1][:-4] == dict['original_filename'][:-5]: #check filename against metadata in the data inventory to get the inventory number of the document as doc_id
+                doc_id = dict['inv_nr']
+        with open('TypeSystem.xml', 'rb') as f:
+            typesystem = load_typesystem(f)
+        with open(filename, 'rb') as f:
+            cas = load_cas_from_xmi(f, typesystem=typesystem)
+        #conllu_path = 'SRL_data/'+str(filename)[:-4]+'.conllu'
+        #cas2conll(doc_id, cas, conllu_path)
+        conllu_path = 'SRL_data_with_curated_entities/' + str(filename)[:-4] + '.conllu'
+        cas2conll_with_entities(doc_id, cas, conllu_path)
+
+def get_curated_SRL(input_path):
     folder = pathlib.Path(input_path)
     filenames = list(folder.glob("*.xmi"))
 
@@ -218,19 +273,20 @@ def get_SRL(input_path):
     for filename in filenames:
         file_id +=1
         for dict in data_inv:
+            print(dict['original_filename'][:-5])
+            print(str(filename).split('/')[-1][:-4])
             if str(filename).split('/')[-1][:-4] == dict['original_filename'][:-5]: #check filename against metadata in the data inventory to get the inventory number of the document as doc_id
                 doc_id = dict['inv_nr']
         with open('TypeSystem.xml', 'rb') as f:
             typesystem = load_typesystem(f)
         with open(filename, 'rb') as f:
             cas = load_cas_from_xmi(f, typesystem=typesystem)
-        conllu_path = 'SRL_data/'+str(filename)[:-4]+'.conllu'
-        cas2conll(doc_id, cas, conllu_path)
-        conllu_path = 'SRL_data_with_entities/' + str(filename)[:-4] + '.conllu'
+        conllu_path = 'SRL_data_with_curated_entities/' + str(filename)[:-4] + '.conllu'
         cas2conll_with_entities(doc_id, cas, conllu_path)
 
+
 def main():
-    get_SRL("train/train_5")
+    get_curated_SRL("curated_entities/train_3/special_topic_ESTA")
 
 if __name__ == '__main__':
     main()
