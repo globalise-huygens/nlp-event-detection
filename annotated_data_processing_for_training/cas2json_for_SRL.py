@@ -257,14 +257,13 @@ def get_SRL(input_path):
             typesystem = load_typesystem(f)
         with open(filename, 'rb') as f:
             cas = load_cas_from_xmi(f, typesystem=typesystem)
-        #conllu_path = 'SRL_data/'+str(filename)[:-4]+'.conllu'
-        #cas2conll(doc_id, cas, conllu_path)
-        conllu_path = 'SRL_data_with_curated_entities/' + str(filename)[:-4] + '.conllu'
-        cas2conll_with_entities(doc_id, cas, conllu_path)
+        conllu_path = 'SRL_data/'+str(filename)[:-4]+'.conllu'
+        cas2conll(doc_id, cas, conllu_path)
+
 
 def get_curated_SRL(input_path):
     folder = pathlib.Path(input_path)
-    filenames = list(folder.glob("*.xmi"))
+    filenames = list(folder.glob("*der E Comp en oppe...xmi"))
 
     file_list = get_filepath_list("json_per_doc/")
     data_inv = create_data_inventory(file_list)
@@ -281,12 +280,12 @@ def get_curated_SRL(input_path):
             typesystem = load_typesystem(f)
         with open(filename, 'rb') as f:
             cas = load_cas_from_xmi(f, typesystem=typesystem)
-        conllu_path = 'SRL_data_with_curated_entities/' + str(filename)[:-4] + '.conllu'
+        conllu_path = 'SRL_data_curated_entities_and_all_events/' + str(filename)[:-4] + '.conllu'
         cas2conll_with_entities(doc_id, cas, conllu_path)
 
 
 def main():
-    get_curated_SRL("curated_entities/train_3/special_topic_ESTA")
+    get_curated_SRL("train/train_5")
 
 if __name__ == '__main__':
     main()
