@@ -6,7 +6,7 @@ import os
 # Define your directories
 original_dir = 'SRL_data/train/train_5'
 curated_dir = 'SRL_data_with_curated_entities/curated_entities/train_5'
-output_dir = 'SRL_data_curated_entities_and_all_events/train/train_5'
+output_dir = 'should_not_use/SRL_data_curated_entities_and_all_events/train/train_5'
 
 # Create the output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)

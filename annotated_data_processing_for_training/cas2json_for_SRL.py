@@ -281,11 +281,11 @@ def get_curated_SRL(input_path):
         with open(filename, 'rb') as f:
             cas = load_cas_from_xmi(f, typesystem=typesystem)
         conllu_path = 'SRL_data_curated_entities_and_all_events/' + str(filename)[:-4] + '.conllu'
-        cas2conll_with_entities(doc_id, cas, conllu_path)
+        cas2conll(doc_id, cas, conllu_path)
 
 
 def main():
-    get_curated_SRL("train/train_5")
+    get_SRL("train/train_5")
 
 if __name__ == '__main__':
     main()
