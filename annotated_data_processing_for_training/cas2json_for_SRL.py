@@ -283,9 +283,28 @@ def get_curated_SRL(input_path):
         conllu_path = 'SRL_data_curated_entities_and_all_events/' + str(filename)[:-4] + '.conllu'
         cas2conll(doc_id, cas, conllu_path)
 
+def get_SRL_IAA(input_path, doc_id):
+    folder = pathlib.Path(input_path)
+    filenames = list(folder.glob("*.xmi"))
+    print(filenames)
+
+    #file_list = get_filepath_list("json_per_doc/")
+    #data_inv = create_data_inventory(file_list)
+
+    file_id = 0
+    for filename in filenames:
+        print(filename)
+        file_id +=1
+        with open('TypeSystem.xml', 'rb') as f:
+            typesystem = load_typesystem(f)
+        with open(filename, 'rb') as f:
+            cas = load_cas_from_xmi(f, typesystem=typesystem)
+        conllu_path = 'IAA_SRL_CONLLU/'+str(filename).split('/')[1][:-4]+'.conllu'
+        cas2conll(doc_id, cas, conllu_path)
 
 def main():
-    get_SRL("train/train_5")
+    #get_SRL("train/train_5")
+    get_SRL_IAA("IAA_SRL", '3604')
 
 if __name__ == '__main__':
     main()

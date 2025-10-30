@@ -80,7 +80,7 @@ def get_json_data(input_path):
         cas2jsonl(cas, json_path)
 
 def main():
-    get_json_data("train/train_5")
+    get_json_data("train/train_5_october")
 
 if __name__ == '__main__':
     main()
