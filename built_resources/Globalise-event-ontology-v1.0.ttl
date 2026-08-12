@@ -560,6 +560,10 @@
     :influencedBy :BeginningContractualAgreement , :EndingContractualAgreement ,
                   :ExtendingContractualAgreement .
 
+:HavingContractualAgreement
+    :influencedBy :BeginningContractualAgreement , :EndingContractualAgreement ,
+                  :ExtendingContractualAgreement .
+
 :Unrest
     :influencedBy :Uprising , :Riot , :Mutiny , :PoliticalRevolution .
 
@@ -588,7 +592,8 @@
 :HavingInternalStateMin
     :influencedBy :Damaging , :FallingIll .
 
-# HavingContractualAgreement, BeingInDebt and BeingAtPeace have no
+
+# BeingInDebt and BeingAtPeace have no
 # no :influencedBy triples are asserted for them.
 
 ##############################
