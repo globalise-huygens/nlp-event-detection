@@ -1,0 +1,176 @@
+tokens,relationtype,label,upperclass_1,upperclass_2
+versoucken; versocht; verzoeken; versouck; verzoek; versoek; versoeken; versoeke; versoekt; versoecq; versoeck; versoecke; versochte; versoeckende; versocht; versouckende; versoecken; versoeckt; versouckt; verzogt,isOfType,Request,SocialInteraction,DynamicEvent
+leverantie; leverancie; leeverantie; leverantien; deleverantie,evokes,Transportation,Translocation,DynamicEvent
+leverantie; leverancie; leeverantie; leverantien; deleverantie,evokes,Trade,ChangeOfPossession,DynamicEvent
+aenkomst; aenkomen; aencompst; aencompste; aankomende,isOfType,Arriving,Translocation,DynamicEvent
+vertreck; vertrocken; vertreckende; vertrokken; vertrek; vertrecke; vertrekken; vertrecken,isOfType,Leaving,Translocation,DynamicEvent
+voijagie; vojagie; voyagie; voijage; voyagien; voijagien,isOfType,Voyage,Translocation,DynamicEvent
+affvaerdigen; affgevaerdigt,evokes,Leaving,Translocation,DynamicEvent
+ontfangen; ontfangst; ontvangen; ontfange; ontvange,isOfType,Getting,ChangeOfPossession,DynamicEvent
+ontfangene; ontvangene,evokes,Getting,ChangeOfPossession,DynamicEvent
+geeven; geven; geevende; gevende; gaf; gaff; gaaven,isOfType,Giving,ChangeOfPossession,DynamicEvent
+affgeladene;  affgelaedene;  afladen; afflaaden; vollaaden; vollading,evokes,Transportation,Translocation,DynamicEvent
+geladene; gelaadene; gelaedene,evokes,Transportation,Translocation,DynamicEvent
+affgescheepte; gescheept; affgescheept; affschepen; afschepen,evokes,Transportation,Translocation,DynamicEvent
+versonden; versondene; versenden; versond,evokes,Transportation,Translocation,DynamicEvent
+affsenden; affgesonden; affgesondene; affsond,evokes,Transportation,Translocation,DynamicEvent
+receptie; reseptie,isOfType,Getting,ChangeOfPossession,DynamicEvent
+besendinge; bezendingen; besending; besendingh; bezendinge; bezending; besendingen; retourbesending; retourbezending; bezendingh,evokes,Transportation,Translocation,DynamicEvent
+cruijssen; kruissen; cruijsen; kruisen,isOfType,Translocation,DynamicEvent,
+order; ordre; ordere; order; ordres; orders,evokes,Communication,SocialInteraction,DynamicEvent
+bevel; beveelen; beveelens,evokes,Communication,SocialInteraction,DynamicEvent
+verblijf; verblijff; verblyf; verblijv; verblyff; verblijft ,evokes,BeingAtAPlace,StaticEvent,
+quamen; comen; koomen; gekoomen; gekomen; gecomen; gecoomen; komende; koomende; komen,isOfType,Arriving,Translocation,DynamicEvent
+transport; transporteren; transporteeren,isOfType,Transportation,Translocation,DynamicEvent
+commando; gecommandeert,evokes,BeingLeader,StaticEvent,
+depart,isOfType,Leaving,Translocation,DynamicEvent
+oorloge; oorlogh; oorlooge; oorlog,evokes,BeingInConflict,StaticEvent,
+sterfte; dood; doodt; stervte,evokes,BeingDead,StaticEvent,
+gestorven; sterven; sterfen; stierf; gesturven,isOfType,BeingDead,StaticEvent,
+arrivement; arrive,isOfType,Arriving,Translocation,DynamicEvent
+overleden; overlijden; overledene,isOfType,BeingDead,StaticEvent,
+vermoorden; moorden; vermoord; vermoort,isOfType,Killing,Attacking,ViolentContest
+moord; moort,evokes,Killing,Attacking,ViolentContest
+gesneuvelt; sneuvelen; sneuvelt; gesneuvelde; sneuvelde,isOfType,Dying,InternalChange,DynamicEvent
+hazenpad; hasepad; hazepad,evokes,Leaving,Translocation,DynamicEvent
+sieckelijk; siecte; sieckte,evokes,FallingIll,ScalarChange,InternalChange
+vervoeren; vervoerde; vervoert; tevervoeren; overvoeren; vervoer; vervoerden,isOfType,Transportation,Translocation,DynamicEvent
+aentasten,evokes,Attacking,ViolentContest,SocialInteraction
+demolieren; demolieeren,isOfType,Destroying,InternalChange,DynamicEvent
+depescheren; depeche; depesche; depeches; depecheren; depecheeren,isOfType,Translocation,DynamicEvent,
+verlaten; verlaat,isOfType,Leaving,Translocation,DynamicEvent
+tocht; togt,isOfType,Voyage,Translocation,DynamicEvent
+successeur; opvolger,evokes,Replacing,SocialStatusChange,DynamicEvent
+overgaende; overgaen; overgaet; overgaend; overgaent,isOfType,Translocation,DynamicEvent,
+reijse; reize; rheijse; rhijse; reijze; reijs; reise; rijse; reys; reyze; rheijze; rheijs; rijze; dereijse; rijze; rheyse; reis; rheys; ryse; ryze; rheise; reiz; uijtreijse; reyse,isOfType,Voyage,Translocation,DynamicEvent
+afscheid,evokes,Leaving,Translocation,DynamicEvent
+geconduiseert,evokes,Translocation,DynamicEvent,
+gehoorende,evokes,HavingInPossession,StaticEvent,
+afgegeven,isOfType,Giving,ChangeOfPossession,DynamicEvent
+anker; ancker,evokes,BeingAtAPlace,StaticEvent,
+geligt,evokes,Leaving,Translocation,DynamicEvent
+onderzeil,evokes,Leaving,Translocation,DynamicEvent
+passeerden; passeren,isOfType,Translocation,DynamicEvent,
+gemonteert,evokes,BeingAtAPlace,StaticEvent,
+gesaiseerd,isOfType,TakingUnderControl,SocialInteraction,DynamicEvent
+varen; vaaren; vaeren; tevaren,evokes,Translocation,DynamicEvent,
+aliantie; alliantie,isOfType,Collaboration,StaticEvent,
+vruntschap; vrunden; vrundschap; vriendschap; vrindschap; vrintschap,evokes,BeingInARelationship,StaticEvent,
+debit; schulden,evokes,BeingInDebt,StaticEvent,
+aengelandt; aengelant; aangeland; aengeland,isOfType,Arriving,Translocation,DynamicEvent
+gesonden; senden; zenden; toegesonden; toesenden,evokes,Translocation,DynamicEvent,
+gekeert; wedergekeert; wederkeren; wederkeeren,isOfType,Translocation,DynamicEvent,
+laden,evokes,Transportation,Translocation,DynamicEvent
+blijven,evokes,BeingAtAPlace,StaticEvent,
+becomen,isOfType,Getting,ChangeOfPossession,DynamicEvent
+t'vervoeren,isOfType,Transportation,Translocation,DynamicEvent
+verdestrueert; verdestrueren; verdestrueeren; destructie; destrueren; destrueeren,evokes,Destroying,InternalChange,DynamicEvent
+gelicht,evokes,Destroying,InternalChange,DynamicEvent
+handel,isOfType,Trade,ChangeOfPossession,DynamicEvent
+toecomen; toegecomen,isOfType,Translocation,DynamicEvent,
+gewelt; geweldt; geweld,isOfType,ViolentContest,SocialInteraction,DynamicEvent
+executeren; executeeren; executien; executie,evokes,Killing,ViolentContest,SocialInteraction
+verkoopen; verkopen; verkocht; verkochte; verkogt; verkogte,isOfType,Selling,ChangeOfPossession,DynamicEvent
+koopen; kopen; kocht; gekocht; gekochte; gekogt; gekogte,isOfType,Buying,ChangeOfPossession,DynamicEvent
+neersabelen; neersabelde,isOfType,Killing,ViolentContest,SocialInteraction
+neergesabelt; neergesabelde,evokes,Killing,ViolentContest,SocialInteraction
+eisch,evokes,Request,SocialInteraction,DynamicEvent
+voorraad; voorraed,evokes,HavingInPossession,StaticEvent,
+gevangen; gevangenen; gevangens; gevangenis,evokes,TakingUnderControl,SocialInteraction,DynamicEvent
+cruijssen; kruissen; cruijsen; kruisen,evokes,BeingAtAPlace,StaticEvent,
+straffen; gestraft; straft; testrafften; straffe,isOfType,Punishing,SocialInteraction,DynamicEvent
+straf; straffe; straff,evokes,Punishing,SocialInteraction,DynamicEvent
+oogst; oogsten; telen; oegsten,evokes,Production,DynamicEvent,
+gevlugt; vlugten; vlugt,isOfType,Leaving,Translocation,DynamicEvent
+executeren; executeeren,isOfType,Punishing,SocialInteraction,DynamicEvent
+executeren; executeeren,isOfType,Killing,ViolentContest,SocialInteraction
+gaande,isOfType,Translocation,DynamicEvent,
+compareerde,evokes,BeingAtAPlace,StaticEvent,
+aangecomen; aengecomen; gearriveert; gearriveerd,isOfType,Arriving,Translocation,DynamicEvent
+diefte; diefstal; dief; dieverijen,evokes,Getting,ChangeOfPossession,DynamicEvent
+gebrooken; gebroken; breeken; breken,evokes,Damaging,,
+brengen; gebragt; gebracht,isOfType,Transportation,Translocation,DynamicEvent
+antwoorden; geantwoord; antwoort;  geantwoort;  antwoord;  antwoor;  beantwoorden;  beandwoorden;  andwoord; antwoordende,isOfType,Communication,SocialInteraction,DynamicEvent
+bemant; bemand,evokes,HavingInPossession,StaticEvent,
+gemontheerd,evokes,HavingInPossession,StaticEvent,
+passagiers,evokes,Transportation,Translocation,DynamicEvent
+verleene; verleend; verleende,isOfType,Giving,ChangeOfPossession,DynamicEvent
+regeert; regeeren; regeren; regeerd,isOfType,BeingLeader,,
+moordenaar; moordenaer; moordenaars; moordenaers,evokes,Killing,ViolentContest,SocialInteraction
+betuijgen; betuijgt; betuijgde,isOfType,Communication,SocialInteraction,DynamicEvent
+requeste; request; reques; requast; requestje,isOfType,Request,SocialInteraction,DynamicEvent
+verslag,isOfType,Communication,SocialInteraction,DynamicEvent
+schenkagie; schenkage; schenckagie; schencagie; schenkagien; schenkkagie; schenkasie; ,evokes,Giving,ChangeOfPossession,DynamicEvent
+spreecken; spreeckende; bekentmaken; confereeren; declareren; expliceeren; vragen; vraagen; vragende; vraagende,isOfType,Communication,SocialInteraction,DynamicEvent
+heerschen; heersen; heerscht; heerschende; heersende; heerst,isOfType,BeingLeader,StaticEvent,
+supplicq; suppliceeren; suppliceert;  supplieq; supplicatie; supplicquen,isOfType,Request,SocialInteraction,DynamicEvent
+verzoekschrift; verzoekschriften,isOfType,Request,SocialInteraction,DynamicEvent
+smeekschrift; smeekschriften,isOfType,Request,SocialInteraction,DynamicEvent
+geschenk; geschenck; geschenckje; geschenkje; geschenke geschencke,evokes,Giving,ChangeOfPossession,DynamicEvent
+schenken; gechencken; geschenken; regaleeren;regaleren; gerelageert; relageert; relageerde,isOfType,Giving,ChangeOfPossession,DynamicEvent
+overschepen; overscheepen,evokes,Transportation,Translocation,DynamicEvent
+ombrengen; ombrengt; ombrengende,isOfType,Killing,ViolentContest,SocialInteraction
+massacreeren; gemassacreerde; massacre; massacreerde; gemassacreert; gemassacreerd,isOfType,Killing,ViolentContest,SocialInteraction
+rebellije; rebelleerende; rebellie,isOfType,Uprising,ViolentContest,SocialInteraction
+invasies; invasie; invadeeren; invaderen,isOfType,Invasion,Attacking,ViolentContest
+opstand; opstant,isOfType,Uprising,ViolentContest,SocialInteraction
+rebellen; rebellige; rebelle,evokes,Uprising,ViolentContest,SocialInteraction
+verwoesting; verwoesten; verwoestingen; verwoestinge,isOfType,Destroying,InternalChange,DynamicEvent
+vernieling; vernielen; vernielinge; vernielt; vernielde; vernield,isOfType,Damaging,ScalarChange,InternalChange
+straffinge,evokes,Punishing,SocialInteraction,DynamicEvent
+lijfstraffe; kastijdinge; kastijdingen,isOfType,Punishing,SocialInteraction,DynamicEvent
+lijfstraffe; kastijdinge; kastijdingen,isOfType,Attacking,ViolentContest,SocialInteraction
+revolte; revolteeren,isOfType,Uprising,ViolentContest,SocialInteraction
+punitite; gepunieert,isOfType,Punishing,SocialInteraction,DynamicEvent
+uijtgezeijlt; uijtgezeijld; uitzeilen; uijtgeseijld; uijtseijlen,isOfType,Leaving,Translocation,DynamicEvent
+trouwloosheijd; afvallige; ongehoorsaemheit; verraderijen; trouwlose; verdeeltheden,evokes,Unrest,StaticEvent,
+scheurbuijk; scheurbuik,evokes,FallingIll,ScalarChange,InternalChange
+koorts; coorts,evokes,FallingIll,ScalarChange,InternalChange
+siekten; ziekten; ziektens; siektens,evokes,FallingIll,ScalarChange,InternalChange
+siek; ziek,isOfType,FallingIll,ScalarChange,InternalChange
+zinken; sinken; sincken; zincken; gesonken; gesoncken; gezonken; gezoncken; sinckende; sinkende; zinkende; zinckende,isOfType,Sinking,DynamicEvent,
+uijtgeplundert; uitplunderen; uijtplunderen; uijtgeplundert; plonderen; geplondert; uijtgeplondert,isOfType,Getting,ChangeOfPossession,DynamicEvent
+uijtgeplundert; uitplunderen; uijtplunderen; uijtgeplundert; plonderen; geplondert; uijtgeplondert,isOfType,Destroying,InternalChange,DynamicEvent
+verdrijving; verdrijven; verjagen,isOfType,ViolentContest,,
+doodslag,evokes,Killing,ViolentContest,SocialInteraction
+schipbreuk,isOfType,Sinking,DynamicEvent,
+plunderen; plundert; plunderende,isOfType,Getting,ChangeOfPossession,DynamicEvent
+plunderen; plundert; plunderende,evokes,ViolentContest,,
+roven; rooven; rovage,isOfType,Getting,ChangeOfPossession,DynamicEvent
+rover; roofster,evokes,Getting,ChangeOfPossession,DynamicEvent
+aanplanting; aanplantinge; beplanting; beplantinge; planting; plantinge; aanqueking; aenplanting; aenplantinge; aanqueek; aangeplante; aenplanten; aanplanten; aankweeken,evokes,Production,DynamicEvent,DynamicEvent
+cultivering; cultiveering; cultiveeren; cultiveren; cultiveerende; cultiverend; cultiveert; cultiveerde,isOfType,Production,DynamicEvent,DynamicEvent
+plantagie; plantagien; plantagies,evokes,Production,DynamicEvent,DynamicEvent
+attacqueeren; attacqueren,isOfType,Attacking,ViolentContest,SocialInteraction
+vermeesteren; overmeesteren,isOfType,TakingUnderControl,SocialInteraction,DynamicEvent
+vermeesteren; overmeesteren,isOfType,ViolentContest,SocialInteraction,DynamicEvent
+oproer,evokes,Unrest,StaticEvent,
+verdelging; verdelginge; verdelgen; verdelgende; verdelgt; verdelgd; verdelgde,isOfType,Destroying,InternalChange,DynamicEvent
+belegeren; belegerde,isOfType,TakingUnderControl,SocialInteraction,DynamicEvent
+belegeren; belegerde,isOfType,Attacking,ViolentContest,SocialInteraction
+banissement; bannissement,evokes,ForceToAct,SocialInteraction,DynamicEvent
+geeselen; geeseling; geesseling; gegeestelt; gegeselt; gegeeselt; gegeeseld; geeselde; gegeesselt,isOfType,Attacking,ViolentContest,SocialInteraction
+geeselaar,evokes,Attacking,ViolentContest,SocialInteraction
+brantmercken; brandmercken; brantmerken; brandmerken,isOfType,Attacking,ViolentContest,SocialInteraction
+mulcteeren; gemulckteert,isOfType,Punishing,SocialInteraction,DynamicEvent
+brandmerk; brantmerk; brandtmerck; brandmerck; brantmerck; gebrantmerckt; gebrandmerckt; gebrandmerkt; gebrantmerckt,evokes,Attacking,ViolentContest,SocialInteraction
+verbannen,evokes,ForceToAct,SocialInteraction,DynamicEvent
+confineeren; geconfineert; geconfineerd; geconfineerde,evokes,ForceToAct,SocialInteraction,DynamicEvent
+confineeren,isOfType,TakingUnderControl,SocialInteraction,DynamicEvent
+geconfineert; geconfineerd; geconfineerde,evokes,TakingUnderControl,SocialInteraction,DynamicEvent
+doodgeslagen,evokes,Killing,ViolentContest,SocialInteraction
+arriveren; arriveeren; aantelanden; aanlanden,isOfType,Arriving,Translocation,DynamicEvent
+bondgenoodschap; bondgenootschap; bontgenootschap; bontgenoodschap,isOfType,Collaboration,StaticEvent,
+bondgenoot; bondgenood; bontgenoot; bontgenood,evokes,Collaboration,StaticEvent,
+gedood; gedoot,evokes,Killing,ViolentContest,SocialInteraction
+zeijlt; zeijld; zeilen; seijld; seijlen; gezeilt; gezeijlt,evokes,Translocation,DynamicEvent,
+ordonnantie; d'ordonnantie,evokes,Communication,SocialInteraction,DynamicEvent
+vijanden; vijand; vijant; vyand; vijant,evokes,BeingInConflict,StaticEvent,
+komst,evokes,Arriving,Translocation,DynamicEvent
+slavenhandel,isOfType,Trade,ChangeOfPossession,DynamicEvent
+slavenhandel,evokes,ForceToAct,SocialInteraction,DynamicEvent
+vegten; vechten,evokes,Attacking,ViolentContest,SocialInteraction
+betalen; betaalen,isOfType,FinancialTransaction,ChangeOfPossession,DynamicEvent
+tol,evokes,FinancialTransaction,ChangeOfPossession,DynamicEvent
+conqueste; conqueeste ,evokes,TakingUnderControl,SocialInteraction,DynamicEvent
+repatrieren; gerepatrieerd; gerepatrieerde,evokes ,Translocation,DynamicEvent,
