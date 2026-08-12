@@ -1,0 +1,608 @@
+@prefix :      <https://github.com/globalise-huygens/nlp-event-detection/wiki#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# GLOBALISE event ontology
+#
+# Converted from the "GLOBALISE event classes and arguments" wiki
+# (version 3). See:
+#   - v3: https://github.com/globalise-huygens/nlp-event-detection/wiki
+#   - v2: https://pad.nixnet.services/1drIdKhVQPmh_-LJzyWdAQ
+#   - v1: https://pad.nixnet.services/s/-hPRT1JZp#
+#
+# Modeling notes:
+#   - Two top-level branches: :StaticEvent (states / properties) and
+#     :DynamicEvent (occurrences that can change state). These are
+#     kept disjoint.
+#   - The :DynamicEvent branch is a taxonomy (rdfs:subClassOf chain),
+#     following the wiki's "The subclass of [X]" phrasing.
+#   - :StaticEvent classes are NOT taxonomically related to each
+#     other in the source; instead each is linked via the
+#     domain-specific property :influencedBy to the dynamic event(s)
+#     the wiki lists underneath its heading (i.e. the events that
+#     bring about, change, or end that state).
+#   - Semantic-role arguments (Agent, Patient, ...) are modeled as
+#     generic owl:ObjectProperty instances, since their exact meaning
+#     is redefined per event class in the source. The event-specific
+#     meaning is preserved verbatim-ish in each class's rdfs:comment
+#     under "Arguments:".
+#   - :isOfType and :evokes are the two "referral types" describing
+#     how a textual mention relates to an event class; :Mention is
+#     added as a lightweight class to host the wiki's examples.
+#################################################################
+
+<https://github.com/globalise-huygens/nlp-event-detection/ontology>
+    a owl:Ontology ;
+    rdfs:label "GLOBALISE Event Ontology" ;
+    rdfs:comment "RDF/OWL conversion of the GLOBALISE event-detection wiki (v3), describing static and dynamic event classes, their semantic-role arguments, and the domain-specific relation between states and the events that influence them." .
+
+#################################################################
+# Top-level classes
+#################################################################
+
+:Event a owl:Class ;
+    rdfs:label "Event" .
+
+:StaticEvent a owl:Class ;
+    rdfs:subClassOf :Event ;
+    rdfs:label "Static Event" ;
+    rdfs:comment "A state or property that holds over a period of time (e.g. someone being at a place, being dead, being employed), as opposed to a dynamic occurrence." ;
+    owl:disjointWith :DynamicEvent .
+
+:DynamicEvent a owl:Class ;
+    rdfs:subClassOf :Event ;
+    rdfs:label "Dynamic Event" ;
+    rdfs:comment "An occurrence, often but not always causing a change of state." .
+
+:Mention a owl:Class ;
+    rdfs:label "Mention" ;
+    rdfs:comment "A textual mention (word or phrase) in a source document that refers to, or evokes, an instance of an event class." .
+
+#################################################################
+# Domain-specific relation between states and the events
+# that influence them
+#################################################################
+
+:influencedBy a owl:ObjectProperty ;
+    rdfs:label "influenced by" ;
+    rdfs:domain :StaticEvent ;
+    rdfs:range :DynamicEvent ;
+    rdfs:comment "Relates a static event (a state) to a dynamic event whose occurrence can bring about, change, or end that state. Custom relation introduced for this ontology; not present as a named relation in the source wiki, which instead expressed it structurally by listing dynamic events underneath a static event's heading." .
+
+#################################################################
+# Referral types: how a mention relates to an event class
+#################################################################
+
+:isOfType a owl:ObjectProperty ;
+    rdfs:label "is of type" ;
+    rdfs:domain :Mention ;
+    rdfs:range :Event ;
+    rdfs:comment "A mention directly refers to an instance of an event class without an extra interpretation step." .
+
+:evokes a owl:ObjectProperty ;
+    rdfs:label "evokes" ;
+    rdfs:domain :Mention ;
+    rdfs:range :Event ;
+    rdfs:comment "A mention indirectly refers to an instance of an event class, e.g. when an argument of an event itself also evokes an event ('thief'), or when an extra interpretation step is needed to infer the relationship ('afvaardigen' implies leaving)." .
+
+#################################################################
+# Generic semantic-role (argument) properties
+#################################################################
+
+:hasArgument a owl:ObjectProperty ;
+    rdfs:label "has argument" ;
+    rdfs:domain :Event ;
+    rdfs:comment "Top-level semantic-role relation between an event and a participant or satellite. Specific sub-properties (agent, patient, ...) are used in practice; the exact meaning of each role depends on the context of the event class -- see the rdfs:comment of the relevant :DynamicEvent / :StaticEvent class." .
+
+:agent a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Agent" .
+:patient a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Patient" .
+:agentPatient a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "AgentPatient" ;
+    rdfs:comment "Used for symmetric events where the same participant(s) act as both agent and patient (e.g. two parties beginning a relationship together both cause as well as undergo the relationship)." .
+:beneficiary a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Beneficiary" .
+:instrument a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Instrument" .
+:cargo a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Cargo" .
+:time a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Time" .
+:location a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Location" .
+:source a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Source" ; rdfs:comment "From where a translocation/transportation/voyage originates." .
+:target a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Target" ; rdfs:comment "The (planned) endpoint of a translocation/transportation/voyage." .
+:path a owl:ObjectProperty ; rdfs:subPropertyOf :hasArgument ; rdfs:label "Path" ; rdfs:comment "An intermediary stop mentioned in a translocation-type event." .
+
+#################################################################
+# STATIC EVENTS
+#################################################################
+
+:BeingAtAPlace a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingAtAPlace" ;
+    rdfs:comment "Static Event where some entity is at a location. Arguments: Patient = the person or object that is at a place; Location = the place where Patient is at." .
+
+:HavingInPossession a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "HavingInPossession" ;
+    rdfs:comment "Property where someone holds on to someone or something for a period of time. Arguments: Agent = the person or organization that has something or someone in possession; Patient = the person or object that the Agent has in their possession." .
+
+:BeingInARelationship a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingInARelationship" ;
+    rdfs:comment "Property where persons or organizations are in some relationship. Arguments: Patient = the person(s) or organization(s) in a relationship." .
+
+:BeingLeader a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingLeader" ;
+    rdfs:comment "Property where someone is leader of some group of persons or organization. Arguments: Patient = the person that is being a leader." .
+
+:BeingEmployed a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingEmployed" ;
+    rdfs:comment "Property where someone is working in a position and is compensated for her work by some form of payment. Arguments: Agent = the person or organization who is doing the employing; Patient = the person that is being employed." .
+
+:HavingContractualAgreement a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "HavingContractualAgreement" ;
+    rdfs:comment "Static event where two polities have a contractual agreement. Arguments: Patient = the person(s) or organization(s) that are collaborating under a contract. NOTE: in the source wiki no dynamic events are listed structurally underneath this heading (they instead appear under the adjacent Collaboration heading); see :Collaboration influencedBy links." .
+
+:Collaboration a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "Collaboration" ;
+    rdfs:comment "Static event where two people, polities or organisations are in some way collaborating (not always voluntarily). Arguments: Patient = the person(s) or organization(s) that are collaborating." .
+
+:Unrest a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "Unrest" ;
+    rdfs:comment "There is unrest within an organization or polity." .
+
+:BeingInConflict a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingInConflict" ;
+    rdfs:comment "Property where two people or groups of people are in conflict with each other. Arguments: Patient = the person(s) or organization(s) participating in the conflict." .
+
+:Occupation a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "Occupation" ;
+    rdfs:comment "Property where some group of people, e.g. military, have control over some region, e.g. a country or a building. Arguments: Agent = the organization that is occupying; Patient = the area or group of people that is being occupied." .
+
+:BeingDead a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingDead" ;
+    rdfs:comment "Property where some organism is dead. Arguments: Patient = the person or animal that is dead." .
+
+:BeingDestroyed a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingDestroyed" ;
+    rdfs:comment "Property where something is in a destroyed state. Arguments: Patient = the object that is destroyed." .
+
+:HavingAMedicalCondition a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "HavingAMedicalCondition" ;
+    rdfs:comment "Property where some human or animal suffers from a medical condition such as diseases, chronic diseases and disabilities. Arguments: Patient = the person that is suffering from a medical condition." .
+
+:BeingDamaged a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingDamaged" ;
+    rdfs:comment "Static event where some entity is in a damaged state. Arguments: Patient = the object that is damaged." .
+
+:HavingInternalStatePlus a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "HavingInternalStatePlus" ;
+    rdfs:comment "Static event where someone or something (which can also be something intangible) is in a better state relative to an earlier moment. Arguments: Patient = the person or object having internal state +." .
+
+:HavingInternalStateMin a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "HavingInternalStateMin" ;
+    rdfs:comment "Static event where someone or something (which can also be something intangible) is in a worse state relative to an earlier moment. Arguments: Patient = the person or object having internal state -." .
+
+:BeingInDebt a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingInDebt" ;
+    rdfs:comment "A person or organization has a debt. Arguments: Patient = the person / organization / entity that has a debt." .
+
+:BeingAtPeace a owl:Class ;
+    rdfs:subClassOf :StaticEvent ;
+    rdfs:label "BeingAtPeace" ;
+    rdfs:comment "Two parties are explicitly at peace. Arguments: Patient = the person(s) / organization(s) that are at peace." .
+
+#################################################################
+# DYNAMIC EVENTS -- Translocation branch
+#################################################################
+
+:Translocation a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "Translocation" ;
+    rdfs:comment "DynamicEvent where physical objects or animate beings change from location. Arguments: Patient = the person or object undergoing the translocation; Instrument = vehicle (e.g. a boat); Agent = the person or object carrying out the translocation (e.g. the captain of a ship). Satellites: Source = from where Patient is being translocated; Target = the planned end of the translocation; Path = an intermediary stop that might be mentioned. Examples: 'affgesonden' evokes Translocation; 'cruijssen' isOfType Translocation." .
+
+:Leaving a owl:Class ;
+    rdfs:subClassOf :Translocation ;
+    rdfs:label "Leaving" ;
+    rdfs:comment "The subclass of Translocation where someone or something leaves a location. Arguments: Agent = the object, person or group of people that are leaving; Cargo = cargo; Instrument = vehicle (boat). Satellites: Source = where the leaving is taking place; Target = where the Agent is planning to go." .
+
+:Arriving a owl:Class ;
+    rdfs:subClassOf :Translocation ;
+    rdfs:label "Arriving" ;
+    rdfs:comment "The subclass of Translocation where someone or something arrives at a location. Arguments: Agent = the object, person or group of people that are arriving; Cargo = cargo; Instrument = vehicle (boat). Satellites: Source = where the leaving is taking place; Target = where the Agent is arriving." .
+
+:Voyage a owl:Class ;
+    rdfs:subClassOf :Translocation ;
+    rdfs:label "Voyage" ;
+    rdfs:comment "The subclass of Translocation where a ship or group of ships travels for a longer period of time. Arguments: Patient = who/what is undergoing the voyage; Agent = commissioning authority; Cargo = cargo; Instrument = vehicle (boat). Satellites: Source = where the voyage started; Target = the planned endpoint of the voyage; Path = an intermediary stop that might be mentioned." .
+
+:Transportation a owl:Class ;
+    rdfs:subClassOf :Translocation ;
+    rdfs:label "Transportation" ;
+    rdfs:comment "The subclass of Translocation where physical objects and animate beings together change from location and the physical object is not the means of translocation. Arguments: Patient = who or what is being transported (cargo); Agent = who is transporting; Instrument = with what it is being transported (ship). Satellites: Source = from where Patient is being transported; Target = the planned endpoint of the transportation; Path = an intermediary stop that might be mentioned. Example: 'affgelaedene' evokes Transportation." .
+
+#################################################################
+# DYNAMIC EVENTS -- ChangeOfPossession branch
+#################################################################
+
+:ChangeOfPossession a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "ChangeOfPossession" ;
+    rdfs:comment "DynamicEvent where some entity changes possession. Note that this often but not necessarily implies a change of location of the entity. Arguments: Patient = the person or thing that is changing possession; Agent = Possessor1; Agent = Possessor2." .
+
+:Getting a owl:Class ;
+    rdfs:subClassOf :ChangeOfPossession ;
+    rdfs:label "Getting" ;
+    rdfs:comment "The subclass of ChangeOfPossession where a person gets or receives some item. Arguments: Agent = the person or organization that gets something; Patient = the thing that the person or organization is getting; Instrument = from whom." .
+
+:LosingPossession a owl:Class ;
+    rdfs:subClassOf :ChangeOfPossession ;
+    rdfs:label "LosingPossession" ;
+    rdfs:comment "The subclass of ChangeOfPossession where a person or organization loses possession of something. Arguments: Agent = the person or organization that loses something; Patient = the thing that the person or organization is losing." .
+
+:Giving a owl:Class ;
+    rdfs:subClassOf :ChangeOfPossession ;
+    rdfs:label "Giving" ;
+    rdfs:comment "The subclass of ChangeOfPossession where a person gives something to someone else. Arguments: Agent = the person or organization that gives; Patient = the (animate) object that the person or organization is giving; Beneficiary = the person or organization that receives the (animate) object." .
+
+:Trade a owl:Class ;
+    rdfs:subClassOf :ChangeOfPossession ;
+    rdfs:label "Trade" ;
+    rdfs:comment "The subclass of ChangeOfPossession where some item changes ownership in exchange for money or other goods. Arguments: Agent = the person(s)/party exchanging something; Patient = the entity that changes ownership." .
+
+:FinancialTransaction a owl:Class ;
+    rdfs:subClassOf :ChangeOfPossession ;
+    rdfs:label "FinancialTransaction" ;
+    rdfs:comment "Where a monetary value changes ownership. Arguments: Agent = the person(s)/party exchanging money; Patient = the entity that changes ownership (the money)." .
+
+:Buying a owl:Class ;
+    rdfs:subClassOf :Trade ;
+    rdfs:label "Buying" ;
+    rdfs:comment "The subclass of Trade where some entity changes ownership in exchange for another entity or money. Arguments: Agent = the person or organization that is buying; Patient = the (animate) object that is being bought; Beneficiary = the person or organization from whom the (animate) object is being bought; Instrument = the entity Patient is being bought with (money or a good, for example)." .
+
+:Selling a owl:Class ;
+    rdfs:subClassOf :Trade ;
+    rdfs:label "Selling" ;
+    rdfs:comment "The subclass of Trade where some entity changes ownership in exchange for another entity or money. Arguments: Agent = the person or organization that is selling; Patient = the (animate) object(s) that is being sold; Beneficiary = the person or organization to whom the (animate) object(s) is being sold; Instrument = the entity Patient is being sold for (money or a good, for example)." .
+
+#################################################################
+# DYNAMIC EVENTS -- SocialStatusChange branch
+#################################################################
+
+:SocialStatusChange a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "SocialStatusChange" ;
+    rdfs:comment "Dynamic event where the social status of a person or organization is altered in some way. Arguments: Agent = the person(s) causing the social status change; Patient = the person(s) undergoing the social status change (i.e. whose status is changed)." .
+
+:RelationshipChange a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "RelationshipChange" ;
+    rdfs:comment "A subclass of SocialStatusChange. Different from AlteringARelationship, the change can include the beginning or the end of a relationship. Arguments: AgentPatient = the person(s) causing and/or undergoing the relationship change. NOTE: conceptually related to :BeingInARelationship, though not listed under that heading in the source wiki, so no :influencedBy is asserted here." .
+
+:BeginningARelationship a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "BeginningARelationship" ;
+    rdfs:comment "The subclass of SocialStatusChange where people or organizations start or form a relationship with each other. Arguments: AgentPatient = the person(s) or organization(s) beginning a relationship." .
+
+:EndingARelationship a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "EndingARelationship" ;
+    rdfs:comment "The subclass of SocialStatusChange where people or organizations end a relationship with each other. Arguments: AgentPatient = the person(s) or organization(s) ending a relationship." .
+
+:AlteringARelationship a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "AlteringARelationship" ;
+    rdfs:comment "The subclass of SocialStatusChange where the status or nature of a relationship is altered. Assumes an existing relationship both before and after the event. Arguments: Agent = an outside party altering a relationship of two other entities (in which case the two entities in that relationship are the patients); AgentPatient = the person(s) or organization(s) who are in an existing relationship and who alter the relationship." .
+
+:Replacing a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "Replacing" ;
+    rdfs:comment "The subclass of SocialStatusChange where someone or something is replaced with someone or something else in a specific role or function. Arguments: Patient = the person that is being replaced; Agent = the person that replaces; Beneficiary = the person that Patient is being replaced with." .
+
+:Election a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "Election" ;
+    rdfs:comment "The subclass of SocialStatusChange where someone is elected to be in a specific role or function. Arguments: Patient = the person that is being elected; Agent = the person/organization that elects." .
+
+:JoiningAnOrganization a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "JoiningAnOrganization" ;
+    rdfs:comment "The subclass of SocialStatusChange where someone starts working as an employee for some organization. Arguments: Agent = the person that joins an organization; Patient = the organization that is joined." .
+
+:LeavingAnOrganization a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "LeavingAnOrganization" ;
+    rdfs:comment "The subclass of SocialStatusChange where a person stops working as an employee for an organization. Arguments: Agent = the person that leaves an organization; Patient = the organization that is being left." .
+
+:BeginningContractualAgreement a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "BeginningContractualAgreement" ;
+    rdfs:comment "The subclass of SocialStatusChange where two parties enter into an agreement described in a contract. Arguments: AgentPatient = the person(s) or organization(s) beginning a contractual agreement." .
+
+:EndingContractualAgreement a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "EndingContractualAgreement" ;
+    rdfs:comment "The subclass of SocialStatusChange where a contract between two parties is broken by one or both of the parties involved, either by illegally breaking the contract or ending it together. Arguments: AgentPatient = the person(s) or organization(s) ending a contract." .
+
+:ExtendingContractualAgreement a owl:Class ;
+    rdfs:subClassOf :SocialStatusChange ;
+    rdfs:label "ExtendingContractualAgreement" ;
+    rdfs:comment "The subclass of SocialStatusChange where a contract between two parties is extended by one or both of the parties involved. Arguments: AgentPatient = the person(s) or organization(s) extending a contract." .
+
+#################################################################
+# DYNAMIC EVENTS -- SocialInteraction branch
+#################################################################
+
+:SocialInteraction a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "SocialInteraction" ;
+    rdfs:comment "Dynamic event where people interact. High-level umbrella event, generally too broad to annotate with directly -- use a more specific subclass such as :Communication. Arguments: AgentPatient = the person(s) entering into and undergoing some type of social interaction." .
+
+:Communication a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "Communication" ;
+    rdfs:comment "Dynamic event that indicates a communicative interaction between two people, organisations or groups of people. Examples: giving orders, replying to letters, confessions, conversations. Arguments: Agent = the entity/ies sending a message; Beneficiary = the entity/ies receiving a message; Patient = the message that is being communicated. MODELING NOTE: not explicitly declared a subclass of SocialInteraction in the source, but presented as the more specific event to use instead of the too-broad SocialInteraction umbrella; subClassOf asserted here on that basis." .
+
+:Request a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "Request" ;
+    rdfs:comment "The subclass of SocialInteraction where a person or organization requests something. Arguments: Agent = the person(s) or organization(s) requesting something; Instrument = the person or organization being requested something; Patient = the thing being requested." .
+
+:ForceToAct a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "ForceToAct" ;
+    rdfs:comment "The subclass of SocialInteraction where a person or organization forces a second party to act in some way, do or not do something. Giving orders through written communication does not fall under ForceToAct; forcing to act goes beyond having a duty to do something -- there is a known or implied consequence involved. Arguments: Agent = the person(s) or organization(s) forcing a person, group of persons or organization; Instrument = the person, group of persons or organization being forced; Patient = the thing/act that is being forced." .
+
+:Encounter a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "Encounter" ;
+    rdfs:comment "The subclass of SocialInteraction where people, organizations or ships meet each other, either planned or unplanned. Arguments: Patient = the entities undergoing the encounter." .
+
+:Visit a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "Visit" ;
+    rdfs:comment "The subclass of SocialInteraction where a person or organization goes to visit another person or organization. Includes diplomatic and non-diplomatic visits. Arguments: Agent = the entity paying a visit; Patient = the entity being visited." .
+
+:ViolentContest a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "ViolentContest" ;
+    rdfs:comment "The subclass of SocialInteraction where two parties interact in a hostile manner using violence. Arguments: AgentPatient = the person(s) or organization(s) participating in the violent contest." .
+
+:Attacking a owl:Class ;
+    rdfs:subClassOf :ViolentContest ;
+    rdfs:label "Attacking" ;
+    rdfs:comment "The subclass of ViolentContest where someone or something is assaulted with the intention to cause some harm. Arguments: Agent = the person/organization/group of people that attacks; Patient = the person/organization/group of people that is under attack; Instrument = any weapon(s) being used to attack." .
+
+:Uprising a owl:Class ;
+    rdfs:subClassOf :ViolentContest ;
+    rdfs:label "Uprising" ;
+    rdfs:comment "The subclass of ViolentContest where humans rise against some authority. Arguments: Agent = the humans that are rising against some authority; Patient = the authority against whom some group of people is rising." .
+
+:Riot a owl:Class ;
+    rdfs:subClassOf :Uprising ;
+    rdfs:label "Riot" ;
+    rdfs:comment "The subclass of Uprising where some group of people engage in a violent disturbance of the public order. Arguments: Agent = the group of people that engages in a violent disturbance of the public order; Patient = the establishment / public order that is being disturbed." .
+
+:Mutiny a owl:Class ;
+    rdfs:subClassOf :Uprising ;
+    rdfs:label "Mutiny" ;
+    rdfs:comment "The subclass of Uprising where a group of people rise against some authority, especially used for rebellion on ships or in armies. Arguments: Agent = the humans that are rising against some authority, either on a ship or within an army; Patient = the authority (ship or army) against whom some group of people is rising." .
+
+:PoliticalRevolution a owl:Class ;
+    rdfs:subClassOf :Uprising ;
+    rdfs:label "PoliticalRevolution" ;
+    rdfs:comment "The subclass of Uprising where some government is violently overthrown and replaced by another government. Arguments: Agent = the group of people overthrowing a government; Patient = the government that is being overthrown." .
+
+:Besieging a owl:Class ;
+    rdfs:subClassOf :Attacking ;
+    rdfs:label "Besieging" ;
+    rdfs:comment "The subclass of Attacking where some location is being surrounded and blocked by enemy troops with the aim of causing the surrender of the besieged. Arguments: Agent = the organization or group of people that are besieging; Patient = the area or group of people that are being besieged; Instrument = any instrument(s) being used to besiege/block." .
+
+:Invasion a owl:Class ;
+    rdfs:subClassOf :Attacking ;
+    rdfs:label "Invasion" ;
+    rdfs:comment "The subclass of Attacking where some country or location is unwelcomely intruded by some armed forces. Arguments: Agent = the organization or group of people that is invading; Patient = the area, country or polity that is being invaded." .
+
+:StartingConflict a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "StartingConflict" ;
+    rdfs:comment "The subclass of SocialInteraction where a conflict is being started. Arguments: AgentPatient = the group(s) of people or organization(s) starting the conflict." .
+
+:EndingConflict a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "EndingConflict" ;
+    rdfs:comment "The subclass of SocialInteraction where a conflict is made to come to an end. Arguments: AgentPatient = the group(s) of people or organization(s) ending the conflict." .
+
+:StartingAWar a owl:Class ;
+    rdfs:subClassOf :StartingConflict ;
+    rdfs:label "StartingAWar" ;
+    rdfs:comment "The subclass of StartingConflict where an armed conflict between different groups of people, two or more countries, etc. is being started. Arguments: AgentPatient = the group(s) of people or organization(s) starting the war." .
+
+:EndingAWar a owl:Class ;
+    rdfs:subClassOf :EndingConflict ;
+    rdfs:label "EndingAWar" ;
+    rdfs:comment "The subclass of EndingConflict where an armed conflict between different groups of people, two or more countries, etc. is made to come to an end. Arguments: AgentPatient = the group(s) of people or organization(s) ending the war." .
+
+:TakingUnderControl a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "TakingUnderControl" ;
+    rdfs:comment "The subclass of SocialInteraction where someone takes control over some person, group of persons or entity (ship). Arguments: Agent = the person or organization taking some entity under control; Patient = the entity that is being taken under control." .
+
+:Enslaving a owl:Class ;
+    rdfs:subClassOf :TakingUnderControl ;
+    rdfs:label "Enslaving" ;
+    rdfs:comment "The subclass of TakingUnderControl where someone takes control over some person or group of persons. Arguments: Agent = the person or organization taking people; Patient = the person or group of persons that is being taken under control." .
+
+:Killing a owl:Class ;
+    rdfs:subClassOf :Attacking ;
+    rdfs:label "Killing" ;
+    rdfs:comment "The subclass of Attacking where someone kills an animate being. Arguments: Patient = the person or animal being killed; Agent = the killer." .
+
+:Punishing a owl:Class ;
+    rdfs:subClassOf :SocialInteraction ;
+    rdfs:label "Punishing" ;
+    rdfs:comment "The subclass of SocialInteraction where a person or group of people gets punished -- which could be a physical attack, official sentencing in a court, or any other punishment inflicted by an authority. Arguments: Agent = the authority/person sentencing or inflicting the punishment; Patient = the individual or set of individuals being punished." .
+
+#################################################################
+# DYNAMIC EVENTS -- InternalChange branch
+#################################################################
+
+:InternalChange a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "InternalChange" ;
+    rdfs:comment "DynamicEvent where some internal quality of a person or entity changes. Arguments: Patient = the person or entity undergoing internal change; Agent = the person or entity causing internal change." .
+
+:Dying a owl:Class ;
+    rdfs:subClassOf :InternalChange ;
+    rdfs:label "Dying" ;
+    rdfs:comment "The subclass of InternalChange where someone is dying, ultimately resulting in death. Arguments: Patient = the person or animal that is dying." .
+
+:Destroying a owl:Class ;
+    rdfs:subClassOf :InternalChange ;
+    rdfs:label "Destroying" ;
+    rdfs:comment "The subclass of InternalChange where something gets destroyed. Arguments: Agent = the person, organization, object or event that is causing something to be destroyed; Patient = the object that is being destroyed; Instrument = the object used by the agent to destroy the patient." .
+
+:ScalarChange a owl:Class ;
+    rdfs:subClassOf :InternalChange ;
+    rdfs:label "ScalarChange" ;
+    rdfs:comment "The subclass of InternalChange where something changes position on a scale. Arguments: Patient = the person or entity undergoing the scalar change; Agent = the person or entity causing the scalar change." .
+
+:Healing a owl:Class ;
+    rdfs:subClassOf :ScalarChange ;
+    rdfs:label "Healing" ;
+    rdfs:comment "The subclass of ScalarChange where a human or animal heals after some injury or illness. Arguments: Patient = the person that is healing; Agent = the person or medicine that is causing Patient to heal." .
+
+:FallingIll a owl:Class ;
+    rdfs:subClassOf :ScalarChange ;
+    rdfs:label "FallingIll" ;
+    rdfs:comment "The subclass of ScalarChange where a human or animal falls ill or suffers an injury. Arguments: Patient = the person that is falling ill or suffers an injury; Agent = the thing that is causing the illness/injury." .
+
+:Repairing a owl:Class ;
+    rdfs:subClassOf :ScalarChange ;
+    rdfs:label "Repairing" ;
+    rdfs:comment "The subclass of ScalarChange where some tangible object is modified in such a way that it works properly again or can be taken back into its intended function. Arguments: Agent = the person or organization that is repairing; Patient = the object that is being repaired." .
+
+:Damaging a owl:Class ;
+    rdfs:subClassOf :ScalarChange ;
+    rdfs:label "Damaging" ;
+    rdfs:comment "The subclass of ScalarChange where some tangible entity gets damaged. Arguments: Agent = the group of people, person, object or event that is causing damage; Patient = the object or organization that is being damaged; Instrument = the instrument used to damage the Patient (if the agent is a sentient being)." .
+
+:QuantityChange a owl:Class ;
+    rdfs:subClassOf :ScalarChange ;
+    rdfs:label "QuantityChange" ;
+    rdfs:comment "The subclass of ScalarChange where some quantity is altered. Arguments: Patient = the person or entity undergoing the quantity change; Agent = the person or entity causing the quantity change." .
+
+:Increasing a owl:Class ;
+    rdfs:subClassOf :QuantityChange ;
+    rdfs:label "Increasing" ;
+    rdfs:comment "The subclass of QuantityChange where some physical quantity or value is increased. Arguments: Patient = the thing or concept that is being increased; Agent = the thing that causes Patient to increase." .
+
+:Decreasing a owl:Class ;
+    rdfs:subClassOf :QuantityChange ;
+    rdfs:label "Decreasing" ;
+    rdfs:comment "The subclass of QuantityChange where some physical quantity or value is decreased. Arguments: Patient = the thing or concept that is being decreased; Agent = the thing that causes Patient to decrease." .
+
+#################################################################
+# DYNAMIC EVENTS -- standalone (direct children of :DynamicEvent,
+# not further subclassed and not stated to be subclasses of another
+# dynamic event in the source)
+#################################################################
+
+:Sinking a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "Sinking" ;
+    rdfs:comment "DynamicEvent where a ship stops floating and submerges below the water surface. Arguments: Patient = what is sinking (ship); Agent = what is directly causing the ship to sink." .
+
+:Production a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "Production" ;
+    rdfs:comment "Dynamic event that indicates the production of a commodity. Arguments: Agent = the authority/group of people/individual producing something; Patient = the commodity being produced; Instrument = instrument used to produce." .
+
+:Mismanagement a owl:Class ;
+    rdfs:subClassOf :DynamicEvent ;
+    rdfs:label "Mismanagement" ;
+    rdfs:comment "Dynamic event that indicates that a region is being mismanaged. Arguments: Agent = the person or organization causing mismanagement; Patient = the (group of) people or area being mismanaged." .
+
+#################################################################
+# :influencedBy links -- static events <- dynamic events listed
+# underneath their heading in the source wiki
+#################################################################
+
+:BeingAtAPlace
+    :influencedBy :Translocation , :Leaving , :Arriving , :Voyage , :Transportation .
+
+:HavingInPossession
+    :influencedBy :ChangeOfPossession , :Getting , :LosingPossession , :Giving , :Trade ,
+                  :FinancialTransaction , :Buying , :Selling .
+
+:BeingInARelationship
+    :influencedBy :BeginningARelationship , :EndingARelationship , :AlteringARelationship .
+
+:BeingLeader
+    :influencedBy :Replacing , :Election .
+
+:BeingEmployed
+    :influencedBy :Replacing , :JoiningAnOrganization , :LeavingAnOrganization .
+
+:Collaboration
+    :influencedBy :BeginningContractualAgreement , :EndingContractualAgreement ,
+                  :ExtendingContractualAgreement .
+
+:Unrest
+    :influencedBy :Uprising , :Riot , :Mutiny , :PoliticalRevolution .
+
+:BeingInConflict
+    :influencedBy :StartingConflict , :EndingConflict , :StartingAWar , :EndingAWar ,
+                  :Besieging , :Invasion .
+
+:Occupation
+    :influencedBy :TakingUnderControl , :Enslaving , :Besieging .
+
+:BeingDead
+    :influencedBy :Dying , :Killing .
+
+:BeingDestroyed
+    :influencedBy :Destroying , :Sinking .
+
+:HavingAMedicalCondition
+    :influencedBy :Healing , :FallingIll .
+
+:BeingDamaged
+    :influencedBy :Repairing , :Damaging , :Punishing .
+
+:HavingInternalStatePlus
+    :influencedBy :Repairing , :Healing .
+
+:HavingInternalStateMin
+    :influencedBy :Damaging , :FallingIll .
+
+# HavingContractualAgreement, BeingInDebt and BeingAtPeace have no
+# no :influencedBy triples are asserted for them.
+
+##############################
+# Example mention individuals 
+##############################
+
+:mention_affgesonden a :Mention ;
+    rdfs:label "affgesonden" ;
+    :evokes :Translocation .
+
+:mention_cruijssen a :Mention ;
+    rdfs:label "cruijssen" ;
+    :isOfType :Translocation .
+
+:mention_affgelaedene a :Mention ;
+    rdfs:label "affgelaedene" ;
+    :evokes :Transportation .
