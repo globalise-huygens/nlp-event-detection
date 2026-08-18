@@ -1,0 +1,454 @@
+@prefix glob:  <https://github.com/globalise-huygens/nlp-event-detection/ontology#> .
+@prefix ceo:   <https://example.org/ontology/ceo#> .
+@prefix fn:    <https://example.org/vocab/framenet#> .
+@prefix sumo:  <http://www.ontologyportal.org/SUMO.owl#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+
+#################################################################
+# GLOB <-> CEO <-> FrameNet <-> SUMO alignment
+#
+# Converted from "Globalise_Event_Ontology -- CEO -- FrameNet -- SUMO
+# - Classes.csv". The CSV encodes THREE independent, pairwise SKOS
+# mappings chained across columns:
+#
+#   GLOB-event --[rel]--> CEO --[rel]--> FrameNet --[rel]--> SUMO
+#
+# Each arrow is asserted below as its own set of skos:*Match triples.
+# NO direct GLOB<->SUMO (or GLOB<->FrameNet) triples are asserted: SKOS
+# mapping relations are not guaranteed transitive across vocabularies
+# with different scope/granularity, so chaining two asserted mappings
+# into a third is a modeling decision this file deliberately leaves to
+# a human (or a reasoner applying an explicit, documented transitivity
+# rule) rather than asserting silently.
+#
+# NAMESPACE NOTE: ceo: and fn: are PLACEHOLDER namespaces -- swap in the
+# real published IRIs if/when available. sumo: uses the commonly-used
+# ontologyportal.org OWL translation of SUMO; verify it matches your
+# target SUMO version before relying on it.
+#
+# PARSING RULES applied to multi-valued CSV cells:
+#   - a target cell with N comma-separated values and a relation cell
+#     with 1 value -> that one relation is applied to all N targets.
+#   - a target cell with N values and a relation cell with N values
+#     -> paired positionally (1st relation with 1st target, etc.)
+#   - a target cell with N values and a relation cell with M values
+#     (1 < M < N) -> ambiguous; the first relation is applied to all
+#     targets and the row is flagged for manual review (see below).
+#
+# DATA QUALITY NOTES (from parsing the source CSV):
+#   - Row 9: normalized relation typo 'clodeMatch' -> 'closeMatch' for CEO ['Transportation'].
+#   - Row 9: normalized relation typo 'clodeMatch' -> 'closeMatch' for FrameNet ['Bringing', 'Delivery'].
+#   - Row 13: suspicious SUMO value 'Sumo' for FrameNet 'Ceasing_to_be' (looks like a placeholder, not a real class name) — skipped.
+#   - Row 13: suspicious SUMO value 'Sumo' for FrameNet 'Losing' (looks like a placeholder, not a real class name) — skipped.
+#   - Row 13: suspicious SUMO value 'Sumo' for FrameNet 'Losing_track_of_theme' (looks like a placeholder, not a real class name) — skipped.
+#   - Row 79: relation count (['closeMatch', 'broadMatch']) < target count (['Cause_proliferation_in_number', 'Change_of_quantity_of_possession', 'Cause_change_of_position_on_a_scale', 'Change_position_on_a_scale', 'Proliferation_in_number', 'Expansion', 'Cause_expansion']) for CEO ['Increasing'] -> FrameNet. Applied first relation to first target, last relation to all remaining targets.
+#################################################################
+
+#################################################################
+# GLOB-event -> CEO
+#################################################################
+
+glob:DynamicEvent skos:closeMatch ceo:DynamicEvent .
+glob:StaticEvent skos:closeMatch ceo:StaticEvent .
+glob:BeingAtAPlace skos:closeMatch ceo:BeingAtAPlace .
+glob:Translocation skos:closeMatch ceo:Translocation .
+glob:Leaving skos:closeMatch ceo:Leaving .
+glob:Arriving skos:closeMatch ceo:Arriving .
+glob:Transportation skos:closeMatch ceo:Transportation .
+glob:HavingInPossession skos:closeMatch ceo:HavingInPossession .
+glob:ChangeOfPossession skos:closeMatch ceo:ChangeOfPossession .
+glob:Getting skos:closeMatch ceo:Getting .
+glob:LosingPossession skos:relatedMatch ceo:BeingDisappeared .
+glob:Giving skos:closeMatch ceo:Giving .
+glob:Trade skos:narrowMatch ceo:FinancialTransaction .
+glob:Trade skos:broadMatch ceo:Paying .
+glob:FinancialTransaction skos:narrowMatch ceo:FinancialTransaction .
+glob:FinancialTransaction skos:broadMatch ceo:Paying .
+glob:Buying skos:closeMatch ceo:Buying .
+glob:Selling skos:closeMatch ceo:Selling .
+glob:BeingInARelationship skos:broadMatch ceo:BeingInAPersonalRelationship .
+glob:BeginningARelationship skos:broadMatch ceo:BeginningARelationship .
+glob:EndingARelationship skos:broadMatch ceo:EndingARelationship .
+glob:BeingLeader skos:closeMatch ceo:BeingLeader .
+glob:Replacing skos:closeMatch ceo:Replacing .
+glob:BeingEmployed skos:closeMatch ceo:BeingEmployed .
+glob:JoiningAnOrganization skos:closeMatch ceo:JoiningAnOrganization .
+glob:LeavingAnOrganization skos:closeMatch ceo:JoiningAnOrganization .
+glob:Collaboration skos:closeMatch ceo:Collaboration .
+glob:Uprising skos:closeMatch ceo:Uprising .
+glob:Riot skos:closeMatch ceo:Riot .
+glob:Mutiny skos:closeMatch ceo:Mutiny .
+glob:PoliticalRevolution skos:closeMatch ceo:PoliticalRevolution .
+glob:StartingConflict skos:relatedMatch ceo:War .
+glob:EndingConflict skos:relatedMatch ceo:War .
+glob:StartingAWar skos:broadMatch ceo:War .
+glob:EndingAWar skos:broadMatch ceo:War .
+glob:Besieging skos:closeMatch ceo:Besieging .
+glob:Invasion skos:closeMatch ceo:Invasion .
+glob:Occupation skos:closeMatch ceo:Occupation .
+glob:TakingUnderControl skos:broadMatch ceo:IllegallyTakingSomeoneUnderControl .
+glob:Enslaving skos:narrowMatch ceo:IllegallyTakingSomeoneUnderControl .
+glob:BeingDead skos:closeMatch ceo:BeingDead .
+glob:Dying skos:closeMatch ceo:BeingDead .
+glob:Killing skos:broadMatch ceo:IntentionalKilling .
+glob:BeingDestroyed skos:closeMatch ceo:BeingDestroyed .
+glob:Destroying skos:closeMatch ceo:Destroying .
+glob:Sinking skos:narrowMatch ceo:Sinking .
+glob:HavingAMedicalCondition skos:closeMatch ceo:HavingAMedicalCondition .
+glob:Healing skos:closeMatch ceo:Healing .
+glob:BeingDamaged skos:closeMatch ceo:BeingDamaged .
+glob:Repairing skos:closeMatch ceo:Repairing .
+glob:Damaging skos:closeMatch ceo:Damaging .
+glob:SocialInteraction skos:closeMatch ceo:SocialInteraction .
+glob:ViolentContest skos:closeMatch ceo:ViolentContest .
+glob:Attacking skos:closeMatch ceo:Attacking .
+glob:InternalChange skos:closeMatch ceo:InternalChange .
+glob:QuantityChange skos:closeMatch ceo:QuantityChange .
+glob:Increasing skos:closeMatch ceo:Increasing .
+glob:Decreasing skos:closeMatch ceo:Decreasing .
+
+#################################################################
+# CEO -> FrameNet
+#################################################################
+
+ceo:BeingAtAPlace skos:closeMatch fn:Residence .
+ceo:BeingAtAPlace skos:closeMatch fn:Presence .
+ceo:BeingAtAPlace skos:closeMatch fn:Temporary_stay .
+ceo:BeingAtAPlace skos:closeMatch fn:Being_located .
+ceo:Translocation skos:closeMatch fn:Self_motion .
+ceo:Translocation skos:closeMatch fn:Cotheme .
+ceo:Translocation skos:closeMatch fn:Traversing .
+ceo:Translocation skos:closeMatch fn:Use_vehicle .
+ceo:Translocation skos:closeMatch fn:Intentional_traversing .
+ceo:Translocation skos:closeMatch fn:Ride_vehicle .
+ceo:Translocation skos:closeMatch fn:Travel .
+ceo:Translocation skos:closeMatch fn:Operate_vehicle .
+ceo:Translocation skos:closeMatch fn:Cause_motion .
+ceo:Leaving skos:closeMatch fn:Vehicle_departure_initial_state .
+ceo:Leaving skos:closeMatch fn:Departing .
+ceo:Leaving skos:closeMatch fn:Setting_out .
+ceo:Leaving skos:closeMatch fn:Quitting_a_place .
+ceo:Arriving skos:closeMatch fn:Arriving .
+ceo:Arriving skos:closeMatch fn:Vehicle_landing .
+ceo:Transportation skos:closeMatch fn:Bringing .
+ceo:Transportation skos:closeMatch fn:Delivery .
+ceo:HavingInPossession skos:closeMatch fn:Possession .
+ceo:HavingInPossession skos:closeMatch fn:Retaining .
+ceo:ChangeOfPossession skos:relatedMatch fn:Transfer .
+ceo:Getting skos:closeMatch fn:Receiving .
+ceo:Getting skos:closeMatch fn:Getting .
+ceo:BeingDisappeared skos:closeMatch fn:Ceasing_to_be .
+ceo:BeingDisappeared skos:closeMatch fn:Losing .
+ceo:BeingDisappeared skos:closeMatch fn:Losing_track_of_theme .
+ceo:Giving skos:closeMatch fn:Sending .
+ceo:Giving skos:closeMatch fn:Giving .
+ceo:Giving skos:closeMatch fn:Supply .
+ceo:FinancialTransaction skos:closeMatch fn:CommercialTransaction .
+ceo:Paying skos:closeMatch fn:CommercialTransaction .
+ceo:FinancialTransaction skos:closeMatch fn:CommercialTransaction .
+ceo:Paying skos:closeMatch fn:CommercialTransaction .
+ceo:Buying skos:closeMatch fn:Commerce_buy .
+ceo:Selling skos:closeMatch fn:Commerce_sell .
+ceo:BeingInAPersonalRelationship skos:closeMatch fn:Personal_relationship .
+ceo:BeginningARelationship skos:broadMatch fn:Forming_relationships .
+ceo:EndingARelationship skos:broadMatch fn:Forming_relationships .
+ceo:BeingLeader skos:closeMatch fn:Leadership .
+ceo:Replacing skos:closeMatch fn:Replacing .
+ceo:Replacing skos:closeMatch fn:Take_place_of .
+ceo:Replacing skos:closeMatch fn:Change_of_leadership .
+ceo:BeingEmployed skos:closeMatch fn:Being_employed .
+ceo:JoiningAnOrganization skos:closeMatch fn:Hiring .
+ceo:JoiningAnOrganization skos:closeMatch fn:Get_a_job .
+ceo:JoiningAnOrganization skos:closeMatch fn:Quitting .
+ceo:JoiningAnOrganization skos:closeMatch fn:Firing .
+ceo:Collaboration skos:closeMatch fn:Collaboration .
+ceo:Uprising skos:closeMatch fn:Reject_leadership .
+ceo:Riot skos:broadMatch fn:Hostile_encounter .
+ceo:Mutiny skos:broadMatch fn:Reject_leadership .
+ceo:Mutiny skos:broadMatch fn:Revolution .
+ceo:PoliticalRevolution skos:broadMatch fn:Revolution .
+ceo:War skos:closeMatch fn:Hostile_encounter .
+ceo:War skos:closeMatch fn:Hostile_encounter .
+ceo:War skos:closeMatch fn:Hostile_encounter .
+ceo:War skos:closeMatch fn:Hostile_encounter .
+ceo:Besieging skos:closeMatch fn:Besieging .
+ceo:Invasion skos:closeMatch fn:Invading .
+ceo:Occupation skos:broadMatch fn:Possession .
+ceo:BeingDead skos:relatedMatch fn:Death .
+ceo:BeingDead skos:closeMatch fn:Death .
+ceo:BeingDead skos:broadMatch fn:Killing .
+ceo:IntentionalKilling skos:closeMatch fn:Execution .
+ceo:IntentionalKilling skos:closeMatch fn:Killing .
+ceo:Destroying skos:closeMatch fn:Cause_to_fragment .
+ceo:Destroying skos:closeMatch fn:Destroying .
+ceo:Sinking skos:broadMatch fn:Motion_directional .
+ceo:HavingAMedicalCondition skos:closeMatch fn:Medical_conditions .
+ceo:Healing skos:closeMatch fn:Recovery .
+ceo:BeingDamaged skos:broadMatch fn:Being_operational .
+ceo:Repairing skos:broadMatch fn:Intentionally_create .
+ceo:Damaging skos:closeMatch fn:Render_nonfunctional .
+ceo:Damaging skos:closeMatch fn:Damaging .
+ceo:SocialInteraction skos:broadMatch fn:Intentionally_act .
+ceo:ViolentContest skos:closeMatch fn:Hostile_encounter .
+ceo:Attacking skos:closeMatch fn:Attack .
+ceo:Increasing skos:closeMatch fn:Cause_proliferation_in_number .
+ceo:Increasing skos:broadMatch fn:Change_of_quantity_of_possession .
+ceo:Increasing skos:broadMatch fn:Cause_change_of_position_on_a_scale .
+ceo:Increasing skos:broadMatch fn:Change_position_on_a_scale .
+ceo:Increasing skos:broadMatch fn:Proliferation_in_number .
+ceo:Increasing skos:broadMatch fn:Expansion .
+ceo:Increasing skos:broadMatch fn:Cause_expansion .
+ceo:Decreasing skos:broadMatch fn:Change_of_quantity_of_possession .
+ceo:Decreasing skos:broadMatch fn:Cause_change_of_position_on_a_scale .
+ceo:Decreasing skos:broadMatch fn:Change_position_on_a_scale .
+ceo:Decreasing skos:broadMatch fn:Proliferation_in_number .
+ceo:Decreasing skos:broadMatch fn:Expansion .
+ceo:Decreasing skos:broadMatch fn:Cause_expansion .
+
+#################################################################
+# FrameNet -> SUMO
+#################################################################
+
+fn:Self_motion skos:closeMatch sumo:Translocation .
+fn:Cotheme skos:closeMatch sumo:Translocation .
+fn:Traversing skos:closeMatch sumo:Translocation .
+fn:Use_vehicle skos:closeMatch sumo:Translocation .
+fn:Intentional_traversing skos:closeMatch sumo:Translocation .
+fn:Ride_vehicle skos:closeMatch sumo:Translocation .
+fn:Travel skos:closeMatch sumo:Translocation .
+fn:Operate_vehicle skos:closeMatch sumo:Translocation .
+fn:Cause_motion skos:closeMatch sumo:Translocation .
+fn:Vehicle_departure_initial_state skos:closeMatch sumo:Leaving .
+fn:Departing skos:closeMatch sumo:Leaving .
+fn:Setting_out skos:closeMatch sumo:Leaving .
+fn:Quitting_a_place skos:closeMatch sumo:Leaving .
+fn:Arriving skos:closeMatch sumo:Arriving .
+fn:Vehicle_landing skos:closeMatch sumo:Arriving .
+fn:Bringing skos:closeMatch sumo:Transportation .
+fn:Delivery skos:closeMatch sumo:Transportation .
+fn:Possession skos:closeMatch sumo:Keeping .
+fn:Retaining skos:closeMatch sumo:Keeping .
+fn:Transfer skos:closeMatch sumo:ChangeOfPossession .
+fn:Receiving skos:closeMatch sumo:Getting .
+fn:Getting skos:closeMatch sumo:Getting .
+fn:Sending skos:closeMatch sumo:Giving .
+fn:Giving skos:closeMatch sumo:Giving .
+fn:Supply skos:closeMatch sumo:Giving .
+fn:CommercialTransaction skos:closeMatch sumo:FinancialTransaction .
+fn:CommercialTransaction skos:closeMatch sumo:FinancialTransaction .
+fn:Commerce_buy skos:closeMatch sumo:Buying .
+fn:Commerce_sell skos:closeMatch sumo:Selling .
+fn:Replacing skos:closeMatch sumo:Substituting .
+fn:Take_place_of skos:closeMatch sumo:Substituting .
+fn:Change_of_leadership skos:closeMatch sumo:Substituting .
+fn:Being_employed skos:closeMatch sumo:Employing .
+fn:Hiring skos:broadMatch sumo:JoiningAnOrganization .
+fn:Get_a_job skos:broadMatch sumo:JoiningAnOrganization .
+fn:Quitting skos:closeMatch sumo:TerminatingEmployment .
+fn:Firing skos:closeMatch sumo:TerminatingEmployment .
+fn:Collaboration skos:closeMatch sumo:Cooperation .
+fn:Reject_leadership skos:broadMatch sumo:PoliticalRevolution .
+fn:Hostile_encounter skos:broadMatch sumo:ViolentContest .
+fn:Reject_leadership skos:broadMatch sumo:Contest .
+fn:Revolution skos:broadMatch sumo:Contest .
+fn:Revolution skos:closeMatch sumo:PoliticalRevolution .
+fn:Hostile_encounter skos:closeMatch sumo:War .
+fn:Hostile_encounter skos:closeMatch sumo:War .
+fn:Hostile_encounter skos:closeMatch sumo:War .
+fn:Hostile_encounter skos:closeMatch sumo:War .
+fn:Besieging skos:broadMatch sumo:ViolentContest .
+fn:Invading skos:broadMatch sumo:ViolentContest .
+fn:Possession skos:broadMatch sumo:UnilateralGetting .
+fn:Death skos:relatedMatch sumo:Death .
+fn:Death skos:closeMatch sumo:Death .
+fn:Killing skos:closeMatch sumo:Death .
+fn:Execution skos:closeMatch sumo:Killing .
+fn:Killing skos:closeMatch sumo:Killing .
+fn:Cause_to_fragment skos:closeMatch sumo:Destruction .
+fn:Destroying skos:closeMatch sumo:Destruction .
+fn:Motion_directional skos:closeMatch sumo:Sinking .
+fn:Medical_conditions skos:closeMatch sumo:DiseaseOrSyndrome .
+fn:Recovery skos:broadMatch sumo:PhysiologicalProcess .
+fn:Intentionally_create skos:broadMatch sumo:Repairing .
+fn:Render_nonfunctional skos:closeMatch sumo:Damaging .
+fn:Damaging skos:closeMatch sumo:Damaging .
+fn:Intentionally_act skos:closeMatch sumo:SocialInteraction .
+fn:Hostile_encounter skos:closeMatch sumo:ViolentContest .
+fn:Attack skos:closeMatch sumo:Attack .
+fn:Cause_proliferation_in_number skos:closeMatch sumo:Increasing .
+fn:Change_of_quantity_of_possession skos:closeMatch sumo:Increasing .
+fn:Cause_change_of_position_on_a_scale skos:closeMatch sumo:Increasing .
+fn:Change_position_on_a_scale skos:closeMatch sumo:Increasing .
+fn:Proliferation_in_number skos:closeMatch sumo:Increasing .
+fn:Expansion skos:closeMatch sumo:Increasing .
+fn:Cause_expansion skos:closeMatch sumo:Increasing .
+fn:Change_of_quantity_of_possession skos:closeMatch sumo:Decreasing .
+fn:Cause_change_of_position_on_a_scale skos:closeMatch sumo:Decreasing .
+fn:Change_position_on_a_scale skos:closeMatch sumo:Decreasing .
+fn:Proliferation_in_number skos:closeMatch sumo:Decreasing .
+fn:Expansion skos:closeMatch sumo:Decreasing .
+fn:Cause_expansion skos:closeMatch sumo:Decreasing .
+
+#################################################################
+# rdfs:label for referenced external terms (for human readability;
+# does not assert rdf:type / owl:Class for terms we do not own)
+#################################################################
+
+ceo:Arriving rdfs:label "Arriving" .
+ceo:Attacking rdfs:label "Attacking" .
+ceo:BeginningARelationship rdfs:label "BeginningARelationship" .
+ceo:BeingAtAPlace rdfs:label "BeingAtAPlace" .
+ceo:BeingDamaged rdfs:label "BeingDamaged" .
+ceo:BeingDead rdfs:label "BeingDead" .
+ceo:BeingDestroyed rdfs:label "BeingDestroyed" .
+ceo:BeingDisappeared rdfs:label "BeingDisappeared" .
+ceo:BeingEmployed rdfs:label "BeingEmployed" .
+ceo:BeingInAPersonalRelationship rdfs:label "BeingInAPersonalRelationship" .
+ceo:BeingLeader rdfs:label "BeingLeader" .
+ceo:Besieging rdfs:label "Besieging" .
+ceo:Buying rdfs:label "Buying" .
+ceo:ChangeOfPossession rdfs:label "ChangeOfPossession" .
+ceo:Collaboration rdfs:label "Collaboration" .
+ceo:Damaging rdfs:label "Damaging" .
+ceo:Decreasing rdfs:label "Decreasing" .
+ceo:Destroying rdfs:label "Destroying" .
+ceo:DynamicEvent rdfs:label "DynamicEvent" .
+ceo:EndingARelationship rdfs:label "EndingARelationship" .
+ceo:FinancialTransaction rdfs:label "FinancialTransaction" .
+ceo:Getting rdfs:label "Getting" .
+ceo:Giving rdfs:label "Giving" .
+ceo:HavingAMedicalCondition rdfs:label "HavingAMedicalCondition" .
+ceo:HavingInPossession rdfs:label "HavingInPossession" .
+ceo:Healing rdfs:label "Healing" .
+ceo:IllegallyTakingSomeoneUnderControl rdfs:label "IllegallyTakingSomeoneUnderControl" .
+ceo:Increasing rdfs:label "Increasing" .
+ceo:IntentionalKilling rdfs:label "IntentionalKilling" .
+ceo:InternalChange rdfs:label "InternalChange" .
+ceo:Invasion rdfs:label "Invasion" .
+ceo:JoiningAnOrganization rdfs:label "JoiningAnOrganization" .
+ceo:Leaving rdfs:label "Leaving" .
+ceo:Mutiny rdfs:label "Mutiny" .
+ceo:Occupation rdfs:label "Occupation" .
+ceo:Paying rdfs:label "Paying" .
+ceo:PoliticalRevolution rdfs:label "PoliticalRevolution" .
+ceo:QuantityChange rdfs:label "QuantityChange" .
+ceo:Repairing rdfs:label "Repairing" .
+ceo:Replacing rdfs:label "Replacing" .
+ceo:Riot rdfs:label "Riot" .
+ceo:Selling rdfs:label "Selling" .
+ceo:Sinking rdfs:label "Sinking" .
+ceo:SocialInteraction rdfs:label "SocialInteraction" .
+ceo:StaticEvent rdfs:label "StaticEvent" .
+ceo:Translocation rdfs:label "Translocation" .
+ceo:Transportation rdfs:label "Transportation" .
+ceo:Uprising rdfs:label "Uprising" .
+ceo:ViolentContest rdfs:label "ViolentContest" .
+ceo:War rdfs:label "War" .
+fn:Arriving rdfs:label "Arriving" .
+fn:Attack rdfs:label "Attack" .
+fn:Being_employed rdfs:label "Being_employed" .
+fn:Being_located rdfs:label "Being_located" .
+fn:Being_operational rdfs:label "Being_operational" .
+fn:Besieging rdfs:label "Besieging" .
+fn:Bringing rdfs:label "Bringing" .
+fn:Cause_change_of_position_on_a_scale rdfs:label "Cause_change_of_position_on_a_scale" .
+fn:Cause_expansion rdfs:label "Cause_expansion" .
+fn:Cause_motion rdfs:label "Cause_motion" .
+fn:Cause_proliferation_in_number rdfs:label "Cause_proliferation_in_number" .
+fn:Cause_to_fragment rdfs:label "Cause_to_fragment" .
+fn:Ceasing_to_be rdfs:label "Ceasing_to_be" .
+fn:Change_of_leadership rdfs:label "Change_of_leadership" .
+fn:Change_of_quantity_of_possession rdfs:label "Change_of_quantity_of_possession" .
+fn:Change_position_on_a_scale rdfs:label "Change_position_on_a_scale" .
+fn:Collaboration rdfs:label "Collaboration" .
+fn:Commerce_buy rdfs:label "Commerce_buy" .
+fn:Commerce_sell rdfs:label "Commerce_sell" .
+fn:CommercialTransaction rdfs:label "CommercialTransaction" .
+fn:Cotheme rdfs:label "Cotheme" .
+fn:Damaging rdfs:label "Damaging" .
+fn:Death rdfs:label "Death" .
+fn:Delivery rdfs:label "Delivery" .
+fn:Departing rdfs:label "Departing" .
+fn:Destroying rdfs:label "Destroying" .
+fn:Execution rdfs:label "Execution" .
+fn:Expansion rdfs:label "Expansion" .
+fn:Firing rdfs:label "Firing" .
+fn:Forming_relationships rdfs:label "Forming_relationships" .
+fn:Get_a_job rdfs:label "Get_a_job" .
+fn:Getting rdfs:label "Getting" .
+fn:Giving rdfs:label "Giving" .
+fn:Hiring rdfs:label "Hiring" .
+fn:Hostile_encounter rdfs:label "Hostile_encounter" .
+fn:Intentional_traversing rdfs:label "Intentional_traversing" .
+fn:Intentionally_act rdfs:label "Intentionally_act" .
+fn:Intentionally_create rdfs:label "Intentionally_create" .
+fn:Invading rdfs:label "Invading" .
+fn:Killing rdfs:label "Killing" .
+fn:Leadership rdfs:label "Leadership" .
+fn:Losing rdfs:label "Losing" .
+fn:Losing_track_of_theme rdfs:label "Losing_track_of_theme" .
+fn:Medical_conditions rdfs:label "Medical_conditions" .
+fn:Motion_directional rdfs:label "Motion_directional" .
+fn:Operate_vehicle rdfs:label "Operate_vehicle" .
+fn:Personal_relationship rdfs:label "Personal_relationship" .
+fn:Possession rdfs:label "Possession" .
+fn:Presence rdfs:label "Presence" .
+fn:Proliferation_in_number rdfs:label "Proliferation_in_number" .
+fn:Quitting rdfs:label "Quitting" .
+fn:Quitting_a_place rdfs:label "Quitting_a_place" .
+fn:Receiving rdfs:label "Receiving" .
+fn:Recovery rdfs:label "Recovery" .
+fn:Reject_leadership rdfs:label "Reject_leadership" .
+fn:Render_nonfunctional rdfs:label "Render_nonfunctional" .
+fn:Replacing rdfs:label "Replacing" .
+fn:Residence rdfs:label "Residence" .
+fn:Retaining rdfs:label "Retaining" .
+fn:Revolution rdfs:label "Revolution" .
+fn:Ride_vehicle rdfs:label "Ride_vehicle" .
+fn:Self_motion rdfs:label "Self_motion" .
+fn:Sending rdfs:label "Sending" .
+fn:Setting_out rdfs:label "Setting_out" .
+fn:Supply rdfs:label "Supply" .
+fn:Take_place_of rdfs:label "Take_place_of" .
+fn:Temporary_stay rdfs:label "Temporary_stay" .
+fn:Transfer rdfs:label "Transfer" .
+fn:Travel rdfs:label "Travel" .
+fn:Traversing rdfs:label "Traversing" .
+fn:Use_vehicle rdfs:label "Use_vehicle" .
+fn:Vehicle_departure_initial_state rdfs:label "Vehicle_departure_initial_state" .
+fn:Vehicle_landing rdfs:label "Vehicle_landing" .
+sumo:Arriving rdfs:label "Arriving" .
+sumo:Attack rdfs:label "Attack" .
+sumo:Buying rdfs:label "Buying" .
+sumo:ChangeOfPossession rdfs:label "ChangeOfPossession" .
+sumo:Contest rdfs:label "Contest" .
+sumo:Cooperation rdfs:label "Cooperation" .
+sumo:Damaging rdfs:label "Damaging" .
+sumo:Death rdfs:label "Death" .
+sumo:Decreasing rdfs:label "Decreasing" .
+sumo:Destruction rdfs:label "Destruction" .
+sumo:DiseaseOrSyndrome rdfs:label "DiseaseOrSyndrome" .
+sumo:Employing rdfs:label "Employing" .
+sumo:FinancialTransaction rdfs:label "FinancialTransaction" .
+sumo:Getting rdfs:label "Getting" .
+sumo:Giving rdfs:label "Giving" .
+sumo:Increasing rdfs:label "Increasing" .
+sumo:JoiningAnOrganization rdfs:label "JoiningAnOrganization" .
+sumo:Keeping rdfs:label "Keeping" .
+sumo:Killing rdfs:label "Killing" .
+sumo:Leaving rdfs:label "Leaving" .
+sumo:PhysiologicalProcess rdfs:label "PhysiologicalProcess" .
+sumo:PoliticalRevolution rdfs:label "PoliticalRevolution" .
+sumo:Repairing rdfs:label "Repairing" .
+sumo:Selling rdfs:label "Selling" .
+sumo:Sinking rdfs:label "Sinking" .
+sumo:SocialInteraction rdfs:label "SocialInteraction" .
+sumo:Substituting rdfs:label "Substituting" .
+sumo:TerminatingEmployment rdfs:label "TerminatingEmployment" .
+sumo:Translocation rdfs:label "Translocation" .
+sumo:Transportation rdfs:label "Transportation" .
+sumo:UnilateralGetting rdfs:label "UnilateralGetting" .
+sumo:ViolentContest rdfs:label "ViolentContest" .
+sumo:War rdfs:label "War" .
