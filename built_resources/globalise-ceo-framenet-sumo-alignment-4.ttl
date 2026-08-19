@@ -1,37 +1,33 @@
 @prefix glob:  <https://github.com/globalise-huygens/nlp-event-detection/ontology#> .
 @prefix ceo:   <https://example.org/ontology/ceo#> .
-@prefix fn:    <https://w3id.org/framester/framenet/abox/frame#> . 
+@prefix fn:    <https://w3id.org/framester/framenet/abox/frame/> .
 @prefix sumo:  <http://www.ontologyportal.org/SUMO.owl#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 
 #################################################################
-# GLOB <-> CEO <-> FrameNet <-> SUMO alignment
+# GLOB <-> CEO <-> FrameNet / SUMO alignment
 #
-# This file encodes THREE independent, pairwise SKOS
-# mappings chained across ontologies:
+# This file encodes THREE independent, pairwise SKOS mappings, all
+# anchored on CEO (CEO is the hub; FrameNet and SUMO are each mapped
+# from CEO independently -- FrameNet and SUMO are NOT mapped to each
+# other, and GLOB is NOT mapped directly to FrameNet or SUMO):
 #
-#   GLOB-event --[rel]--> CEO --[rel]--> FrameNet --[rel]--> SUMO
+#                    +--[rel2]--> FrameNet
+#   GLOB --[rel1]--> CEO
+#                    +--[rel3]--> SUMO
 #
 # Each arrow is asserted below as its own set of skos:*Match triples.
-# NO direct GLOB<->SUMO (or GLOB<->FrameNet) triples are asserted: SKOS
-# mapping relations are not guaranteed transitive across vocabularies
-# with different scope/granularity, so chaining two asserted mappings
-# into a third is a modeling decision this file deliberately leaves to
-# a human (or a reasoner applying an explicit, documented transitivity
-# rule) rather than asserting silently.
+# NO direct GLOB<->FrameNet, GLOB<->SUMO, or FrameNet<->SUMO triples
+# are asserted: SKOS mapping relations are not guaranteed transitive
+# across vocabularies with different scope/granularity, so chaining
+# two asserted mappings into a third is a modeling decision this file
+# deliberately leaves to a human (or a reasoner applying an explicit,
+# documented transitivity rule) rather than asserting silently.
 #
-# NAMESPACE NOTE: ceo: and fn: are PLACEHOLDER namespaces -- swap in the
-# real published IRIs if/when available. sumo: uses the commonly-used
-# ontologyportal.org OWL translation of SUMO; verify it matches your
-# target SUMO version before relying on it.
+# NAMESPACE NOTE: ceo: is a PLACEHOLDER namespace 
 #
-#
-# DATA QUALITY NOTES (from parsing the source CSV):
-#   - Row 13: suspicious SUMO value 'Sumo' for FrameNet 'Ceasing_to_be' (looks like a placeholder, not a real class name) — skipped.
-#   - Row 13: suspicious SUMO value 'Sumo' for FrameNet 'Losing' (looks like a placeholder, not a real class name) — skipped.
-#   - Row 13: suspicious SUMO value 'Sumo' for FrameNet 'Losing_track_of_theme' (looks like a placeholder, not a real class name) — skipped.
 #################################################################
 
 #################################################################
@@ -63,7 +59,7 @@ glob:BeingLeader skos:closeMatch ceo:BeingLeader .
 glob:Replacing skos:closeMatch ceo:Replacing .
 glob:BeingEmployed skos:closeMatch ceo:BeingEmployed .
 glob:JoiningAnOrganization skos:closeMatch ceo:JoiningAnOrganization .
-glob:LeavingAnOrganization skos:closeMatch ceo:JoiningAnOrganization .
+glob:LeavingAnOrganization skos:closeMatch ceo:LeavingAnOrganization .
 glob:Collaboration skos:closeMatch ceo:Collaboration .
 glob:Uprising skos:closeMatch ceo:Uprising .
 glob:Riot skos:closeMatch ceo:Riot .
@@ -196,88 +192,56 @@ ceo:Decreasing skos:broadMatch fn:Expansion .
 ceo:Decreasing skos:broadMatch fn:Cause_expansion .
 
 #################################################################
-# FrameNet -> SUMO
+# CEO -> SUMO
 #################################################################
 
-fn:Self_motion skos:closeMatch sumo:Translocation .
-fn:Cotheme skos:closeMatch sumo:Translocation .
-fn:Traversing skos:closeMatch sumo:Translocation .
-fn:Use_vehicle skos:closeMatch sumo:Translocation .
-fn:Intentional_traversing skos:closeMatch sumo:Translocation .
-fn:Ride_vehicle skos:closeMatch sumo:Translocation .
-fn:Travel skos:closeMatch sumo:Translocation .
-fn:Operate_vehicle skos:closeMatch sumo:Translocation .
-fn:Cause_motion skos:closeMatch sumo:Translocation .
-fn:Vehicle_departure_initial_state skos:closeMatch sumo:Leaving .
-fn:Departing skos:closeMatch sumo:Leaving .
-fn:Setting_out skos:closeMatch sumo:Leaving .
-fn:Quitting_a_place skos:closeMatch sumo:Leaving .
-fn:Arriving skos:closeMatch sumo:Arriving .
-fn:Vehicle_landing skos:closeMatch sumo:Arriving .
-fn:Bringing skos:closeMatch sumo:Transportation .
-fn:Delivery skos:closeMatch sumo:Transportation .
-fn:Possession skos:closeMatch sumo:Keeping .
-fn:Retaining skos:closeMatch sumo:Keeping .
-fn:Transfer skos:closeMatch sumo:ChangeOfPossession .
-fn:Receiving skos:closeMatch sumo:Getting .
-fn:Getting skos:closeMatch sumo:Getting .
-fn:Sending skos:closeMatch sumo:Giving .
-fn:Giving skos:closeMatch sumo:Giving .
-fn:Supply skos:closeMatch sumo:Giving .
-fn:CommercialTransaction skos:closeMatch sumo:FinancialTransaction .
-fn:CommercialTransaction skos:closeMatch sumo:FinancialTransaction .
-fn:Commerce_buy skos:closeMatch sumo:Buying .
-fn:Commerce_sell skos:closeMatch sumo:Selling .
-fn:Replacing skos:closeMatch sumo:Substituting .
-fn:Take_place_of skos:closeMatch sumo:Substituting .
-fn:Change_of_leadership skos:closeMatch sumo:Substituting .
-fn:Being_employed skos:closeMatch sumo:Employing .
-fn:Hiring skos:broadMatch sumo:JoiningAnOrganization .
-fn:Get_a_job skos:broadMatch sumo:JoiningAnOrganization .
-fn:Quitting skos:closeMatch sumo:TerminatingEmployment .
-fn:Firing skos:closeMatch sumo:TerminatingEmployment .
-fn:Collaboration skos:closeMatch sumo:Cooperation .
-fn:Reject_leadership skos:broadMatch sumo:PoliticalRevolution .
-fn:Hostile_encounter skos:broadMatch sumo:ViolentContest .
-fn:Reject_leadership skos:broadMatch sumo:Contest .
-fn:Revolution skos:broadMatch sumo:Contest .
-fn:Revolution skos:closeMatch sumo:PoliticalRevolution .
-fn:Hostile_encounter skos:closeMatch sumo:War .
-fn:Hostile_encounter skos:closeMatch sumo:War .
-fn:Hostile_encounter skos:closeMatch sumo:War .
-fn:Hostile_encounter skos:closeMatch sumo:War .
-fn:Besieging skos:broadMatch sumo:ViolentContest .
-fn:Invading skos:broadMatch sumo:ViolentContest .
-fn:Possession skos:broadMatch sumo:UnilateralGetting .
-fn:Death skos:relatedMatch sumo:Death .
-fn:Death skos:closeMatch sumo:Death .
-fn:Killing skos:closeMatch sumo:Death .
-fn:Execution skos:closeMatch sumo:Killing .
-fn:Killing skos:closeMatch sumo:Killing .
-fn:Cause_to_fragment skos:closeMatch sumo:Destruction .
-fn:Destroying skos:closeMatch sumo:Destruction .
-fn:Motion_directional skos:closeMatch sumo:Sinking .
-fn:Medical_conditions skos:closeMatch sumo:DiseaseOrSyndrome .
-fn:Recovery skos:broadMatch sumo:PhysiologicalProcess .
-fn:Intentionally_create skos:broadMatch sumo:Repairing .
-fn:Render_nonfunctional skos:closeMatch sumo:Damaging .
-fn:Damaging skos:closeMatch sumo:Damaging .
-fn:Intentionally_act skos:closeMatch sumo:SocialInteraction .
-fn:Hostile_encounter skos:closeMatch sumo:ViolentContest .
-fn:Attack skos:closeMatch sumo:Attack .
-fn:Cause_proliferation_in_number skos:closeMatch sumo:Increasing .
-fn:Change_of_quantity_of_possession skos:closeMatch sumo:Increasing .
-fn:Cause_change_of_position_on_a_scale skos:closeMatch sumo:Increasing .
-fn:Change_position_on_a_scale skos:closeMatch sumo:Increasing .
-fn:Proliferation_in_number skos:closeMatch sumo:Increasing .
-fn:Expansion skos:closeMatch sumo:Increasing .
-fn:Cause_expansion skos:closeMatch sumo:Increasing .
-fn:Change_of_quantity_of_possession skos:closeMatch sumo:Decreasing .
-fn:Cause_change_of_position_on_a_scale skos:closeMatch sumo:Decreasing .
-fn:Change_position_on_a_scale skos:closeMatch sumo:Decreasing .
-fn:Proliferation_in_number skos:closeMatch sumo:Decreasing .
-fn:Expansion skos:closeMatch sumo:Decreasing .
-fn:Cause_expansion skos:closeMatch sumo:Decreasing .
+ceo:Translocation skos:closeMatch sumo:Translocation .
+ceo:Leaving skos:closeMatch sumo:Leaving .
+ceo:Arriving skos:closeMatch sumo:Arriving .
+ceo:Transportation skos:closeMatch sumo:Transportation .
+ceo:HavingInPossession skos:closeMatch sumo:Keeping .
+ceo:ChangeOfPossession skos:closeMatch sumo:ChangeOfPossession .
+ceo:Getting skos:closeMatch sumo:Getting .
+ceo:Giving skos:closeMatch sumo:Giving .
+ceo:FinancialTransaction skos:closeMatch sumo:FinancialTransaction .
+ceo:Paying skos:closeMatch sumo:FinancialTransaction .
+ceo:FinancialTransaction skos:closeMatch sumo:FinancialTransaction .
+ceo:Paying skos:closeMatch sumo:FinancialTransaction .
+ceo:Buying skos:closeMatch sumo:Buying .
+ceo:Selling skos:closeMatch sumo:Selling .
+ceo:Replacing skos:closeMatch sumo:Substituting .
+ceo:BeingEmployed skos:closeMatch sumo:Employing .
+ceo:JoiningAnOrganization skos:broadMatch sumo:JoiningAnOrganization .
+ceo:JoiningAnOrganization skos:closeMatch sumo:TerminatingEmployment .
+ceo:Collaboration skos:closeMatch sumo:Cooperation .
+ceo:Uprising skos:broadMatch sumo:PoliticalRevolution .
+ceo:Riot skos:broadMatch sumo:ViolentContest .
+ceo:Mutiny skos:broadMatch sumo:Contest .
+ceo:PoliticalRevolution skos:closeMatch sumo:PoliticalRevolution .
+ceo:War skos:closeMatch sumo:War .
+ceo:War skos:closeMatch sumo:War .
+ceo:War skos:closeMatch sumo:War .
+ceo:War skos:closeMatch sumo:War .
+ceo:Besieging skos:broadMatch sumo:ViolentContest .
+ceo:Invasion skos:broadMatch sumo:ViolentContest .
+ceo:Occupation skos:broadMatch sumo:UnilateralGetting .
+ceo:BeingDead skos:relatedMatch sumo:Death .
+ceo:BeingDead skos:closeMatch sumo:Death .
+ceo:IntentionalKilling skos:closeMatch sumo:Killing .
+ceo:Destroying skos:closeMatch sumo:Destruction .
+ceo:Sinking skos:closeMatch sumo:Sinking .
+ceo:HavingAMedicalCondition skos:closeMatch sumo:DiseaseOrSyndrome .
+ceo:Healing skos:broadMatch sumo:PhysiologicalProcess .
+ceo:Repairing skos:broadMatch sumo:Repairing .
+ceo:Damaging skos:closeMatch sumo:Damaging .
+ceo:SocialInteraction skos:closeMatch sumo:SocialInteraction .
+ceo:ViolentContest skos:closeMatch sumo:ViolentContest .
+ceo:Attacking skos:closeMatch sumo:Attack .
+ceo:InternalChange skos:closeMatch sumo:InternalChange .
+ceo:QuantityChange skos:closeMatch sumo:QuantityChange .
+ceo:Increasing skos:closeMatch sumo:Increasing .
+ceo:Decreasing skos:closeMatch sumo:Decreasing .
+ceo: BeingDisappeared skos:closeMatch sumo:Disappearing .
 
 #################################################################
 # rdfs:label for referenced external terms (for human readability;
@@ -423,12 +387,14 @@ sumo:FinancialTransaction rdfs:label "FinancialTransaction" .
 sumo:Getting rdfs:label "Getting" .
 sumo:Giving rdfs:label "Giving" .
 sumo:Increasing rdfs:label "Increasing" .
+sumo:InternalChange rdfs:label "InternalChange" .
 sumo:JoiningAnOrganization rdfs:label "JoiningAnOrganization" .
 sumo:Keeping rdfs:label "Keeping" .
 sumo:Killing rdfs:label "Killing" .
 sumo:Leaving rdfs:label "Leaving" .
 sumo:PhysiologicalProcess rdfs:label "PhysiologicalProcess" .
 sumo:PoliticalRevolution rdfs:label "PoliticalRevolution" .
+sumo:QuantityChange rdfs:label "QuantityChange" .
 sumo:Repairing rdfs:label "Repairing" .
 sumo:Selling rdfs:label "Selling" .
 sumo:Sinking rdfs:label "Sinking" .
